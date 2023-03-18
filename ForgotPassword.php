@@ -13,9 +13,14 @@
         <div class="col-md-6 offset-md-3 mt-5">
           <h1 class="text-center mb-4">Forgot Password</h1>
           <form>
+          <div class="form-group">
+          <label for="name" class="form-label">User ID:</label>
+          <input type="text" class="form-control" id="userid" name="userid" placeholder="Enter User ID" required>
+        </div>
             <div class="form-group">
+
               <label for="email">Email address</label>
-              <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required>
               
             </div>
           

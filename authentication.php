@@ -1,12 +1,12 @@
 <?php
 include 'connection.php';
 
-$value=$_POST['selectrole'];
-$Username=$_POST['username'];
-$pass=$_POST['password'];
-$hash=sha1($pass);
+// $value=$_POST['selectrole'];
+// $Username=$_POST['username'];
+// $pass=$_POST['password'];
+// $hash=sha1($pass);
 
-$
+
 
 ?>
 <a href ="faculty1.php"></a>
