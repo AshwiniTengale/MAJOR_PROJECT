@@ -50,6 +50,7 @@
 									<option value="11">Mechanical Engg</option>
 									<option value="12">Physics</option>
 									<option value="13">Chemistry</option>
+									<option value="13">Chemistry</option>
 								</select>
 							</div>
 							<div class="form-group">
