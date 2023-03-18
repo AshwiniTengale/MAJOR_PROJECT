@@ -12,7 +12,7 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 25%;
+    width: 15%;
     background-color: #f1f1f1;
     position: fixed;
     height: 100%;
@@ -46,9 +46,12 @@
   <li><a href="#about">Edit</a></li>
   <li><a href="#about">Download</a></li>
   <li><a href="#about">Edit profile</a></li>
-  <li><a href="#about">Logout</a></li>
+  <li><a href="logout.php">Logout</a></li>
 
 </ul>
+<div style="margin-left:15%;padding:1px 16px;height:1000px;">
+        <h1 style="text-align:center">  B.V.V SANGHA'S  </h1>
+        <h2 style="text-align:center">BASAVESHWAR  ENGINEERING COLLEGE (AUTONOMOUS) BAGALKOT</h2>
 
 <!-- <div style="margin-left:25%;padding:1px 16px;height:1000px;">
   <h2>Fixed Full-height Side Nav</h2>

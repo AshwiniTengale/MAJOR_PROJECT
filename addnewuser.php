@@ -14,10 +14,10 @@ $password=$_POST['password'];
 
 //$hashpassword=sha1($pass);
 
-$ROLE=$role==1?"Faculty":"Student";
 
 
-$sql = "INSERT INTO $ROLE (userid,username,email,phone,dob,department,selectrole,password)
+
+$sql = "INSERT INTO Registration (userid,username,email,phone,dob,department,selectrole,password)
 VALUES ('$userid','$username','$email','$phone','$dob','$dept','$role','$password')";
 
 if (mysqli_query($conn, $sql)) {

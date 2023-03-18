@@ -1,47 +1,56 @@
 <?php
 include 'connection.php';
 
-// $value=$_POST['selectrole'];
-// $Username=$_POST['username'];
-// $pass=$_POST['password'];
-// $hash=sha1($pass);
+$SELECTROLE=$_POST['selectrole'];
+$DEPT=$_POST['department'];
+$USERID=$_POST['userid'];
+$PASSWORD=$_POST['password'];
 
 
+$sql="Select * From Registration where selectrole='$SELECTROLE' and department='$DEPT' and userid='$USERID' and password='$PASSWORD'";
 
-?>
-<a href ="faculty1.php"></a>
-<?php
-$sql="Select * From $value where password='$hash' and username='$Username'";
-$result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_assoc($result) ;
+$result=mysqli_query($conn,$sql);
+$row = mysqli_fetch_assoc($result) ;//array elements
 
-if(mysqli_num_rows($result) > 0){
 
-session_start();
-$_SESSION['ID']=$row['Id'];
-$_SESSION['Role']=$value;
+ if(mysqli_num_rows($result) > 0){
 
-if($value=='admin')
+  
+  session_start();
+  $_SESSION['ID']=$row['Id'];
+  
+ 
+
+if($SELECTROLE=='admin')
 {
-
- header('Location:admin1.php');
+ echo "admin";
+ header('Location:admin.php');
  exit();
 }
-if($value=='Faculty')
+if($SELECTROLE=='1')
 {
- 
- header('Location:faculty1.php');
+ echo "faculty";
+ header('Location:faculty.php');
+ echo $_SESSION['ID'];
+ exit();
+}
+if($SELECTROLE=='2')
+{
+ echo "student";
+ header('Location:student.php');
  exit();
 }
 }
 else{
-  ?>
-  <script>
-    alert("Please enter correct information");
-    location.href='login.php';
-  </script>
-
- <?php
-  }
-      
 ?>
+<script>
+  alert("Please enter correct information");
+  location.href='index.php';
+</script>
+
+<?php
+}
+    
+?>
+
+

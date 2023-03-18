@@ -27,9 +27,9 @@
 								<label for="category">Select Role</label>
 								<select class="form-control" id="selectrole" name="selectrole" required>
 								<option disabled selected>Select Role</option>
-								<option value="1">Admin</option>
-								<option value="2">Teacher</option>
-								<option value="3">Student</option>
+								<option value="admin">Admin</option>
+								<option value="1">Faculty</option>
+								<option value="2">Student</option>
 								</select>
 							</div>
 							<div class="form-group">
@@ -50,12 +50,12 @@
 									<option value="11">Mechanical Engg</option>
 									<option value="12">Physics</option>
 									<option value="13">Chemistry</option>
-									<option value="13">Chemistry</option>
+									
 								</select>
 							</div>
 							<div class="form-group">
-								<label for="username">Username</label>
-								<input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+								<label for="username">UserID</label>
+								<input type="text" class="form-control" id="userID" name="userid" placeholder="Enter userID" required>
 							</div>
 							<div class="form-group">
 								<label for="password">Password</label>

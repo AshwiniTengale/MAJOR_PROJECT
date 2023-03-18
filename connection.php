@@ -10,7 +10,7 @@ $databasename= "MajorProject";
 // Create connection
 $conn = mysqli_connect($servername,$username,$Password,$databasename);
 
-
+$a=12;
 
 if (!$conn) 
 {
