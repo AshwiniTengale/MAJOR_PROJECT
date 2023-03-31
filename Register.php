@@ -54,7 +54,7 @@
 									<option value="1">AI & ML</option>
 									<option value="2">Automobile</option>
 									<option value="3">Biotechnology</option>
-									<option value="4">Civil</option>
+									<option value="4">Civil Engineering</option>
 									<option value="5">Computer Science & Engg</option>
 									<option value="6">Electronics and Communication Engg</option>
 									<option value="7">Electrical and Electronics Engg</option>

@@ -126,7 +126,7 @@ color:white;
             <a href="journal.php"  onclick="setActive(this)">Journal</a>
             <a href="patent.php" onclick="setActive(this)">Patent</a>
             <a href="phd.php" onclick="setActive(this)">PhD</a>
-            <a href="publications.php" onclick="setActive(this)">Publications</a>
+            <a href="presentation.php" onclick="setActive(this)">Presentation</a>
             <a href="webiner.php" onclick="setActive(this)">Webinar</a>
           </div>
         </li>
@@ -139,13 +139,31 @@ color:white;
 
     </ul>
   </nav>
-  <div style="margin-left:15%;padding:1px 16px;height:1000px;">
-              <div class="logo" style="text-align:center;">
-	       <img src="image/logo.jpg" alt="" height="60" width="60">
-        <h1 style="text-align:center">  B.V.V SANGHA'S  </h1>
-        <h2 style="text-align:center">BASAVESHWAR  ENGINEERING COLLEGE (AUTONOMOUS) BAGALKOT</h2>
+  <div style="margin-left:15%;padding:1px 16px;height:100%;float:left;">
+<!-- 
+              <div class="logo" style="text-align:left;">
+	       <img src="image/logo.jpg" alt="" height="60px" width="60px"> -->
+		   <div class="mt-4;text-center display-4"  >
+		   
+         </div>
+  <div class="row g-2">
+    <div class="col-l-3 col-sm-4 col-6">
+      <div class="card" style="width: 10rem;border:none;">
+        <img src="image/logo.jpg" class="card-img-top img-fluid" alt="...">
+        
+         
+        </div>
+</div>
+</div>
+</div>
+        <h1 style="text-align:center;margin-left:15%;padding:1px 16px;padding-top:2%;">  B.V.V SANGHA'S  </h1>
+        <h2 style="text-align:center;margin-left:15%; margin-top:1%;padding:1px 16px;">BASAVESHWAR  ENGINEERING COLLEGE BAGALKOT</h2>
 
-  </div>
+  
+  
+    
+   
+</div>
   </body>
   <script>
     function setActive(link) {

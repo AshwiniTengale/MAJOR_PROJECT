@@ -10,6 +10,7 @@
     </style>
   </head>
   <body>
+  <div class="containerbox">
     <div class="container">
       <h1 class="mt-5 mb-3">Add Patent details</h1>
       <form action="" method="post">
@@ -59,6 +60,6 @@
         </div>
       </form>
     </div>
- 
+</div>
   </body>
 </html>
