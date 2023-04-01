@@ -11,75 +11,60 @@
 <body>
 <form>
   <div class="container">
-    <h1 style="text-align:center">Add Journal Details</h1>
+    <h1 style="text-align:center">Journal Papers</h1>
     <div class="row">
       <div class="col-md-6">
 
         <div class="mb-3">
-          <label for="name" class="form-label">Title of the Journal</label>
+          <label for="name" class="form-label">Authors</label>
           <input type="text" class="form-control" id="jname" name="jname">
         </div>
 
-        <div class="mb-3">
-          <label for="text" class="form-label">Author</label>
-          <input type="text" class="form-control" id="jauthor" name="jauthor">
-        </div>
-        
-        <div class="mb-3">
-          <label for="publisher" class="form-label">Publisher</label>
-          <input type="text" class="form-control" id="jpublisher" name="jpublisher">
-        </div>
+
         <div class="mb-3">
           <label for="doi" class="form-label">Date of Publication</label>
           <input type="date" class="form-control" id="dop" name="dop">
         </div>
 
         <div class="mb-3">
-          <label for="clgName" class="form-label">Collage Name</label>
-          <input type="text" class="form-control" id="clgname" name="clgname">
+          <label for="text" class="form-label">Title of the Paper</label>
+          <input type="text" class="form-control" id="papertitle" name="papertitle">
         </div>
-
         <div class="mb-3">
-            <label for="collabrating Institute" class="form-label">Collabrating Institute</label>
-            <select class="form-select" id="binstitute" name="binstitute">
-            <option value=""></option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-            </select>
+          <label for="text" class="form-label">Title of the Journal</label>
+          <input type="text" class="form-control" id="journaltitle" name="journaltitle">
         </div>
-
         <div class="mb-3">
-          <label for="volNo" class="form-label">Volume Number</label>
-          <input type="text" class="form-control" id="bvolumeno" name="abvolumeno">
+          <label for="text" class="form-label">Name od the Publisher</label>
+          <input type="text" class="form-control" id="publisher" name="publisher">
         </div>
-
-
-        <div class="mb-3">
-          <label for="issueNo" class="form-label">Issue Number</label>
-          <input type="text" class="form-control" id="issueno" name="issueno">
-        </div>
-
         
+        <div class="mb-3">
+          <label for="doi" class="form-label">Volume No</label>
+          <input type="number" class="form-control" id="vno" name="vno">
+        </div>
+
+        <div class="mb-3">
+          <label for="doi" class="form-label">Issue No</label>
+          <input type="number" class="form-control" id="vno" name="vno">
+        </div>
+
+       
+
 
          
     </div>
       <div class="col-md-6">
       <div class="mb-3">
-         <label for="pageNo" class="form-label">Page Number</label>
-         <input type="text" class="form-control" id="pageno" name="pageno">
-         </div>
-
+          <label for="pno" class="form-label">Page No</label>
+          <input type="text" class="form-control" id="pno" name="pno">
+        </div>
       <div class="mb-3">
-          <label for="doi" class="form-label">Date of Issue</label>
-          <input type="date" class="form-control" id="doi" name="doi">
+          <label for="url" class="form-label">URL</label>
+          <input type="url" class="form-control" id="url" name="url">
         </div>
 
         <div class="mb-3">
-      <label for="url" class="form-label">URL</label>
-      <input type="url" class="form-control" id="url" name="url">
-      </div>
-        
-      <div class="mb-3">
           <label for="scopusindex" class="form-label">Scopus Index</label>
           <select class="form-select" id="scopusindex" name="scopusindex">
             <option value=""></option>
@@ -100,11 +85,11 @@
         </div>
 
         <div class="mb-3">
-            <label for="isn" class="form-label">ISSN</label>
-            <input type="text" class="form-control" id="issn" name="issn">
-       </div>
+          <label for="issn" class="form-label">ISSN</label>
+          <input type="number" class="form-control" id="issn" name="issn">
+        </div>
 
-       <div class="mb-3">
+        <div class="mb-3">
           <label for="category" class="form-label">Category</label>
           <select class="form-select" id="category" name="category">
             <option value=""></option>
@@ -123,7 +108,8 @@
         
       </select>
      </div>
-    
+        
+      
   </div>
 </div>
 <div class="row">
