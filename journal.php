@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="bootstrap.css">
+    <style>
+  .input-field {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+    width:70%;
+  }
+</style>
     
 </head>
 <body>
@@ -22,6 +32,18 @@
 
 
         <div class="mb-3">
+        <label for="num-inputs" class="form-label"> Co_Authors:</label>
+        <select  class="form-select" id="coauthor" name="coauthor">
+        <option value="" selected disabled></option>
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+      <div id="input-container"class="form-control"></div>
+    </div>
+        <div class="mb-3">
           <label for="doi" class="form-label">Date of Publication</label>
           <input type="date" class="form-control" id="dop" name="dop">
         </div>
@@ -35,7 +57,7 @@
           <input type="text" class="form-control" id="journaltitle" name="journaltitle">
         </div>
         <div class="mb-3">
-          <label for="text" class="form-label">Name od the Publisher</label>
+          <label for="text" class="form-label">Name of the Publisher</label>
           <input type="text" class="form-control" id="publisher" name="publisher">
         </div>
         
@@ -44,10 +66,7 @@
           <input type="number" class="form-control" id="vno" name="vno">
         </div>
 
-        <div class="mb-3">
-          <label for="doi" class="form-label">Issue No</label>
-          <input type="number" class="form-control" id="vno" name="vno">
-        </div>
+       
 
        
 
@@ -55,6 +74,10 @@
          
     </div>
       <div class="col-md-6">
+      <div class="mb-3">
+          <label for="doi" class="form-label">Issue No</label>
+          <input type="number" class="form-control" id="vno" name="vno">
+        </div>
       <div class="mb-3">
           <label for="pno" class="form-label">Page No</label>
           <input type="text" class="form-control" id="pno" name="pno">
@@ -124,4 +147,31 @@
            
 
 </body>
+
+<script>
+  const numInputsSelect = document.getElementById("coauthor");
+      const inputContainer = document.getElementById("input-container");"<br>"
+
+      numInputsSelect.addEventListener("change", (event) => {
+        const numInputs = event.target.value;
+
+        // Clear existing inputs
+        inputContainer.innerHTML = "";
+        
+
+        // Generate new inputs
+        for (let i = 0; i < numInputs; i++) {
+          const inputField = document.createElement("input");
+          inputField.type = "text";
+          inputField.name = `input-${i}`;
+          inputField.placeholder = `Enter co_author name`;
+          inputField.classList.add("input-field");
+       
+          inputContainer.appendChild(inputField);
+           const lineBreak = document.createElement("br");
+          inputContainer.appendChild(lineBreak);
+          
+        }
+      });
+</script>
 </html>

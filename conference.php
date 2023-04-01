@@ -4,81 +4,94 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conference</title>
+    <title>Document</title>
     <link rel="stylesheet" href="bootstrap.css">
+    <style>
+  .input-field {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+    width:70%;
+  }
+</style>
     
 </head>
 <body>
 <form>
   <div class="container">
-    <h1 style="text-align:center">Conference  Details</h1>
+    <h1 style="text-align:center">Conference Details</h1>
     <div class="row">
       <div class="col-md-6">
 
         <div class="mb-3">
-          <label for="text" class="form-label">Authors</label>
-          <input type="text" class="form-control" id="cauthor" name="cauthor">
-        </div>
-        <div class="mb-3">
-            <label for="Paper Presented" class="form-label">Paper Presented</label>
-            <select class="form-select" id="ppresented" name="ppresented">
-            <option value=""></option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-            </select>
-        </div>
-        <div class="mb-3">
-          <label for="Title of Paper" class="form-label">Title of Paper</label>
-          <input type="text" class="form-control" id="papertitle" name="papertitle">
-        </div>
-        <div class="mb-3">
-            <label for="Paper Published" class="form-label">Paper Published</label>
-            <select class="form-select" id="ppublished" name="ppublished">
-            <option value="select">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-            </select>
+          <label for="name" class="form-label">Author</label>
+          <input type="text" class="form-control" id="cname" name="cname">
         </div>
 
         <div class="mb-3">
-          <label for="doi" class="form-label">Date of Publication</label>
-          <input type="date" class="form-control" id="dop" name="dop">
+        <label for="num-inputs" class="form-label"> Co_Authors:</label>
+        <select  class="form-select" id="coauthor" name="coauthor">
+        <option value="" selected disabled></option>
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+      <div id="input-container"class="form-control"></div>
+    </div>
+      
+        <div class="mb-3">
+          <label for="text" class="form-label">Date of Publication</label>
+          <input type="date" class="form-control" id="cauthor" name="cauthor">
+        </div>
+        
+        <div class="mb-3">
+          <label for="publisher" class="form-label">Title of the Paper</label>
+          <input type="text" class="form-control" id="cpublisher" name="cpublisher">
+
+        </div>
+        <div class="mb-3">
+          <label for="dop" class="form-label">Title of the Conference</label>
+          <input type="text" class="form-control" id="dop" name="dop">
         </div>
 
         <div class="mb-3">
-          <label for="Title of Conference" class="form-label">Title of Conference</label>
-          <input type="text" class="form-control" id="conferencetitle" name="conferencetitle">
+          <label for="conduct" class="form-label">Conducted by</label>
+          <input type="text" class="form-control" id="conducted" name="conducted">
+        </div>
+        <div class="mb-3">
+          <label for="venue" class="form-label"> Venue</label>
+          <input type="text" class="form-control" id="venue" name="venue">
         </div>
 
         
 
-        <div class="mb-3">
-          <label for="Conducted by and Venue" class="form-label">Conducted by and Venue</label>
-          <input type="text" class="form-control" id="venue" name="venue">
-        </div>
-       
-       
+         
     </div>
       <div class="col-md-6">
       <div class="mb-3">
-         <label for="pageNo" class="form-label">Page Number</label>
-         <input type="text" class="form-control" id="pageno" name="pageno">
-         </div>
+          <label for="pageno" class="form-label">Page Number</label>
+          <input type="text" class="form-control" id="pageno" name="pageno">
+        </div>
 
-         <div class="mb-3">
+      <div class="mb-3">
       <label for="url" class="form-label">URL</label>
       <input type="url" class="form-control" id="url" name="url">
       </div>
-
+        
       <div class="mb-3">
           <label for="scopusindex" class="form-label">Scopus Index</label>
           <select class="form-select" id="scopusindex" name="scopusindex">
             <option value=""></option>
             <option value="yes">Yes</option>
             <option value="no">No</option>
+            
           </select>
         </div>
-        
+
         <div class="mb-3">
           <label for="webOfscience" class="form-label">Web Of Science</label>
           <select class="form-select" id="webofscience" name="webofscience">
@@ -90,7 +103,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="isn" class="form-label">ISSN</label>
+            <label for="issn" class="form-label">ISSN</label>
             <input type="text" class="form-control" id="issn" name="issn">
        </div>
 
@@ -113,6 +126,7 @@
         
       </select>
      </div>
+      
     
   </div>
 </div>
@@ -128,4 +142,30 @@
            
 
 </body>
+<script>
+  const numInputsSelect = document.getElementById("coauthor");
+      const inputContainer = document.getElementById("input-container");"<br>"
+
+      numInputsSelect.addEventListener("change", (event) => {
+        const numInputs = event.target.value;
+
+        // Clear existing inputs
+        inputContainer.innerHTML = "";
+        
+
+        // Generate new inputs
+        for (let i = 0; i < numInputs; i++) {
+          const inputField = document.createElement("input");
+          inputField.type = "text";
+          inputField.name = `input-${i}`;
+          inputField.placeholder = `Enter co_author name`;
+          inputField.classList.add("input-field");
+       
+          inputContainer.appendChild(inputField);
+           const lineBreak = document.createElement("br");
+          inputContainer.appendChild(lineBreak);
+          
+        }
+      });
+</script>
 </html>

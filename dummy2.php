@@ -45,7 +45,7 @@
           inputField.classList.add("input-field");
        
           inputContainer.appendChild(inputField);
-          const lineBreak = document.createElement("br");
+           const lineBreak = document.createElement("br");
           inputContainer.appendChild(lineBreak);
           
         }
