@@ -5,59 +5,58 @@ include 'connection.php';
 
 $Id=$_POST["userid"];
 $email=$_POST["email"];
-$pass=$_POST['newPassword'];
+$pass=$_POST["newPassword"];
 $conf_pass=$_POST["confirmPassword"];
 
-if($pass==$conf_pass)
-{
-   
+if($pass==$conf_pass){
 
-session_start();
-$_SESSION['uid']=$Id;
+$sql="Select * From Registration where userid='$Id' and email='$email'";
 
-        // output data of each row
-    
-          $update="Update registration set password='$pass' where userid='$Id' and email='$email'";
-          $result1=mysqli_query($conn,$update);
+   $result=mysqli_query($conn,$sql);
+   $row = mysqli_fetch_assoc($result) ;//array elements
 
-         if($result1) {?>
-      
-          <script>
 
-          alert("New password updated successfully");
-          location.href='index.php';
-        </script>
-    
+   if(mysqli_num_rows($result) > 0){
+
+$update_query="UPDATE Registration SET password='$pass' WHERE userid='$Id' and email='$email'"; 
+
+if(mysqli_query($conn,$update_query)===TRUE){
+            
+    ?> 
+    <script>
+    alert("New password updated successfully");
+    location.href='index.php';
+  </script>
+
 <?php
+
 }
 else{
-  ?>
-  <script>
-
-  alert("Please check your input deatils");
-  location.href='forgotpassword.html';
-</script>  
+    ?> 
+    <script>
+    alert("Please Enter valid Userid and Email");
+    location.href='ForgotPassword.php';
+  </script>
 <?php
 }
-
-} 
+   }
+   else{
+    ?> 
+    <script>
+    alert("Please check your input details");
+    location.href='ForgotPassword.php';
+  </script>
+<?php
+  
+   }
+}
 else{
-    ?>
+    ?> 
     <script>
     alert("Password and Confirm Password should be same");
     location.href='ForgotPassword.php';
-    </script>
-    <?php
-} 
-    
-   ?>
-   
-
-
-
-
-
-
-
-
-
+  </script>
+<?php
+  
+}
+?>
