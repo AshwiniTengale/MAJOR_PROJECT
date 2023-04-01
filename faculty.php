@@ -22,7 +22,7 @@ $result=mysqli_query($conn,$sql);
        $row= mysqli_fetch_assoc($result)
   
           ?>
-         <p >
+         <p  style=" padding-top:5%;text-align:left;">
            <?php  
          echo "USER ID: ".$row["userid"]."<br>"."NAME: " . $row["username"]. " <br>"."Dob: " . $row["dob"]. " <br>"."EMAIL ID: " . $row["email"]." <br>"."Phone No:".$row["phone"];
          ?>

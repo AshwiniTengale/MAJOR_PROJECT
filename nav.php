@@ -109,7 +109,7 @@ color:white;
 	<ul>
 	    
 		<div class="profile-logo" style="text-align:center;">
-	       <img src="image/images.jpeg" alt="" height="60" width="60">
+	       <img src="image/images (1).jpeg" alt="" height="60" width="60">
 		   <p>Welcome,USER</p>
           </div>
      <li>

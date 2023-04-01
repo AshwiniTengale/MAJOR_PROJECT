@@ -12,7 +12,7 @@
       <div class="row">
         <div class="col-md-6 offset-md-3 mt-5">
           <h1 class="text-center mb-4">Forgot Password</h1>
-          <form>
+          <form action="newpassword.php" method="post">
           <div class="form-group">
           <label for="name" class="form-label">User ID:</label>
           <input type="text" class="form-control" id="userid" name="userid" placeholder="Enter User ID" required>

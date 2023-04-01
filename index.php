@@ -7,7 +7,14 @@
 	<link rel="stylesheet" href="bootstrap.css">
   <link rel="stylesheet" href="style1.css">
     <style>
-
+body{
+ 
+background-image: url('image/isedept.jpg');
+background-size: cover;  
+background-position:center center;
+background-repeat:no-repeat;
+height:100vh;
+}
 
 	</style>
 </head>
@@ -27,7 +34,7 @@
 								<select class="form-control" id="selectrole" name="selectrole" required>
 								<option disabled selected>Select Role</option>
 								<option value="admin">Admin</option>
-								<option value="1">Teacher</option>
+								<option value="1">Faculty</option>
 								<option value="2">Student</option>
 								</select>
 							</div>
