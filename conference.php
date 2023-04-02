@@ -12,36 +12,36 @@
     
 </head>
 <body>
-<form>
+<form  action="adddetails.php" method="POST" > 
   <div class="container">
     <h1 style="text-align:center">Conference Publications</h1>
     <div class="row">
       <div class="col-md-6">
 
         <div class="mb-3">
-          <label for="name" class="form-label">Author</label>
-          <input type="text" class="form-control" id="cname" name="cname">
+          <label for="cauthor" class="form-label">Author</label>
+          <input type="text" class="form-control" id="cauthor" name="cauthor">
         </div>
 
         <div class="mb-3">
-        <label for="num-inputs" class="form-label"> Co_Authors</label>
+        <label for="Co_Authors" class="form-label"> Co_Authors</label>
         <input type="text" class="form-control" id="coauthor" name="coauthor" placeholder="Ex:Ramkrishna,Manohar">
       
       </div>
       
         <div class="mb-3">
-          <label for="text" class="form-label">Date of Publication</label>
-          <input type="date" class="form-control" id="cauthor" name="cauthor">
+          <label for="Date of Publication" class="form-label">Date of Publication</label>
+          <input type="date" class="form-control" id="dop" name="dop">
         </div>
         
         <div class="mb-3">
-          <label for="publisher" class="form-label">Title of the Paper</label>
-          <input type="text" class="form-control" id="cpublisher" name="cpublisher">
+          <label for="Title of the Paper" class="form-label">Title of the Paper</label>
+          <input type="text" class="form-control" id="cpaper" name="cpaper">
 
         </div>
         <div class="mb-3">
-          <label for="dop" class="form-label">Title of the Conference</label>
-          <input type="text" class="form-control" id="dop" name="dop">
+          <label for="ctitle" class="form-label">Title of the Conference</label>
+          <input type="text" class="form-control" id="ctitle" name="ctitle">
         </div>
 
         <div class="mb-3">
@@ -52,10 +52,7 @@
           <label for="venue" class="form-label"> Venue</label>
           <input type="text" class="form-control" id="venue" name="venue">
         </div>
-
-        
-
-         
+    
     </div>
       <div class="col-md-6">
       <div class="mb-3">
@@ -118,7 +115,7 @@
 </div>
 <div class="row">
   <div class="col-md-6">
-<button type="submit" class="btn btn-primary">Submit</button>
+<button type="submit" class="btn btn-primary" name="submit" value="2">Submit</button>
 </div>
 </div>
 

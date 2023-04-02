@@ -12,7 +12,7 @@
     
 </head>
 <body>
-<form>
+<form action="adddetails.php" method="POST" > 
   <div class="container">
     <h1 style="text-align:center">Journal Papers</h1>
     <div class="row">
@@ -49,7 +49,7 @@
         
         <div class="mb-3">
           <label for="doi" class="form-label">Volume No</label>
-          <input type="number" class="form-control" id="vno" name="vno">
+          <input type="number" class="form-control" id="volumeno" name="volumeno">
         </div>
 
        
@@ -62,11 +62,11 @@
       <div class="col-md-6">
       <div class="mb-3">
           <label for="doi" class="form-label">Issue No</label>
-          <input type="number" class="form-control" id="vno" name="vno">
+          <input type="number" class="form-control" id="issueno" name="issueno">
         </div>
       <div class="mb-3">
           <label for="pno" class="form-label">Page No</label>
-          <input type="text" class="form-control" id="pno" name="pno">
+          <input type="text" class="form-control" id="pageno" name="pageno">
         </div>
       <div class="mb-3">
           <label for="url" class="form-label">URL</label>
@@ -123,7 +123,7 @@
 </div>
 <div class="row">
   <div class="col-md-6">
-<button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" name="submit" value="3">Submit</button>
 </div>
 </div>
 

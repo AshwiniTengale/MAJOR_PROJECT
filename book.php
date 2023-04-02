@@ -11,7 +11,7 @@
 </style>
 </head>
 <body>
-<form name="myForm" action="adddetails.php" method="POST" > 
+<form action="adddetails.php" method="POST" > 
   <div class="container">
     <h1 style="text-align:center">Book/Book Chapters Details</h1>
     <div class="row">
@@ -120,7 +120,7 @@
 </div>
 <div class="row">
   <div class="col-md-6">
-<button type="submit" class="btn btn-primary" value="1" name="book">Submit</button>
+<button type="submit" class="btn btn-primary" value="1" name="submit">Submit</button>
 </div>
 </div>
 
