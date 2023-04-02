@@ -1,11 +1,9 @@
 .card,card-body {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.6);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+ 
 }
-body{
-background-image: url('image/background.jpeg');
-background-size: cover;  
-}
+
 
 body {
 font-family: 'Open Sans', sans-serif; /* Replace with the font of your choice */
@@ -32,6 +30,7 @@ background-color: #fff;
 border-radius: 10px;
 padding: 20px;
 box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
 max-width: 500px;
 margin: 0 auto;
 }
@@ -42,6 +41,7 @@ font-size: 28px;
 font-weight: 700;
 margin-bottom: 20px;
 text-align: center;
+
 text-transform: uppercase;
 color: #1e90ff;
 }

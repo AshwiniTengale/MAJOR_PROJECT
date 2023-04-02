@@ -9,15 +9,19 @@
     <style>
 body{
  
-background-image: url('image/isedept.jpg');
+background-image: url('image/Background3.jpeg');
 background-size: cover;  
 background-position:center center;
 background-repeat:no-repeat;
 height:100vh;
 
 
-
-
+}
+form{
+  
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+ 
 }
 
 	</style>

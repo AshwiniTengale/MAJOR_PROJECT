@@ -33,19 +33,7 @@
           <label for="dob" class="form-label">Date of Birth:</label>
           <input type="date" class="form-control" id="dob" name="dob" required>
         </div>
-        <!-- <div class="mb-3">
-          <label for="designation" class="form-label">Designation:</label>
-          <select class="form-select" id="designation" name="designation">
-            <option value="" selected>Select Designation</option>
-            <option value="developer">Associate Professor</option>
-            <option value="designer">Assistant Professor</option>
-            <option value="manager"></option>
-          </select>
-        </div> -->
-        <!-- <div class="mb-3">
-          <label for="password" class="form-label">Password:</label>
-          <input type="password" class="form-control" id="password" name="password" required>
-        </div> -->
+      
         <div class="mb-3">
 								<label for="department">Department</label>
 								

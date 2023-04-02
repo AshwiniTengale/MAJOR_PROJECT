@@ -7,14 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="bootstrap.css">
     <style>
-  .input-field {
-    margin-bottom: 10px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 16px;
-    width:70%;
-  }
+  
 </style>
     
 </head>
@@ -32,17 +25,10 @@
 
 
         <div class="mb-3">
-        <label for="num-inputs" class="form-label"> Co_Authors:</label>
-        <select  class="form-select" id="coauthor" name="coauthor">
-        <option value="" selected disabled></option>
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-      </select>
-      <div id="input-container"class="form-control"></div>
-    </div>
+        <label for="num-inputs" class="form-label"> Co_Authors</label>
+        <input type="text" class="form-control" id="coauthor" name="coauthor" placeholder="Ex:Ramkrishna,Manohar">
+      
+      </div>
         <div class="mb-3">
           <label for="doi" class="form-label">Date of Publication</label>
           <input type="date" class="form-control" id="dop" name="dop">
@@ -109,7 +95,7 @@
 
         <div class="mb-3">
           <label for="issn" class="form-label">ISSN</label>
-          <input type="number" class="form-control" id="issn" name="issn">
+          <input type="text" class="form-control" id="issn" name="issn">
         </div>
 
         <div class="mb-3">
@@ -148,30 +134,5 @@
 
 </body>
 
-<script>
-  const numInputsSelect = document.getElementById("coauthor");
-      const inputContainer = document.getElementById("input-container");"<br>"
 
-      numInputsSelect.addEventListener("change", (event) => {
-        const numInputs = event.target.value;
-
-        // Clear existing inputs
-        inputContainer.innerHTML = "";
-        
-
-        // Generate new inputs
-        for (let i = 0; i < numInputs; i++) {
-          const inputField = document.createElement("input");
-          inputField.type = "text";
-          inputField.name = `input-${i}`;
-          inputField.placeholder = `Enter co_author name`;
-          inputField.classList.add("input-field");
-       
-          inputContainer.appendChild(inputField);
-           const lineBreak = document.createElement("br");
-          inputContainer.appendChild(lineBreak);
-          
-        }
-      });
-</script>
 </html>

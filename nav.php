@@ -121,7 +121,7 @@ color:white;
         <li class="dropdown">
           <button onclick="setActive(this)" class="dropbtn">Add Details</button>
           <div id="myDropdown" class="dropdown-content">
-            <a href="book.php" onclick="setActive(this)">Book</a>
+            <a href="book.php" onclick="setActive(this)" value="1" >Book</a>
             <a href="conference.php" onclick="setActive(this)">Conference</a>
             <a href="journal.php"  onclick="setActive(this)">Journal</a>
             <a href="patent.php" onclick="setActive(this)">Patent</a>
