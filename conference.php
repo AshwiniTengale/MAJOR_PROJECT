@@ -21,7 +21,7 @@
 <body>
 <form>
   <div class="container">
-    <h1 style="text-align:center">Conference Details</h1>
+    <h1 style="text-align:center">Conference Publications</h1>
     <div class="row">
       <div class="col-md-6">
 
