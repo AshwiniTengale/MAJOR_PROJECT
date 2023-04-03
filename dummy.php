@@ -1,49 +1,22 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Dynamic Form Example</title>
-    <style>
-      .input-field {
-        display: block;
-        margin-bottom: 10px;
-      }
-    </style>
-  </head>
-  <body>
-    <form>
-      <label for="num-inputs">Select Number of Inputs:</label>
-      <select id="num-inputs">
-        <option value="0" selected disabled>Select an option</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-      </select>
-      <div id="input-container"></div>
-      <button type="submit">Submit</button>
-    </form>
+<label for="response">Are there any co-authors present</label>
+<select id="response" onchange="showTextBox()">
+  <option value="">--Select an option--</option>
+  <option value="yes">Yes</option>
+  <option value="no">No</option>
+</select>
+<div id="textbox" style="display:none">
+  <label for="feedback">Coauthor's Name </label>
+  <input type="text" id="feedback" name="feedback">
+</div>
 
-    <script>
-      const numInputsSelect = document.getElementById("num-inputs");
-      const inputContainer = document.getElementById("input-container");
-
-      numInputsSelect.addEventListener("change", (event) => {
-        const numInputs = event.target.value;
-
-        // Clear existing inputs
-        inputContainer.innerHTML = "";
-
-        // Generate new inputs
-        for (let i = 0; i < numInputs; i++) {
-          const inputField = document.createElement("input");
-          inputField.type = "text";
-          inputField.name = `input-${i}`;
-          inputField.placeholder = `Input ${i + 1}`;
-          inputField.classList.add("input-field");
-          inputContainer.appendChild(inputField);
-          const lineBreak = document.createElement("br");
-          inputContainer.appendChild(lineBreak);
-        }
-      });
-    </script>
-  </body>
-</html>
+<script>
+function showTextBox() {
+  var response = document.getElementById("response");
+  var textbox = document.getElementById("textbox");
+  if (response.value == "yes") {
+    textbox.style.display = "block";
+  } else {
+    textbox.style.display = "none";
+  }
+}
+</script>

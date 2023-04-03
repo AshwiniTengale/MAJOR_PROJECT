@@ -25,8 +25,16 @@
 
 
         <div class="mb-3">
-        <label for="num-inputs" class="form-label"> Co_Authors</label>
-        <input type="text" class="form-control" id="coauthor" name="coauthor" placeholder="Ex:Ramkrishna,Manohar">
+        <label for="response" class="form-label" >Are there any co-authors present</label>
+            <select id="response" class="form-select" name="response" onchange="showTextBox()" required >
+              <option value=""></option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+       <div id="textbox" style="display:none">
+           <label for="Coauthor's Name " class="form-label">Coauthor's Name </label>
+           <input type="text"class="form-control" id="coauthor" name="coauthor" placeholder="Ex:Ramkrishna,Manohar">
+       </div>
       
       </div>
         <div class="mb-3">
@@ -52,12 +60,7 @@
           <input type="number" class="form-control" id="volumeno" name="volumeno">
         </div>
 
-       
-
-       
-
-
-         
+      
     </div>
       <div class="col-md-6">
       <div class="mb-3">
@@ -133,6 +136,17 @@
            
 
 </body>
+<script>
+function showTextBox() {
+  var response = document.getElementById("response");
+  var textbox = document.getElementById("textbox");
+  if (response.value == "yes") {
+    textbox.style.display = "block";
+  } else {
+    textbox.style.display = "none";
+  }
+}
+</script>
 
 
 </html>

@@ -42,8 +42,9 @@ font-weight: 700;
 margin-bottom: 20px;
 text-align: center;
 
+padding-top: 3%;
 text-transform: uppercase;
-color: #1e90ff;
+color: #000;
 }
 
 /* Style for the form labels */
