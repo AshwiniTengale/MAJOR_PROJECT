@@ -18,8 +18,8 @@ $row = mysqli_fetch_assoc($result) ;//array elements
   
   session_start();
   $_SESSION['ID']=$row['Id'];
-  
- 
+  $_SESSION['USERNAME']=$row['username'];
+
 
 if($SELECTROLE=='admin')
 {

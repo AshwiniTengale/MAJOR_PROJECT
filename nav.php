@@ -105,12 +105,19 @@ color:white;
 </head>
 
 <body>
+<?php
+session_start();
+
+$USER=$_SESSION['USERNAME'];
+
+?>
+
     <nav>
 	<ul>
 	    
 		<div class="profile-logo" style="text-align:center;">
 	       <img src="image/images (1).jpeg" alt="" height="60" width="60">
-		   <p>Welcome,USER</p>
+		   <p>Welcome,<?php echo $USER ?></p>
           </div>
      <li>
 		
@@ -121,7 +128,7 @@ color:white;
         <li class="dropdown">
           <button onclick="setActive(this)" class="dropbtn">Add Details</button>
           <div id="myDropdown" class="dropdown-content">
-            <a href="book.php" onclick="setActive(this)" value="1" >Book</a>
+            <a href="book.php" onclick="setActive(this)" value="1" >Books/Book Chapters</a>
             <a href="conference.php" onclick="setActive(this)">Conference Publications</a>
             <a href="journal.php"  onclick="setActive(this)">Journal Papers</a>
             <a href="patent.php" onclick="setActive(this)">Patent</a>

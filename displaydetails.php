@@ -26,8 +26,8 @@ if ($result->num_rows > 0) {
        
           
           ?>
-          <h2 ><?php echo "BOOKS/BOOK CHAPTERS" ?></h2>
-  
+          <h2 ><?php echo "Books/Book Chapters" ?></h2>
+          <br>
               <table  class="table table-sm">
                   <thead class="thead-light">
               <tr>
@@ -80,8 +80,8 @@ if($selectactivity==2)
            
                    
                    ?>
-                   <h2 ><?php echo "CONFERENCE  PUBLICATIONS" ?></h2>
-           
+                   <h2 ><?php echo "Conference Publications" ?></h2>
+                   <br>
                        <table  class="table table-sm">
                            <thead class="thead-light">
                            <tr>
@@ -135,7 +135,8 @@ if($selectactivity==2)
    
            
            ?>
-           <h2 ><?php echo "JOURNAL PAPERS" ?></h2>
+           <h2 ><?php echo "Journal Papers" ?></h2>
+           <br>
    
                <table  class="table table-sm">
                    <thead class="thead-light">

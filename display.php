@@ -12,7 +12,7 @@
     <label for="selectactivity" class="form-label"></label>
     <select class="form-select" id="selectactivity" name="selectactivity">
         <option value="" disabled selected hidden>Select Activity</option>
-        <option value="1">Book</option>
+        <option value="1">Books/Book Chapters</option>
         <option value="2">Conference Publications</option>
         <option value="3">Journal Papers</option>
         <option value="4">Patents</option>
