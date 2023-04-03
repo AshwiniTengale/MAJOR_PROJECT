@@ -130,7 +130,7 @@ color:white;
             <a href="webiner.php" onclick="setActive(this)">Webinar</a>
           </div>
         </li>
-        <li><a href="#contact" onclick="setActive(this)">Display Details</a></li>
+        <li><a href="display.php" onclick="setActive(this)">Display Details</a></li>
 		<li><a href="#contact" onclick="setActive(this)">Edit</a></li>
         
         <li><a href="#about" onclick="setActive(this)">Download</a></li>

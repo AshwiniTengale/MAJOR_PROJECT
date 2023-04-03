@@ -76,7 +76,8 @@ echo "Error: " . $sql . "<br>" . mysqli_error($conn);
  
  
 }
-}if($submit==3){
+}
+if($submit==3){
     $jname=$_POST['jname'];
     $coauthor=$_POST['coauthor'];
     $dop=$_POST['dop'];
@@ -109,6 +110,9 @@ echo "Error: " . $sql . "<br>" . mysqli_error($conn);
  
  
 }
+}
+elseif($submit==4){
+    
 }
 ?>
 

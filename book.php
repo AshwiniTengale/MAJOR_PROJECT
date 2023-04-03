@@ -22,6 +22,7 @@
           <label for="text" class="form-label">Author</label>
           <input type="text" class="form-control" id="bauthor" name="bauthor" required >
         </div>
+        
         <div>
         <div class="mb-3">
         <label for="num-inputs" class="form-label"> Co_Authors</label>
