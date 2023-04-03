@@ -52,22 +52,17 @@
           <label for="ctitle" class="form-label">Title of the Conference</label>
           <input type="text" class="form-control" id="ctitle" name="ctitle">
         </div>
-
         <div class="mb-3">
-          <label for="conduct" class="form-label">Conducted by</label>
-          <input type="text" class="form-control" id="conducted" name="conducted">
+          <label for="venue" class="form-label"> Conducted by and Venue</label>
+          <input type="text" class="form-control" id="venue" name="venue" placeholder="Ex:Basaveshwar Engg College,Bagalkote">
         </div>
         <div class="mb-3">
-          <label for="venue" class="form-label"> Venue</label>
-          <input type="text" class="form-control" id="venue" name="venue">
-        </div>
-    
-    </div>
-      <div class="col-md-6">
-      <div class="mb-3">
           <label for="pageno" class="form-label">Page Number</label>
           <input type="text" class="form-control" id="pageno" name="pageno">
         </div>
+    </div>
+      <div class="col-md-6">
+      
 
       <div class="mb-3">
       <label for="url" class="form-label">URL</label>

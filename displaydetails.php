@@ -1,8 +1,13 @@
-
+<html>
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
 <?php
 include 'connection.php' ;
-    
-
 
 session_start();
 $UID=$_SESSION['ID'];
@@ -12,23 +17,17 @@ $selectactivity=$_POST['selectactivity'];
 $fromyear=$_POST['fromyear'];
 $toyear=$_POST['toyear'];
 
+if($selectactivity==1)
+{
 $sql_query="SELECT * From Book where User_id='$UID'";
-//  $sql_query2="SELECT * From Book,Conference,Journal where User_id='$UID'";
-
 $result=mysqli_query($conn,$sql_query);
-
 if ($result->num_rows > 0) {
-    // output data of each row
-    
   
-  
-      //if ($result) {
-        if($selectactivity==1) {
+       
           
           ?>
-          <h2 ><?php echo "BOOK DETAILS" ?></h2>
+          <h2 ><?php echo "BOOKS/BOOK CHAPTERS" ?></h2>
   
-             
               <table  class="table table-sm">
                   <thead class="thead-light">
               <tr>
@@ -52,11 +51,7 @@ if ($result->num_rows > 0) {
   $sl=1;
   
               while($row = mysqli_fetch_assoc($result)) {
-                
-  
-           
   ?>     
-          
            <tr >
             <td><?php echo $sl++; ?></td>
             <td><?php echo $row["bauthor"].",".$row["coauthor"]; ?></td>
@@ -76,8 +71,117 @@ if ($result->num_rows > 0) {
               }
      ?>
          </table>   <?php }
-
- ?>
-<?php
-
+         
+if($selectactivity==2)
+         {
+         $sql_query="SELECT * From Conference where User_id='$UID'";
+         $result=mysqli_query($conn,$sql_query);
+         if ($result->num_rows > 0) {
+           
+                   
+                   ?>
+                   <h2 ><?php echo "CONFERENCE  PUBLICATIONS" ?></h2>
+           
+                       <table  class="table table-sm">
+                           <thead class="thead-light">
+                           <tr>
+                           <th>Sl.No</th>
+                           <th>Authors</th>
+                           <th>Year of Publication</th>
+                           <th>Title of Paper </th>
+                           <th>Title of Conference </th>
+                           <th>Conduted by and Venue</th>
+                           <th>Page No</th>
+                           <th>URL</th>
+                           <th>Scopus Indexed</th>
+                           <th>Web of Science</th>
+                           <th>ISSN/ISBN</th>
+                           <th>SC/ST/GEN</th>
+                           <th>International/National</th>
+                           </tr>        
+                      </thead>
+                   
+           <?php
+           $sl=1;
+           
+                       while($row = mysqli_fetch_assoc($result)) {
+           ?>     
+                    <tr >
+                     <td><?php echo $sl++; ?></td>
+                     <td><?php echo $row["cauthor"].",".$row["coauthor"]; ?></td>
+                     <td><?php echo $row["dop"];?></td>
+                     <td><?php echo $row["cpaper"];?></td>
+                     <td><?php echo $row["ctitle"];?></td>
+                     <td><?php echo $row["venue"];?></td>
+                     <td><?php echo $row["pageno"];?></td>
+                     <td><?php echo $row["url"];?></td>
+                     <td><?php echo $row["scopusindex"];?></td>
+                     <td><?php echo $row["webofscience"];?></td>
+                     <td><?php echo $row["issn"];?></td>
+                     <td><?php echo $row["category"];?></td>
+                     <td><?php echo $row["level"];?></td>
+                   </tr>
+              <?php }
+                       }
+              ?>
+                  </table>   <?php }
+                  
+         
+ if($selectactivity==3)
+ {
+ $sql_query="SELECT * From Journal where User_id='$UID'";
+ $result=mysqli_query($conn,$sql_query);
+ if ($result->num_rows > 0) {
+   
+           
+           ?>
+           <h2 ><?php echo "JOURNAL PAPERS" ?></h2>
+   
+               <table  class="table table-sm">
+                   <thead class="thead-light">
+                 <tr>
+                       <th>Sl.No</th>
+                       <th>Authors</th>
+                       <th>Year of Publication</th>
+                       <th>Title of the Journal and Publisher </th>
+                       <th>Title of the Book </th>
+                       <th>Volume No and Issue No</th>
+                       <th>Page No</th>
+                       <th>URL</th>
+                       <th>Scopus Indexed</th>
+                       <th>Web of Science</th>
+                       <th>ISSN/ISBN</th>
+                       <th>SC/ST/GEN</th>
+                       <th>International/National</th>
+                    
+                     </tr>        
+              </thead>
+           
+   <?php
+   $sl=1;
+   
+               while($row = mysqli_fetch_assoc($result)) {
+   ?>     
+           <tr >
+            <td><?php echo $sl++; ?></td>
+            <td><?php echo $row["jname"].",".$row["coauthor"]; ?></td>
+            <td><?php echo $row["dop"];?></td>
+            <td><?php echo $row["papertitle"];?></td>
+            <td><?php echo $row["journaltitle"]." and ".$row["publisher"];?></td>
+            <td><?php echo $row["volumeno"]." and ".$row["issueno"];?></td>
+            <td><?php echo $row["pageno"];?></td>
+            <td><?php echo $row["url"];?></td>
+            <td><?php echo $row["scopusindex"];?></td>
+            <td><?php echo $row["webofscience"];?></td>
+            <td><?php echo $row["issn"];?></td>
+            <td><?php echo $row["category"];?></td>
+            <td><?php echo $row["level"];?></td>
+          </tr>
+      <?php }
+               }
+      ?>
+          </table>   <?php }
+          
+ 
 ?>
+</html>

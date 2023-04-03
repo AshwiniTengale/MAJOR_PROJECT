@@ -13,8 +13,8 @@
     <select class="form-select" id="selectactivity" name="selectactivity">
         <option value="" disabled selected hidden>Select Activity</option>
         <option value="1">Book</option>
-        <option value="2">Conference publications</option>
-        <option value="3">Journals</option>
+        <option value="2">Conference Publications</option>
+        <option value="3">Journal Papers</option>
         <option value="4">Patents</option>
         <option value="5">PhD</option>
         <option value="6">Presentation </option>

@@ -48,7 +48,6 @@ elseif($submit==2){
     $dop=$_POST['dop'];
     $cpaper=$_POST['cpaper'];
     $ctitle=$_POST['ctitle'];
-    $conducted=$_POST['conducted'];
     $venue=$_POST['venue'];
     $pageno=$_POST['pageno'];
     $url=$_POST['url'];
@@ -60,8 +59,8 @@ elseif($submit==2){
     
 
 
-     $conference_sql = "INSERT INTO Conference (`User_id`,`cauthor`,`coauthor`,`dop`,`cpaper`,`ctitle`,`conducted`,`venue`,`pageno`,`url`,`scopusindex`,`webofscience`,`issn`,`category`,`level`)
-    VALUES ('$UID','$cauthor',".($coauthor==NULL?"NULL" :"'$coauthor'").",'$dop','$cpaper','$ctitle','$conducted','$venue','$pageno','$url','$scopusindex','$webofscience','$issn','$category','$level')";
+     $conference_sql = "INSERT INTO Conference (`User_id`,`cauthor`,`coauthor`,`dop`,`cpaper`,`ctitle`,`venue`,`pageno`,`url`,`scopusindex`,`webofscience`,`issn`,`category`,`level`)
+    VALUES ('$UID','$cauthor',".($coauthor==NULL?"NULL" :"'$coauthor'").",'$dop','$cpaper','$ctitle','$venue','$pageno','$url','$scopusindex','$webofscience','$issn','$category','$level')";
     if (mysqli_query($conn,$conference_sql))
    {
    ?>
