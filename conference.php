@@ -24,10 +24,7 @@
         </div>
 
         <div class="mb-3">
-        <!-- <label for="Co_Authors" class="form-label"> Co_Authors</label>
-        <input type="text" class="form-control" id="coauthor" name="coauthor" placeholder="Ex:Ramkrishna,Manohar"> -->
-        
-        
+       
         <label for="response" class="form-label" >Are there any co-authors present</label>
             <select id="response" class="form-select" name="response" onchange="showTextBox()" required >
               <option value=""></option>
@@ -106,9 +103,9 @@
           <label for="category" class="form-label">Category</label>
           <select class="form-select" id="category" name="category">
             <option value=""></option>
-            <option value="sc">SC</option>
-            <option value="st">ST</option>
-            <option value="general">General</option>
+            <option value="SC">SC</option>
+            <option value="ST">ST</option>
+            <option value="General">General</option>
           </select>
       </div>
 
@@ -116,13 +113,12 @@
         <label for="level" class="form-label">Level</label>
         <select class="form-select" id="level" name="level">
         <option value=""></option>
-        <option value="national">National</option>
-        <option value="international">International</option>
+        <option value="National">National</option>
+        <option value="International">International</option>
         
       </select>
      </div>
       
-    
   </div>
 </div>
 <div class="row">

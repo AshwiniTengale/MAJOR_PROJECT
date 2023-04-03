@@ -49,7 +49,7 @@
             <label for="Level" class="form-label">Level</label>
             <select class="form-select" id="level" name="level">
             <option value=""></option>
-            <option value="national">national</option>
+            <option value="National">National</option>
             <option value="international">international</option>
             </select>
         </div>

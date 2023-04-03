@@ -105,9 +105,9 @@
           <label for="category" class="form-label">Category</label>
           <select class="form-select" id="category" name="category">
             <option value=""></option>
-            <option value="sc">SC</option>
-            <option value="st">ST</option>
-            <option value="general">General</option>
+            <option value="SC">SC</option>
+            <option value="ST">ST</option>
+            <option value="General">General</option>
           </select>
       </div>
 
@@ -115,8 +115,8 @@
         <label for="level" class="form-label">Level</label>
         <select class="form-select" id="level" name="level">
         <option value=""></option>
-        <option value="national">National</option>
-        <option value="international">International</option>
+        <option value="National">National</option>
+        <option value="International">International</option>
         
       </select>
      </div>

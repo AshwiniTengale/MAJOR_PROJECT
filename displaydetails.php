@@ -12,12 +12,9 @@ $selectactivity=$_POST['selectactivity'];
 $fromyear=$_POST['fromyear'];
 $toyear=$_POST['toyear'];
 
-
-// $sql11=$year==null?"Select * From $table where faculty_id='$uId' AND type_of_activity='$type'":
-//  "Select * From $table where faculty_id= '$uId' AND type_of_activity='$type' AND  year(Yearly)='$year'";
-
- $sql_query="SELECT * From Book where User_id='$UID'";
+$sql_query="SELECT * From Book where User_id='$UID'";
 //  $sql_query2="SELECT * From Book,Conference,Journal where User_id='$UID'";
+
 $result=mysqli_query($conn,$sql_query);
 
 if ($result->num_rows > 0) {
@@ -57,9 +54,7 @@ if ($result->num_rows > 0) {
               while($row = mysqli_fetch_assoc($result)) {
                 
   
-            //all or yearly condition query
-            //   if($row["selectactivity"]=='1'){
-  
+           
   ?>     
           
            <tr >
