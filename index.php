@@ -12,7 +12,7 @@ body{
 background-image: url('image/Background3.jpeg');
 background-size: cover;  
 background-position:center center;
-background-repeat:no-repeat;
+background-repeat:N-repeat;
 height:100vh;
 
 

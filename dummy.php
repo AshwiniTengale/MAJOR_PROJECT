@@ -1,22 +1,22 @@
-<label for="response">Are there any co-authors present</label>
-<select id="response" onchange="showTextBox()">
-  <option value="">--Select an option--</option>
-  <option value="yes">Yes</option>
-  <option value="no">No</option>
-</select>
-<div id="textbox" style="display:none">
-  <label for="feedback">Coauthor's Name </label>
-  <input type="text" id="feedback" name="feedback">
-</div>
+<?php
+// Include mPDF library using CDN link
+require_once('https://cdnjs.cloudflare.com/ajax/libs/mpdf/8.0.10/autoload.php');
 
-<script>
-function showTextBox() {
-  var response = document.getElementById("response");
-  var textbox = document.getElementById("textbox");
-  if (response.value == "yes") {
-    textbox.style.display = "block";
-  } else {
-    textbox.style.display = "none";
-  }
-}
-</script>
+// Start output buffering
+ob_start();
+
+// Include your PHP page
+include 'displaydetails.php';
+
+// Get the output
+$html = ob_get_clean();
+
+// Create new mPDF object
+$mpdf = new \Mpdf\Mpdf();
+
+// Generate PDF from HTML content
+$mpdf->WriteHTML($html);
+
+// Output the PDF file and prompt the user to download it
+$mpdf->Output('my_pdf_file.pdf', 'D');
+?>

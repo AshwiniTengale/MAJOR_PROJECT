@@ -99,6 +99,10 @@
     } 
 .profile-logo p{
 color:white;
+
+}
+p.user{
+	padding-top:5%;
 }
 
 	</style>
@@ -116,8 +120,10 @@ $USER=$_SESSION['USERNAME'];
 	<ul>
 	    
 		<div class="profile-logo" style="text-align:center;">
-	       <img src="image/images (1).jpeg" alt="" height="60" width="60">
-		   <p>Welcome,<?php echo $USER ?></p>
+	       <img src="image/images (1).jpeg" alt="" height="60" width="60" >
+		  
+		   <br>
+		   <p class="user">Welcome,<?php echo $USER ?></p>
           </div>
      <li>
 		
@@ -164,7 +170,7 @@ $USER=$_SESSION['USERNAME'];
 </div>
 </div>
         <h1 style="text-align:center;margin-left:15%;padding:1px 16px;padding-top:2%;">  B.V.V SANGHA'S  </h1>
-        <h2 style="text-align:center;margin-left:15%; margin-top:1%;padding:1px 16px;">BASAVESHWAR  ENGINEERING COLLEGE BAGALKOT</h2>
+        <h2 style="text-align:center;margin-left:15%; margin-top:1%;padding:1px 16px;">BASAVESHWAR  ENGINEERING COLLEGE, BAGALKOTE</h2>
 
   
   

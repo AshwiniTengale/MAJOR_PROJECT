@@ -29,8 +29,8 @@
         <label for="response" class="form-label" >Are there any co-authors present</label>
             <select id="response" class="form-select" name="response" onchange="showTextBox()" required >
               <option value=""></option>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
+              <option value="Y">Yes</option>
+              <option value="N">No</option>
             </select>
        <div id="textbox" style="display:none">
            <label for="Coauthor's Name" class="form-label">Coauthor's Name </label>
@@ -55,13 +55,13 @@
         </div>
         <div class="mb-3">
           <label for="volNo" class="form-label">Volume Number</label>
-          <input type="number" class="form-control" id="bvolumeno" name="bvolumeno" required >
+          <input type="number" class="form-control" id="bvolumeno" name="bvolumeno"  >
         </div>
 
 
         <div class="mb-3">
           <label for="issueNo" class="form-label">Issue Number</label>
-          <input type="number" class="form-control" id="issueno" name="issueno" required >
+          <input type="number" class="form-control" id="issueno" name="issueno"  >
         </div>
 
         
@@ -72,21 +72,21 @@
       <div class="col-md-6">
       <div class="mb-3">
          <label for="pageNo" class="form-label">Page Number</label>
-         <input type="text" class="form-control" id="pageno" name="pageno" required >
+         <input type="text" class="form-control" id="pageno" name="pageno">
          </div>
     
 
         <div class="mb-3">
       <label for="url" class="form-label">URL</label>
-      <input type="url" class="form-control" id="url" name="url" required >
+      <input type="url" class="form-control" id="url" name="url" >
       </div>
         
       <div class="mb-3">
           <label for="scopusindex" class="form-label">Scopus Index</label>
           <select class="form-select" id="scopusindex" name="scopusindex" required >
             <option value=""></option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
             
           </select>
         </div>
@@ -95,15 +95,15 @@
           <label for="webOfscience" class="form-label">Web Of Science</label>
           <select class="form-select" id="webofscience" name="webofscience" required >
             <option value=""></option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
             
           </select>
         </div>
 
         <div class="mb-3">
             <label for="isn" class="form-label">ISSN</label>
-            <input type="text" class="form-control" id="issn" name="issn" required >
+            <input type="text" class="form-control" id="issn" name="issn" >
        </div>
 
        <div class="mb-3">
@@ -142,7 +142,7 @@
 function showTextBox() {
   var response = document.getElementById("response");
   var textbox = document.getElementById("textbox");
-  if (response.value == "yes") {
+  if (response.value == "Y") {
     textbox.style.display = "block";
   } else {
     textbox.style.display = "none";

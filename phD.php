@@ -65,8 +65,8 @@
             <select class="form-select" id="binstitute" name="binstitute">
             <option value=""></option>
             <option value="1">PhD Awarded</option>
-            <option value="no">PhD Submited Details</option>
-            <option value="no">PhD Ongoing Details</option>
+            <option value="N">PhD Submited Details</option>
+            <option value="N">PhD Ongoing Details</option>
             </select>
         </div>
       <div class="mb-3">

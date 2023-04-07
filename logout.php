@@ -7,10 +7,10 @@ header("location:index.php");
 // $X=session_unset();
 //   if($X)
 //   {
-//     echo "yes";
+//     echo "Y";
 //   }
 //   else{
-//     echo "no";
+//     echo "N";
 //   }
 
 

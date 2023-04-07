@@ -28,8 +28,8 @@
         <label for="response" class="form-label" >Are there any co-authors present</label>
             <select id="response" class="form-select" name="response" onchange="showTextBox()" required >
               <option value=""></option>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
+              <option value="Y">Yes</option>
+              <option value="N">No</option>
             </select>
        <div id="textbox" style="display:none">
            <label for="Coauthor's Name " class="form-label">Coauthor's Name </label>
@@ -73,8 +73,8 @@
           <label for="scopusindex" class="form-label">Scopus Index</label>
           <select class="form-select" id="scopusindex" name="scopusindex">
             <option value=""></option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
             
           </select>
         </div>
@@ -83,8 +83,8 @@
           <label for="webOfscience" class="form-label">Web Of Science</label>
           <select class="form-select" id="webofscience" name="webofscience">
             <option value=""></option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
             
           </select>
         </div>
@@ -132,7 +132,7 @@
 function showTextBox() {
   var response = document.getElementById("response");
   var textbox = document.getElementById("textbox");
-  if (response.value == "yes") {
+  if (response.value == "Y") {
     textbox.style.display = "block";
   } else {
     textbox.style.display = "none";

@@ -5,9 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="bootstrap.css">
+    <style>
+        table,th,td{
+            border:1px solid black;
+            font-family:"Times New Roman",Times,serif;
+            width:1%;
+            height:60%;
+        }
+        
+    </style>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.js"></script>
+
+    </script>
+    <script src ="pdfs.js"></script>
 </head>
+<div>
+            <button id="download"style="margin-left:5%;">download pdf</button>
+            </div>
+
 <?php
 include 'connection.php' ;
+// include 'htmllink.php';
 
 session_start();
 $UID=$_SESSION['ID'];
@@ -16,6 +35,23 @@ $UID=$_SESSION['ID'];
 $selectactivity=$_POST['selectactivity'];
 $fromyear=$_POST['fromyear'];
 $toyear=$_POST['toyear'];
+
+
+$formatted_fromdate = date("j F Y", strtotime($fromyear));
+
+$formatted_todate = date("j F Y", strtotime($toyear));
+
+?>
+
+ <div id="invoice" style="padding:5%;">
+
+
+
+<?php
+
+echo "<p font-size:12pt;font-family:Times New Roman,Times,serif;>","List of Research Publications";
+echo "<br>","Name of the Department";
+echo "<br>","Research Publications from " . $formatted_fromdate . " to " . $formatted_todate;
 
 if($selectactivity==1)
 {
@@ -26,24 +62,24 @@ if ($result->num_rows > 0) {
        
           
           ?>
-          <h2 ><?php echo "Books/Book Chapters" ?></h2>
+          <h2 style="margin-left:5%;"><?php echo "Books/Book Chapters" ?></h2>
           <br>
               <table  class="table table-sm">
                   <thead class="thead-light">
               <tr>
-              <th>Sl.No</th>
+              <th >Sl.No</th>
               <th>Authors</th>
               <th>Year of Publication</th>
               <th>Title of the Chapter </th>
               <th>Title of the Book </th>
-              <th>Volume No and Issue No</th>
+              <th>Volume No and<br>Issue No</th>
               <th>Page No</th>
               <th>URL</th>
               <th>Scopus Indexed</th>
               <th>Web of Science</th>
-              <th>ISSN/ISBN</th>
-              <th>SC/ST/GEN</th>
-              <th>International/National</th>
+              <th>ISSN/<br>ISBN</th>
+              <th>SC/<br>ST/<br>GEN</th>
+              <th>International/<br>National</th>
               </tr>        
              </thead>
           
@@ -185,4 +221,7 @@ if($selectactivity==2)
           
  
 ?>
+</div>
+<!-- <button  id="download">DownloadData</button> -->
+
 </html>
