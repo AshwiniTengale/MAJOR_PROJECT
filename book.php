@@ -26,8 +26,8 @@
         <div>
         <div class="mb-3">
         
-        <label for="response" class="form-label" >Are there any co-authors present</label>
-            <select id="response" class="form-select" name="response" onchange="showTextBox()" required >
+        <label for="response" class="form-label">Are there any co-authors present</label>
+            <select id="response" class="form-select" name="response" onchange="showTextBox()"required>
               <option value=""></option>
               <option value="Y">Yes</option>
               <option value="N">No</option>
