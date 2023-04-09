@@ -32,11 +32,29 @@ session_start();
 $UID=$_SESSION['ID'];
 
 
-$selectactivity=$_POST['selectactivity'];
-$fromyear=$_POST['fromyear'];
-$toyear=$_POST['toyear'];
+$tablename=$_POST['selectactivity'];
+$from_query="(SELECT MIN(dop) FROM $tablename)";
+$fromresult=mysqli_query($conn,$from_query);
+if($fromresult->num_rows > 0)
+{
+    if($row = mysqli_fetch_assoc($fromresult)) 
+    {
+       $Min_date=$row['MIN(dop)'];
+    }
+}
+$fromyear=$_POST['fromyear']==NULL?$Min_date:$_POST['fromyear'];
 
-
+$to_query="(SELECT MAX(dop) FROM $tablename)";
+$toresult=mysqli_query($conn,$to_query);
+if($toresult->num_rows > 0)
+{
+    if($row = mysqli_fetch_assoc($toresult)) 
+    {
+        $Max_date=$row['MAX(dop)'];
+    }
+}
+$toyear=$_POST['toyear']==NULL?$Max_date:$_POST['toyear'];;
+ 
 $formatted_fromdate = date("j F Y", strtotime($fromyear));
 
 $formatted_todate = date("j F Y", strtotime($toyear));
@@ -44,6 +62,7 @@ $formatted_todate = date("j F Y", strtotime($toyear));
 ?>
 
  <div id="invoice" style="padding:5%;">
+ <!-- c=a>b?a:b; -->
 
 
 
@@ -53,10 +72,22 @@ echo "<p font-size:12pt;font-family:Times New Roman,Times,serif;>","List of Rese
 echo "<br>","Name of the Department";
 echo "<br>","Research Publications from " . $formatted_fromdate . " to " . $formatted_todate;
 
-if($selectactivity==1)
-{
-$sql_query="SELECT * From Book where User_id='$UID'";
+// $sql_query="SELECT * FROM $tablename
+//              WHERE dop BETWEEN IFNULL( (SELECT MIN(dop) FROM $tablename),'$fromyear')
+//                   AND IFNULL((SELECT MAX(dop) FROM $tablename),'$toyear') AND $tablename.User_id='$UID'";
+// $result=mysqli_query($conn,$sql_query);
+
+$sql_query="SELECT * FROM $tablename
+             WHERE $tablename.dop BETWEEN '$fromyear' AND '$toyear' AND $tablename.User_id='$UID'";
 $result=mysqli_query($conn,$sql_query);
+
+
+
+
+if($tablename=='Book')
+{
+// $sql_query="SELECT * From Book where User_id='$UID'";
+// $result=mysqli_query($conn,$sql_query);
 if ($result->num_rows > 0) {
   
        
@@ -108,10 +139,10 @@ if ($result->num_rows > 0) {
      ?>
          </table>   <?php }
          
-if($selectactivity==2)
+if($tablename=='Conference')
          {
-         $sql_query="SELECT * From Conference where User_id='$UID'";
-         $result=mysqli_query($conn,$sql_query);
+        //  $sql_query="SELECT * From Conference where User_id='$UID'";
+        //  $result=mysqli_query($conn,$sql_query);
          if ($result->num_rows > 0) {
            
                    
@@ -163,10 +194,10 @@ if($selectactivity==2)
                   </table>   <?php }
                   
          
- if($selectactivity==3)
+ if($tablename=='Journal')
  {
- $sql_query="SELECT * From Journal where User_id='$UID'";
- $result=mysqli_query($conn,$sql_query);
+//  $sql_query="SELECT * From Journal where User_id='$UID'";
+//  $result=mysqli_query($conn,$sql_query);
  if ($result->num_rows > 0) {
    
            
