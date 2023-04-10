@@ -68,19 +68,18 @@ $formatted_todate = date("j F Y", strtotime($toyear));
 
 <?php
 
+
+
+echo $row['count'];
 echo "<p font-size:12pt;font-family:Times New Roman,Times,serif;>","List of Research Publications";
 echo "<br>","Name of the Department";
 echo "<br>","Research Publications from " . $formatted_fromdate . " to " . $formatted_todate;
 
-// $sql_query="SELECT * FROM $tablename
-//              WHERE dop BETWEEN IFNULL( (SELECT MIN(dop) FROM $tablename),'$fromyear')
-//                   AND IFNULL((SELECT MAX(dop) FROM $tablename),'$toyear') AND $tablename.User_id='$UID'";
-// $result=mysqli_query($conn,$sql_query);
+
 
 $sql_query="SELECT * FROM $tablename
              WHERE $tablename.dop BETWEEN '$fromyear' AND '$toyear' AND $tablename.User_id='$UID'";
 $result=mysqli_query($conn,$sql_query);
-
 
 
 
@@ -135,10 +134,49 @@ if ($result->num_rows > 0) {
             <td><?php echo $row["category"];?></td>
             <td><?php echo $row["level"];?></td>
           </tr>
-     <?php }
+     <?php 
+     
+    
+    
+    }
               }
      ?>
-         </table>   <?php }
+         </table>   <?php
+        //  $UID=$_SESSION['ID'];
+
+ $sql="SELECT COUNT(scopusindex)
+ FROM $tablename
+ WHERE scopusindex='Y' AND webofscience='N' AND $tablename.dop BETWEEN '$fromyear' AND '$toyear' AND $tablename.User_id='$UID'  ";
+
+ $result=mysqli_query($conn,$sql);
+ 
+ if($row = mysqli_fetch_assoc($result))
+ {
+     $count1=$row['COUNT(scopusindex)'];
+     echo "Scopus_index_count: $count1 <br>";
+ }
+ $sql2="SELECT COUNT(webofscience)
+FROM $tablename
+WHERE webofscience='Y' AND scopusindex='N'   AND $tablename.dop BETWEEN '$fromyear' AND '$toyear' AND $tablename.User_id='$UID'";
+
+$result2=mysqli_query($conn,$sql2);
+
+if($row = mysqli_fetch_assoc($result2))
+{
+    $count2=$row['COUNT(webofscience)'];
+    echo "Webofscience_count: $count2 <br>" ;
+}
+$sql3="SELECT COUNT(scopusindex)
+FROM $tablename
+WHERE scopusindex='N' AND webofscience='N' AND $tablename.dop BETWEEN '$fromyear' AND '$toyear' AND $tablename.User_id='$UID'";
+$result3=mysqli_query($conn,$sql3);
+
+if($row = mysqli_fetch_assoc($result3))
+{
+    $Count3=$row['COUNT(scopusindex)'];
+    echo "Others: $Count3<br> ";
+}
+          }
          
 if($tablename=='Conference')
          {
@@ -182,7 +220,7 @@ if($tablename=='Conference')
                      <td><?php echo $row["ctitle"];?></td>
                      <td><?php echo $row["venue"];?></td>
                      <td><?php echo $row["pageno"];?></td>
-                     <td><?php echo $row["url"];?></td>
+                     <td><a href="<?php echo $row["url"]; ?> "><?php echo $row["url"];?></a></td>
                      <td><?php echo $row["scopusindex"];?></td>
                      <td><?php echo $row["webofscience"];?></td>
                      <td><?php echo $row["issn"];?></td>
@@ -239,7 +277,7 @@ if($tablename=='Conference')
             <td><?php echo $row["journaltitle"]." and ".$row["publisher"];?></td>
             <td><?php echo $row["volumeno"]." and ".$row["issueno"];?></td>
             <td><?php echo $row["pageno"];?></td>
-            <td><?php echo $row["url"];?></td>
+            <td><a href="<?php echo $row["url"]; ?> "><?php echo $row["url"];?></a></td>
             <td><?php echo $row["scopusindex"];?></td>
             <td><?php echo $row["webofscience"];?></td>
             <td><?php echo $row["issn"];?></td>
@@ -257,3 +295,9 @@ if($tablename=='Conference')
 <!-- <button  id="download">DownloadData</button> -->
 
 </html>
+<?php
+
+
+session_start();
+  $_SESSION['']=$row['Id'];
+  $_SESSION['USERNAME']=$row['username'];
