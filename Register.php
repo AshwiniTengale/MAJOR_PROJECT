@@ -10,31 +10,33 @@
     </style>
   </head>
   <body>
-    <div class="container">
-      <h1 class="mt-5 mb-3">Registration Form</h1>
+    <div class="container" >
+      <div class="row">
+        <div class="col-md-6 offset-md-3 mt-5" style="background-color:pink;">
+      <h1 class="mt-5 mb-3"><marquee>Registration Form</marquee></h1>
       <form action="addnewuser.php" method="post">
-      <div class="mb-3">
+      <div class="form-group">
           <label for="name" class="form-label">User ID:</label>
           <input type="text" class="form-control" id="userid" name="userid" required>
         </div>
-        <div class="mb-3">
+        <div class="form-group">
           <label for="name" class="form-label">Name:</label>
           <input type="text" class="form-control" id="name" name="username" required>
         </div>
-        <div class="mb-3">
+        <div class="form-group">
           <label for="email" class="form-label">Email:</label>
           <input type="email" class="form-control" id="email" name="email" required>
         </div>
-        <div class="mb-3">
+        <div class="form-group">
           <label for="phone" class="form-label">Phone:</label>
           <input type="tel" class="form-control" id="phone" name="phone" required>
         </div>
-        <div class="mb-3">
+        <div class="form-group">
           <label for="dob" class="form-label">Date of Birth:</label>
           <input type="date" class="form-control" id="dob" name="dob" required>
         </div>
       
-        <div class="mb-3">
+        <div class="form-group">
 								<label for="department">Department</label>
 								
 								<select class="form-control" id="department" name="department" required>
@@ -54,7 +56,7 @@
 									<option value="13">Chemistry</option>
 								</select>
 							</div>
-              <div class="mb-3">
+              <div class="form-group">
 								<label for="category">Select Role</label>
 								<select class="form-control" id="selectrole" name="selectrole" required>
 								<option disabled selected>Select Role</option>
@@ -62,12 +64,12 @@
 								<option value="2">Student</option>
 								</select>
 							</div>
-              <div class="mb-3">
+              <div class="form-group">
               <label for="password">Password</label>
               <input type="password" class="form-control" id="Password" name="password" placeholder="Password" pattern="(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
               title="Must contain atleast one number and one uppercase and one lowercase letter and 8 characters" required>
             </div>
-            <div class="mb-3">
+            <div class="form-group">
               <label for="password">Confirm Password</label>
               <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" pattern="(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
               title="Must contain atleast one number and one uppercase and one lowercase letter and 8 characters" required>
@@ -76,6 +78,8 @@
             <button type="submit" class="btn btn-primary btn-lg">Register</button>
         </div>
       </form>
+</div>
+</div>
     </div>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-U9g1O+nzmg7r5k5sz5w5V5w5iH0BDv5x92cNXK9Xu2tB/WPBMv8mWlskAheGGdQn" crossorigin="anonymous"></script> -->
   </body>

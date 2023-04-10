@@ -169,7 +169,9 @@ $USER=$_SESSION['USERNAME'];
 </div>
 </div>
 </div>
+
         <h1 style="text-align:center;margin-left:15%;padding:1px 16px;padding-top:2%;">  B.V.V SANGHA'S  </h1>
+		
         <h2 style="text-align:center;margin-left:15%; margin-top:1%;padding:1px 16px;">BASAVESHWAR  ENGINEERING COLLEGE, BAGALKOTE</h2>
 
   

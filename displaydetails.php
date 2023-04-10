@@ -127,7 +127,8 @@ if ($result->num_rows > 0) {
             <td><?php echo $row["bname"];?></td>
             <td><?php echo $row["bvolumeno"]." and ".$row["issueno"];?></td>
             <td><?php echo $row["pageno"];?></td>
-            <td><?php echo $row["url"];?></td>
+           
+            <td><a href="<?php echo $row["url"]; ?> "><?php echo $row["url"];?></a></td>
             <td><?php echo $row["scopusindex"];?></td>
             <td><?php echo $row["webofscience"];?></td>
             <td><?php echo $row["issn"];?></td>
