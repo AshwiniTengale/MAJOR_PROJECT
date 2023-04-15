@@ -13,6 +13,7 @@
     <label for="selectactivity" class="form-label"></label>
     <select class="form-control" id="selectactivity" name="selectactivity">
         <option value="" disabled selected hidden>Select Activity</option>
+        <option value="All">ALL</option>
         <option value="Book">Books/Book Chapters</option>
         <option value="Conference">Conference Publications</option>
         <option value="Journal">Journal Papers</option>
@@ -31,11 +32,7 @@
     </div>
 </form>
 </fieldset>
-<fieldset>
- <form action="summary.php" method="post">
-    <button type="submit">summary</button>
- </form>
-</fieldset>
+
 </body>    
                        
 </html>

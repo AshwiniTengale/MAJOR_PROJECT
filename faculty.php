@@ -1,5 +1,6 @@
 <html>
 <?php
+
 session_start();
 $USER_ID=$_SESSION['ID'];
 
@@ -35,7 +36,8 @@ $result=mysqli_query($conn,$sql);
      else{
       echo "Error:No data";
      }
-
-  
-
-     ?>
+?>
+  <div style="float:right;margin-right:40px;">
+     <?php include 'summary.php';?>
+     </div>
+     

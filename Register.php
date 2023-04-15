@@ -12,8 +12,8 @@
   <body>
     <div class="container" >
       <div class="row">
-        <div class="col-md-6 offset-md-3 mt-5" style="background-color:pink;">
-      <h1 class="mt-5 mb-3"><marquee>Registration Form</marquee></h1>
+        <div class="col-md-6 offset-md-3 mt-5" >
+      <h1 class="text-center mb-4">Registration Form</h1>
       <form action="addnewuser.php" method="post">
       <div class="form-group">
           <label for="name" class="form-label">User ID:</label>

@@ -11,11 +11,10 @@ $dob=$_POST['dob'];
 $dept=$_POST['department'];
 $role=$_POST['selectrole'];
 $password=$_POST['password'];
+$confirmPassword=$_POST['confirmPassword'];
+if($password==$confirmPassword){
 
 //$hashpassword=sha1($pass);
-
-
-
 
 $sql = "INSERT INTO Registration (userid,username,email,phone,dob,department,selectrole,password)
 VALUES ('$userid','$username','$email','$phone','$dob','$dept','$role','$password')";
@@ -29,12 +28,19 @@ if (mysqli_query($conn, $sql)) {
     </script>
 
    <?php
-   
-} else {
-echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+} 
+
+else {
+  ?>
+  <script>
+    alert("Password and Confirm Password should be same");
+    location.href='Register.php';
+  </script>
+   <?php
 }
 
-mysqli_close($conn);
+
 
  
 
