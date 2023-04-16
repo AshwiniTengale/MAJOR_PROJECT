@@ -129,7 +129,7 @@ $USER=$_SESSION['USERNAME'];
 		
 	 </li>
 
-        <li><a class="active" href="#home" onclick="setActive(this)">Home</a></li>
+        <li><a class="active" href="faculty.php" onclick="setActive(this)">Home</a></li>
         
         <li class="dropdown">
           <button onclick="setActive(this)" class="dropbtn">Add Details</button>
