@@ -6,7 +6,14 @@
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="style.css" >
     <style>
-    
+    .containerbox{
+         width: 50%;
+  }
+
+  h1{
+    text-align: center;
+  }
+
     </style>
   </head>
   <body>
