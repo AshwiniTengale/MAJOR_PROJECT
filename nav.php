@@ -140,14 +140,13 @@ $USER=$_SESSION['USERNAME'];
             <a href="patent.php" onclick="setActive(this)">Patent</a>
             <a href="phd.php" onclick="setActive(this)">PhD</a>
             <a href="presentation.php" onclick="setActive(this)">Presentation</a>
-            <a href="webiner.php" onclick="setActive(this)">Webinar</a>
+            <a href="webinar.php" onclick="setActive(this)">Webinar</a>
           </div>
         </li>
         <li><a href="display.php" onclick="setActive(this)">Display Details</a></li>
-		<li><a href="#contact" onclick="setActive(this)">Edit</a></li>
+		<li><a href="#contact" onclick="setActive(this)">Edit Details</a></li>
         
-        <li><a href="#about" onclick="setActive(this)">Download</a></li>
-      <li><a href="#about" onclick="setActive(this)">Edit profile</a></li>
+      <li><a href="edit.php" onclick="setActive(this)">Edit profile</a></li>
       <li><a href="logout.php" onclick="setActive(this)">Logout</a></li>
 
     </ul>

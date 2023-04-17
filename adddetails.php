@@ -5,7 +5,6 @@ $UID=$_SESSION['ID'];
 
 
 
-
 $submit=$_POST['submit'];
 
 if($submit==1){
