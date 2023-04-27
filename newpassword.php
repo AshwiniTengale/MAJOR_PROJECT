@@ -8,6 +8,9 @@ $email=$_POST["email"];
 $pass=$_POST["newPassword"];
 $conf_pass=$_POST["confirmPassword"];
 
+
+
+
 if($pass==$conf_pass){
 
 $sql="Select * From Registration where userid='$Id' and email='$email'";

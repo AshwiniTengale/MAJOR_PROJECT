@@ -18,7 +18,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.js"></script>
 
     </script>
-    <script src ="pdfs.js"></script>
+    <script src ="pdf1.js"></script>
 </head>
 <div>
             <button id="download"style="margin-left:5%;">download pdf</button>
@@ -519,7 +519,7 @@ $formatted_todate = date("j F Y", strtotime($toyear));
 
 ?>
 
- <div id="invoice" style="padding:5%;">
+ <!-- <div id="invoice" style="padding:5%;"> -->
  <!-- c=a>b?a:b; -->
 
 

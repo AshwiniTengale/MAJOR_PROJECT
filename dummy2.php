@@ -1,75 +1,90 @@
-<?php
-include 'connection.php';
-session_start();
-$UID=$_SESSION['ID'];
-$username=$_SESSION['USERNAME'];
-$userid=$_SESSION['userid'];
-$email=$_SESSION['email'];
-$phone=$_SESSION['phone'];
-$dob=$_SESSION['dob'];
-
-
-?>
-
-
-
-
-
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Forgot Password</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=N">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  </head>
-  <body>
-    
-    <div class="container">
+<head>
+	<title>Profile Picture</title>
+ <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+ 
+	<div class="container" >
       <div class="row">
-        <div class="col-md-6 offset-md-3 mt-5">
-          <h1 class="text-center mb-4">Edit Here</h1>
-          <form action="editprofile.php" method="post">
-
-          <div class="form-group">
-          <label for="name" class="form-label">User Name:</label>
-          <input type="text" class="form-control" id="username" name="username" value="<?php echo $username?>" >
-        </div>
-
-
-          <div class="form-group">
+        <div class="col-md-6 offset-md-3 mt-5" >
+      <h1 class="text-center mb-4">Registration Form</h1>
+      <form  action="dummydata.php" method="post"  enctype="multipart/form-data">
+      <div class="form-group">
           <label for="name" class="form-label">User ID:</label>
-          <input type="text" class="form-control" id="userid" name="userid" value="<?php echo $userid?>"  >
+          <input type="text" class="form-control" id="userid" name="userid" >
         </div>
-
-
-            <div class="form-group">
-                <label for="email">Email address</label>
-              <input type="email" class="form-control" id="email" name="email"  value="<?php echo $email?>" >
-            </div>
-
-            <div class="form-group">
+        <div class="form-group">
+          <label for="name" class="form-label">Name:</label>
+          <input type="text" class="form-control" id="name" name="username" >
+        </div>
+        <div class="form-group">
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" class="form-control" id="email" name="email" >
+        </div>
+        <div class="form-group">
           <label for="phone" class="form-label">Phone:</label>
-          <input type="tel" class="form-control" id="phone" name="phone"  value="<?php echo $phone?>" >
+          <input type="tel" class="form-control" id="phone" name="phone" >
         </div>
+        <div class="form-group">
+          <label for="dob" class="form-label">Date of Birth:</label>
+          <input type="date" class="form-control" id="dob" name="dob" >
+        </div>
+      
+        <div class="form-group">
+								<label for="department">Department</label>
+								
+								<select class="form-control" id="department" name="department" >
+								<option disabled selected>Select Department</option>
+									<option value="1">AI & ML</option>
+									<option value="2">Automobile</option>
+									<option value="3">Biotechnology</option>
+									<option value="4">Civil Engineering</option>
+									<option value="5">Computer Science & Engg</option>
+									<option value="6">Electronics and Communication Engg</option>
+									<option value="7">Electrical and Electronics Engg</option>
+									<option value="8">Electronics and Instrumentational Engg</option>
+									<option value="9">Industrial and Production Engg</option>
+									<option value="10">Information Science and Engg</option>
+									<option value="11">Mechanical Engg</option>
+									<option value="12">Physics</option>
+									<option value="13">Chemistry</option>
+								</select>
+							</div>
+              <div class="form-group">
+								<label for="category">Select Role</label>
+								<select class="form-control" id="selectrole" name="selectrole" >
+								<option disabled selected>Select Role</option>
+								<option value="1">Faculty</option>
+								<option value="2">Student</option>
+								</select>
+							</div>
+              <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="Password" name="password" placeholder="Password" pattern="(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+              title="Must contain atleast one number and one uppercase and one lowercase letter and 8 characters" >
+            </div>
+            <div class="form-group">
+              <label for="password">Confirm Password</label>
+              <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" pattern="(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+              title="Must contain atleast one number and one uppercase and one lowercase letter and 8 characters" >
+            </div>
 
             <div class="form-group">
-          <label for="dob" class="form-label">Date of Birth:</label>
-          <input type="date" class="form-control" id="dob" name="dob"  value="<?php echo $dob?>" >
+          <label for="profile" class="form-label">Profile Photo</label>
+          <input type="file" class="form-control" id="profile" name="profile" >
         </div>
-          
-            <div class="form-group">
-              <label for="password">New Password</label>
-              <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="New Password" pattern="(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-              title="Must contain atleast one number and one uppercase and one lowercase letter and 8 characters"  required>
-            </div>
-            
-         
-            <button type="submit" class="btn btn-primary btn-block">Submit</button>
-          </form>
+
+        <div class="text-center">
+            <button type="submit" name="submit" class="btn btn-primary btn-lg">Register</button>
         </div>
-      </div>
+
+       
+      </form>
+</div>
+</div>
     </div>
-    
-  </body>
+</body>
 </html>
