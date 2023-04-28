@@ -28,7 +28,7 @@
      <br><br>
           <input type="date"class="form-control"  id="toyear"  placeholder="To Date"  default="all" name="toyear"  style="padding-top:5%; width:100%"/>
      <br><br>
-          <input type="submit" value="Display" id="submit" style="padding-top:5%; width:100%;" />
+          <input type="submit"class="btn btn-primary" value="Display" id="submit" style="padding-top:5%; width:100%;" />
     </div>
 </form>
 </fieldset>

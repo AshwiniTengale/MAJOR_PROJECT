@@ -28,8 +28,8 @@
                                 <option value="6">Presentation </option>
                                 <option value="7">Webinar</option>
 								
-								</select>
-                                <input type="submit" value="Submit" id="submit"> <br><br>
+								</select><br>
+                                <input type="submit"class="btn btn-primary" value="Submit" id="submit"> <br><br>
 							</div>
                             
 </div>

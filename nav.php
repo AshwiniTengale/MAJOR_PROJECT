@@ -120,7 +120,7 @@ $USER=$_SESSION['USERNAME'];
 	<ul>
 	    
 		<div class="profile-logo" style="text-align:center;">
-	       <img src="<?=$_SESSION['profile']?>"   height="60" width="60" default= img src="image/default.png" >
+	       <img src="image/profile.jpeg"   height="60" width="60" default= img src="image/default.png" >
 		  
 		   <br>
 		   <p class="user">Welcome,<?php echo $USER ?></p>
