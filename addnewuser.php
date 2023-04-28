@@ -12,8 +12,10 @@ $dept=$_POST['department'];
 $role=$_POST['selectrole'];
 $password=$_POST['password'];
 $confirmPassword=$_POST['confirmPassword'];
+$profile=$_POST['profile'];
 
-
+session_start();
+$_SESSION['profile']=$profile;
 
 if($password==$confirmPassword){
 

@@ -19,6 +19,11 @@ $row = mysqli_fetch_assoc($result) ;//array elements
   session_start();
   $_SESSION['ID']=$row['Id'];
   $_SESSION['USERNAME']=$row['username'];
+  $_SESSION['userid']=$row['userid'];
+$_SESSION['email']=$row['email'];
+$_SESSION['phone']=$row['phone'];
+$_SESSION['dob']=$row['dob'];
+
 
 
 if($SELECTROLE=='admin')

@@ -120,7 +120,7 @@ $USER=$_SESSION['USERNAME'];
 	<ul>
 	    
 		<div class="profile-logo" style="text-align:center;">
-	       <img src="image/.jpeg" alt="" height="60" width="60" >
+	       <img src="<?=$_SESSION['profile']?>"   height="60" width="60" default= img src="image/default.png" >
 		  
 		   <br>
 		   <p class="user">Welcome,<?php echo $USER ?></p>
@@ -144,7 +144,7 @@ $USER=$_SESSION['USERNAME'];
           </div>
         </li>
         <li><a href="display.php" onclick="setActive(this)">Display Details</a></li>
-		<li><a href="#contact" onclick="setActive(this)">Edit Details</a></li>
+		<li><a href="editresearchdeatils.php" onclick="setActive(this)">Edit Details</a></li>
         
       <li><a href="edit.php" onclick="setActive(this)">Edit profile</a></li>
       <li><a href="logout.php" onclick="setActive(this)">Logout</a></li>
@@ -172,6 +172,7 @@ $USER=$_SESSION['USERNAME'];
         <h1 style="text-align:center;margin-left:15%;padding:1px 16px;padding-top:2%;">  B.V.V SANGHA'S  </h1>
 		
        <h2 style="text-align:center;margin-left:15%; margin-top:1%;padding:1px 16px;">BASAVESHWAR  ENGINEERING COLLEGE, BAGALKOTE</h2>
+	  
 
   
   

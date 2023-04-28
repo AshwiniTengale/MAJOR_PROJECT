@@ -43,8 +43,11 @@ include 'nav.php' ;
   }
   ?>
 
-  <div style="float:right;margin-right:40px;">
-   
+  <!-- <div style="float:right;margin-right:40px;"> -->
+  <div class="trow" style="float:left; margin-left:15%; margin-top:5%">
+  
+  <?php include 'summary.php';?>
+  <!-- </div> -->
   </div>
 </fieldset>
 
