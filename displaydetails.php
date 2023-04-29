@@ -12,116 +12,115 @@
             width:1%;
             height:60%;
         }
-        
-    </style>
+      </style>  
     
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.js"></script>
 
-    </script>
-    <script src ="pdf1.js"></script>
-</head>
-<div>
-            <button id="download"style="margin-left:5%;">download pdf</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.js"></script>
+    <script src ="pdfs.js"></script>
+   </head>
+<body>
+    
+
+           <div>
+                 <button id="download"style="margin-left:5%;">download pdf</button>
             </div>
 
-<?php
-include 'connection.php' ;
+            <div id="invoice" style="padding:5%;">
+
+           
+
+        <?php
+            include 'connection.php' ;
 
 // include 'htmllink.php';
 
-session_start();
-$UID=$_SESSION['ID'];
+            session_start();
+            $UID=$_SESSION['ID'];
 
 
-$tablename=$_POST['selectactivity'];
-if($tablename=="All")
-{
-    $from_query="(SELECT MIN(dop) FROM Book where Book.User_id='$UID')";
-$fromresult=mysqli_query($conn,$from_query);
-if($fromresult->num_rows > 0)
-{
-    if($row = mysqli_fetch_assoc($fromresult)) 
-    {
-       $Min_date=$row['MIN(dop)'];
-    }
-}
-$fromyear=$_POST['fromyear']==NULL?$Min_date:$_POST['fromyear'];
+            $tablename=$_POST['selectactivity'];
+            if($tablename=="All")
+            {
+                $from_query="(SELECT MIN(dop) FROM Book where Book.User_id='$UID')";
+            $fromresult=mysqli_query($conn,$from_query);
+            if($fromresult->num_rows > 0)
+            {
+                if($row = mysqli_fetch_assoc($fromresult)) 
+                {
+                   $Min_date=$row['MIN(dop)'];
+                }
+            }
+            $fromyear=$_POST['fromyear']==NULL?$Min_date:$_POST['fromyear'];
+    
+            $to_query="(SELECT MAX(dop) FROM Book where Book.User_id='$UID')";    
+            $toresult=mysqli_query($conn,$to_query);
+            if($toresult->num_rows > 0)    
+            {
+                    if($row = mysqli_fetch_assoc($toresult)) 
+                    {
+                        $Max_date=$row['MAX(dop)'];
+                    }    
+            }
+            $toyear=$_POST['toyear']==NULL?$Max_date:$_POST['toyear'];;
+            $formatted_fromdate = date("j F Y", strtotime($fromyear));
+                         $formatted_todate = date("j F Y", strtotime($toyear));
 
-$to_query="(SELECT MAX(dop) FROM Book where Book.User_id='$UID')";
-$toresult=mysqli_query($conn,$to_query);
-if($toresult->num_rows > 0)
-{
-    if($row = mysqli_fetch_assoc($toresult)) 
-    {
-        $Max_date=$row['MAX(dop)'];
-    }
-}
-$toyear=$_POST['toyear']==NULL?$Max_date:$_POST['toyear'];;
+       ?>
+
  
-$formatted_fromdate = date("j F Y", strtotime($fromyear));
+ 
 
-$formatted_todate = date("j F Y", strtotime($toyear));
 
-?>
-
- <div id="invoice" style="padding:5%;">
- <!-- c=a>b?a:b; -->
+ 
+     <?php
 
 
 
-<?php
-
-
-
-echo $row['count'];
-echo "<p font-size:12pt;font-family:Times New Roman,Times,serif;>","List of Research Publications";
-echo "<br>","Name of the Department <br>";
+            echo $row['count'];
+            echo "<p font-size:12pt;font-family:Times New Roman,Times,serif;>","List of Research Publications";
+            echo "<br>","Name of the Department <br>";
 
 
 
 
 
-$sql_query="SELECT * FROM Book
+            $sql_query="SELECT * FROM Book
              WHERE Book.dop BETWEEN '$fromyear' AND '$toyear' AND Book.User_id='$UID'";
-$result=mysqli_query($conn,$sql_query);
+            $result=mysqli_query($conn,$sql_query);
 
 
 
 
 // $sql_query="SELECT * From Book where User_id='$UID'";
 // $result=mysqli_query($conn,$sql_query);
-if ($result->num_rows > 0) {
-  
-    echo "<br>","Research Publications from " . $formatted_fromdate . " to " . $formatted_todate;
+            if ($result->num_rows > 0) {
+                echo "<br>","Research Publications from " . $formatted_fromdate . " to " . $formatted_todate;
+                ?>
+                <h2><?php echo "Books/Book Chapters" ?></h2>  <br>
+                 <table  class="table table-sm">
+                <thead class="thead-light">
+                    <tr>
+                        <th >Sl.No</th>
+                        <th>Authors</th>
+                        <th>Year of Publication</th>
+                        <th>Title of the Chapter </th>
+                        <th>Title of the Book </th>
+                        <th>Volume No and<br>Issue No</th>
+                        <th>Page No</th>
+                        <th>URL</th>
+                        <th>Scopus Indexed</th>
+                        <th>Web of Science</th>
+                        <th>ISSN/<br>ISBN</th>
+                        <th>SC/<br>ST/<br>GEN</th>
+                        <th>International/<br>National</th>
+                        </tr>        
+                        </thead>
           
-          ?>
-          <h2><?php echo "Books/Book Chapters" ?></h2>
-         
-          <br>
-              <table  class="table table-sm">
-                  <thead class="thead-light">
-              <tr>
-              <th >Sl.No</th>
-              <th>Authors</th>
-              <th>Year of Publication</th>
-              <th>Title of the Chapter </th>
-              <th>Title of the Book </th>
-              <th>Volume No and<br>Issue No</th>
-              <th>Page No</th>
-              <th>URL</th>
-              <th>Scopus Indexed</th>
-              <th>Web of Science</th>
-              <th>ISSN/<br>ISBN</th>
-              <th>SC/<br>ST/<br>GEN</th>
-              <th>International/<br>National</th>
-              </tr>        
-             </thead>
-          
-  <?php
-  $sl=1;
+               <?php
+              $sl=1;
   
               while($row = mysqli_fetch_assoc($result)) {
-  ?>     
+              ?>     
            <tr >
             <td><?php echo $sl++; ?></td>
             <td><?php echo $row["bauthor"].",".$row["coauthor"]; ?></td>
@@ -433,62 +432,6 @@ if($row = mysqli_fetch_assoc($result3))
 
 }
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 else{
 
 $from_query="(SELECT MIN(dop) FROM $tablename where $tablename.User_id='$UID')";
@@ -519,8 +462,7 @@ $formatted_todate = date("j F Y", strtotime($toyear));
 
 ?>
 
- <!-- <div id="invoice" style="padding:5%;"> -->
- <!-- c=a>b?a:b; -->
+ 
 
 
 
@@ -763,4 +705,6 @@ if($row = mysqli_fetch_assoc($result3))
    $Count3=$row['COUNT(scopusindex)'];
    echo "Others: $Count3<br> ";
 }}
-?></div>
+?>
+</div>
+</body>

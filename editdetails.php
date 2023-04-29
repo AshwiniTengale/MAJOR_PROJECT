@@ -15,7 +15,8 @@
         }
         
     </style>
-</head>
+
+
 <?php 
 include 'connection.php';
 session_start();
