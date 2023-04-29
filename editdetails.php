@@ -24,7 +24,7 @@ $UID=$_SESSION['ID'];
 
 
 $table= $_POST['selectactivity'];
-echo $UID,$table;
+
 
 
 $sql="SELECT * FROM $table WHERE User_id='$UID'";
@@ -39,7 +39,7 @@ if($result->num_rows > 0)
     if($row = mysqli_fetch_assoc($result)) 
     {
         
-echo $result->num_rows;
+
         ?>
         <h2><?php echo "Books/Book Chapters" ?></h2>
        
@@ -243,7 +243,7 @@ $sl=1;
      <td><form action="Update_reserach_details.php" method="post">
           <input type="hidden" value="<?php echo $table;?>" name="tablename">
           <input type="hidden" value="<?php echo $row['Id'];?>" name="rowid">
-         
+          
           <button type="submit" class="btn btn-primary" name="SubmitButton">Update</button>
 
 
@@ -252,6 +252,7 @@ $sl=1;
           <?php echo $message;?>
           <input type="hidden" value="<?php echo $table;?>" name="tablename">
           <input type="hidden" value="<?php echo $row['Id'];?>" name="rowid">
+         
           <button type="submit" class="btn btn-primary" name="SubmitButton">Delete</button>
        </form></td>
    </tr>

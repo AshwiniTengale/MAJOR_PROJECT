@@ -10,12 +10,19 @@ $rowid=$_POST['rowid'];
 $sql="Select * From $table where  Id='$rowid'";
 $result=mysqli_query($conn,$sql);
 
+
+
+
+
        if($result)
      
    {
 
        $row= mysqli_fetch_assoc($result);
-     echo $table,$rowid;
+       session_start();
+       $_SESSION['RID']=$row['Id'];
+
+    
        ?>
          
      <?php   
@@ -48,18 +55,12 @@ $result=mysqli_query($conn,$sql);
 
       <div class="mb-3">
         <label for="text" class="form-label">Author</label>
-     <input type="text" class="form-control" id="bauthor" name="bauthor" value="<?php echo $row["bauthor"];?>"  required >
+     <input type="text" class="form-control" id="bauthor" name="bauthor" value="<?php echo $row["bauthor"];?>"  >
       </div>
       
       <div>
       <div class="mb-3">
-<!--       
-      <label for="response" class="form-label">Are there any co-authors present</label>
-          <select id="response" class="form-control" name="response" onchange="showTextBox()"required  >
-            <option value=""></option>
-            <option value="Y">Yes</option>
-            <option value="N">No</option>
-          </select> -->
+
      <div id="textbox" class="mb-3">
          <label for="Coauthor's Name" class="form-label">Coauthor's Name </label>
          <input type="text"class="form-control" id="coauthor" name="coauthor" value="<?php echo $row["coauthor"];?>"  placeholder="Ex:Ramkrishna,Manohar">
@@ -69,12 +70,12 @@ $result=mysqli_query($conn,$sql);
   
       <div class="mb-3">
         <label for="doi" class="form-label">Date of Publication</label>
-        <input type="date" class="form-control" id="dop" name="dop" value="<?php echo $row["dop"];?>" required >
+        <input type="date" class="form-control" id="dop" name="dop" value="<?php echo $row["dop"];?>"  >
       </div>
 
       <div class="mb-3">
         <label for="name" class="form-label">Title of the Chapter</label>
-        <input type="text" class="form-control" id="chapter" name="chapter" value="<?php echo $row["chapter"];?>" required >
+        <input type="text" class="form-control" id="chapter" name="chapter" value="<?php echo $row["chapter"];?>"  >
       </div>
 
       <div class="mb-3">
@@ -106,13 +107,13 @@ $result=mysqli_query($conn,$sql);
 
       <div class="mb-3">
     <label for="url" class="form-label">URL</label>
-    <input type="url" class="form-control" id="url" name="url"value="<?php echo $row["url"];?>"  >
+    <input type="url" class="form-control" id="url" name="url" value="<?php echo $row["url"];?>"  >
     </div>
       
     <div class="mb-3">
         <label for="scopusindex" class="form-label">Scopus Index</label>
-        <select class="form-control" id="scopusindex" name="scopusindex"  required >
-          <option value=""><?php echo $row["scopusindex"];?></option>
+        <select class="form-control" id="scopusindex" name="scopusindex"  value="<?php echo $row["scopusindex"];?>"  >
+        <option  value="<?php echo $row["scopusindex"];?>"><?php echo $row["scopusindex"];?></option>
           <option value="Y">Yes</option>
           <option value="N">No</option>
           
@@ -121,8 +122,8 @@ $result=mysqli_query($conn,$sql);
 
       <div class="mb-3">
         <label for="webOfscience" class="form-label">Web Of Science</label>
-        <select class="form-control" id="webofscience" name="webofscience" value="<?php echo $row["webofscience"];?>" required >
-          <option value=""><?php echo $row["webofscience"];?></option>
+        <select class="form-control" id="webofscience" name="webofscience" value="<?php echo $row["webofscience"];?>"  >
+          <option value="<?php echo $row["webofscience"];?>" > <?php echo $row["webofscience"];?></option>
           <option value="Y">Yes</option>
           <option value="N">No</option>
           
@@ -136,8 +137,8 @@ $result=mysqli_query($conn,$sql);
 
      <div class="mb-3">
         <label for="category" class="form-label">Category</label>
-        <select class="form-control" id="category" name="category"  value="<?php echo $row["category"];?>" required >
-          <option value=""><?php echo $row["category"];?></option>
+        <select class="form-control" id="category" name="category"  value="<?php echo $row["category"];?>"  >
+          <option value="<?php echo $row["category"];?>" ><?php echo $row["category"];?></option>
           <option value="SC">SC</option>
           <option value="ST">ST</option>
           <option value="General">General</option>
@@ -146,8 +147,8 @@ $result=mysqli_query($conn,$sql);
 
     <div class="mb-3">
       <label for="level" class="form-label">Level</label>
-      <select class="form-control" id="level" name="level"value="<?php echo $row["level"];?>"   required >
-      <option value=""><?php echo $row["level"];?></option>
+      <select class="form-control" id="level" name="level"value="<?php echo $row["level"];?>"    >
+      <option alue="<?php echo $row["level"];?>" ><?php echo $row["level"];?></option>
       <option value="National">National</option>
       <option value="International">International</option>
       
@@ -158,7 +159,7 @@ $result=mysqli_query($conn,$sql);
 </div>
 <div class="row">
 <div class="col-md-6">
-<button type="submit" class="btn btn-primary" value="1" name="submit">Submit</button>
+<button type="submit" class="btn btn-primary" value="Book" name="submit">Submit</button>
 </div>
 </div>
 
@@ -226,7 +227,7 @@ $result=mysqli_query($conn,$sql);
       <div class="mb-3">
           <label for="scopusindex" class="form-label">Scopus Index</label>
           <select class="form-control" id="scopusindex" name="scopusindex">
-            <option value=""><?php echo $row["scopusindex"];?> </option>
+            <option value="<?php echo $row["scopusindex"];?>"><?php echo $row["scopusindex"];?> </option>
             <option value="Y">Yes</option>
             <option value="N">No</option>
             
@@ -236,7 +237,7 @@ $result=mysqli_query($conn,$sql);
         <div class="mb-3">
           <label for="webOfscience" class="form-label">Web Of Science</label>
           <select class="form-control" id="webofscience" name="webofscience">
-            <option value=""><?php echo $row["webofscience"];?> </option>
+            <option value="<?php echo $row["webofscience"];?>"><?php echo $row["webofscience"];?> </option>
             <option value="Y">Yes</option>
             <option value="N">No</option>
             
@@ -251,7 +252,7 @@ $result=mysqli_query($conn,$sql);
        <div class="mb-3">
           <label for="category" class="form-label">Category</label>
           <select class="form-control" id="category" name="category">
-            <option value=""><?php echo $row["category"];?> </option>
+            <option value="<?php echo $row["category"];?>"><?php echo $row["category"];?> </option>
             <option value="SC">SC</option>
             <option value="ST">ST</option>
             <option value="General">General</option>
@@ -261,7 +262,7 @@ $result=mysqli_query($conn,$sql);
       <div class="mb-3">
         <label for="level" class="form-label">Level</label>
         <select class="form-control" id="level" name="level">
-        <option value=""><?php echo $row["level"];?> </option>
+        <option value="<?php echo $row["level"];?>"><?php echo $row["level"];?> </option>
         <option value="National">National</option>
         <option value="International">International</option>
         
@@ -272,7 +273,7 @@ $result=mysqli_query($conn,$sql);
 </div>
 <div class="row">
   <div class="col-md-6">
-<button type="submit" class="btn btn-primary" name="submit" value="2">Submit</button>
+<button type="submit" class="btn btn-primary" name="submit" value="Conference">Submit</button>
 </div>
 </div>
 
@@ -288,7 +289,7 @@ $result=mysqli_query($conn,$sql);
 elseif($table=='Journal'){
     ?>
     <body>
-<form action="adddetails.php" method="POST" > 
+<form action="updatedetails.php" method="POST" > 
   <div class="container">
     <h1 style="text-align:center">Journal Papers</h1>
     <div class="row">
@@ -351,7 +352,7 @@ elseif($table=='Journal'){
         <div class="mb-3">
           <label for="scopusindex" class="form-label">Scopus Index</label>
           <select class="form-control" id="scopusindex" name="scopusindex">
-            <option value=""><?php echo $row["scopusindex"];?></option>
+            <option value="<?php echo $row["scopusindex"];?>"><?php echo $row["scopusindex"];?></option>
             <option value="Y">Yes</option>
             <option value="N">No</option>
             
@@ -361,7 +362,7 @@ elseif($table=='Journal'){
         <div class="mb-3">
           <label for="webOfscience" class="form-label">Web Of Science</label>
           <select class="form-control" id="webofscience" name="webofscience">
-            <option value=""><?php echo $row["webofscience"];?></option>
+            <option value="<?php echo $row["webofscience"];?>"><?php echo $row["webofscience"];?></option>
             <option value="Y">Yes</option>
             <option value="N">No</option>
             
@@ -376,7 +377,7 @@ elseif($table=='Journal'){
         <div class="mb-3">
           <label for="category" class="form-label">Category</label>
           <select class="form-control" id="category" name="category">
-            <option value=""><?php echo $row["category"];?></option>
+            <option value="<?php echo $row["category"];?>"><?php echo $row["category"];?></option>
             <option value="SC">SC</option>
             <option value="ST">ST</option>
             <option value="General">General</option>
@@ -386,7 +387,7 @@ elseif($table=='Journal'){
       <div class="mb-3">
         <label for="level" class="form-label">Level</label>
         <select class="form-control" id="level" name="level">
-        <option value=""><?php echo $row["level"];?></option>
+        <option value="<?php echo $row["level"];?>"><?php echo $row["level"];?></option>
         <option value="National">National</option>
         <option value="International">International</option>
         
@@ -398,7 +399,7 @@ elseif($table=='Journal'){
 </div>
 <div class="row">
   <div class="col-md-6">
-  <button type="submit" class="btn btn-primary" name="submit" value="3">Submit</button>
+  <button type="submit" class="btn btn-primary" name="submit" value="Journal">Submit</button>
 </div>
 </div>
 

@@ -18,8 +18,9 @@
   </head>
   <body>
   <div class="containerbox">
-    <div class="container">
-      <h1 class="mt-5 mb-3">Add Patent details</h1>
+  
+        <div class="col-md-6 offset-md-3 " >
+      <h1 class="mb-3">Add Patent details</h1>
       <form action="" method="post">
         <div class="mb-3">
             <label for="faculty member" class="col-sm-offset col-form-label">Faculty Member</label>
@@ -57,7 +58,7 @@
             <input type="date" class="form-control" id="dop" placeholder="dop">
         </div>
 
-        <div class="mb-3">
+        <div class="">
             <label for="input5" class="col-sm-offset col-form-label">Award Reference No</label>
             <input type="text" class="form-control" id="arefno" placeholder="">
         </div>
@@ -67,6 +68,7 @@
         </div>
       </form>
     </div>
+</div>
 </div>
   </body>
 </html>
