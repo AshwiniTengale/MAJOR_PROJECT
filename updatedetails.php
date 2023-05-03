@@ -34,6 +34,15 @@ $cauthor=$_POST['cauthor'];
  $publisher=$_POST['publisher'];
 $volumeno=$_POST['volumeno'];
 
+//Patent data
+$fmember=$_POST['fmember'];
+$title=$_POST['title'];
+$application_no=$_POST['application_no'];
+$reference_no=$_POST['reference_no'];
+$status=$_POST['status'];
+//  echo $fmember."<br>",$title."<br>",$application_no."<br>",$reference_no."<br>",$status."<br>",$dop;
+
+
 $submit=$_POST['submit'];
 
 if($submit=="Book"){
@@ -144,6 +153,37 @@ location.href='editresearchdeatils.php';
 <?php
 }
 }
+
+
+elseif($submit=='Patent')
+{
+  $update="UPDATE Patent SET fmember='$fmember',title='$title',application_no='$application_no',dop='$dop',reference_no='$reference_no',status='$status' WHERE Id='$RID' AND User_id='$UID' ";
+  if(mysqli_query($conn,$update)){
+    ?>
+      
+    <script>
+
+    alert("Data Updated Successfully");
+    location.href='editresearchdeatils.php';
+  </script>
+
+<?php
+}
+
+
+else{
+?>
+<script>
+
+alert("Something when Wrong");
+location.href='editresearchdeatils.php';
+</script>  
+<?php
+}
+}
+    
+
+  
 
 
 

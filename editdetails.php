@@ -184,8 +184,10 @@ if($result->num_rows > 0)
 }
 
 
-
 }
+
+
+
 elseif($table=='Journal')
 {
     if($result->num_rows > 0)
@@ -268,6 +270,77 @@ $sl=1;
 
 }
 
+
+
+
+elseif($table=='Patent')
+{
+    if($result->num_rows > 0)
+{
+    if($row = mysqli_fetch_assoc($result)) 
+    {
+                 
+    ?>
+    <h2 ><?php echo "Patents" ?></h2>
+    <br>
+
+        <table  class="table table-sm">
+            <thead class="thead-light">
+          <tr>
+                <th>Sl.No</th>
+                <th>Faculty Member</th>
+                <th>Title</th>
+                <th>Application No </th>
+                <th>Ref.and Date</th>
+                <th>Status</th>
+                <th>Update</th>
+                <th>Delete</th>
+             
+              </tr>        
+       </thead>
+    
+<?php
+$sl=1;
+
+        do {
+?>     
+    <tr >
+     <td><?php echo $sl++; ?></td>
+     <td><?php echo $row["fmember"]; ?></td>
+     <td><?php echo $row["title"];?></td>
+     <td><?php echo $row["application_no"];?></td>
+     <td><?php echo $row["reference_no"]." & ".$row["dop"];?></td>
+     <td><?php echo $row["status"];?></td>
+     
+
+
+     <td><form action="Update_reserach_details.php" method="post">
+          <input type="hidden" value="<?php echo $table;?>" name="tablename">
+          <input type="hidden" value="<?php echo $row['Id'];?>" name="rowid">
+          
+          <button type="submit" class="btn btn-primary" name="SubmitButton">Update</button>
+
+
+          </form></td>
+          <td> <form action="deleterow.php" method="post">
+          <?php echo $message;?>
+          <input type="hidden" value="<?php echo $table;?>" name="tablename">
+          <input type="hidden" value="<?php echo $row['Id'];?>" name="rowid">
+         
+          <button type="submit" class="btn btn-primary" name="SubmitButton">Delete</button>
+       </form></td>
+   </tr>
+<?php }while ($row = mysqli_fetch_assoc($result));
+        
+?>
+   </table>   <?php
+
+
+
+    }
+}
+
+}
 
 
 ?>

@@ -39,8 +39,9 @@
 
 
             $tablename=$_POST['selectactivity'];
+            
             if($tablename=="All")
-            {
+{      
                 $from_query="(SELECT MIN(dop) FROM Book where Book.User_id='$UID')";
             $fromresult=mysqli_query($conn,$from_query);
             if($fromresult->num_rows > 0)
@@ -91,8 +92,8 @@
 
 
 
-// $sql_query="SELECT * From Book where User_id='$UID'";
-// $result=mysqli_query($conn,$sql_query);
+ // $sql_query="SELECT * From Book where User_id='$UID'";
+ // $result=mysqli_query($conn,$sql_query);
             if ($result->num_rows > 0) {
                 echo "<br>","Research Publications from " . $formatted_fromdate . " to " . $formatted_todate;
                 ?>
@@ -156,73 +157,73 @@
      echo "Scopus_index_count: $count1 <br>";
  }
  $sql2="SELECT COUNT(webofscience)
-FROM Book
-WHERE webofscience='Y' AND scopusindex='N'   AND Book.dop BETWEEN '$fromyear' AND '$toyear' AND Book.User_id='$UID'";
+ FROM Book
+   WHERE webofscience='Y' AND scopusindex='N'   AND Book.dop BETWEEN '$fromyear' AND '$toyear'    AND Book.User_id='$UID'";
 
-$result2=mysqli_query($conn,$sql2);
+   $result2=mysqli_query($conn,$sql2);
 
-if($row = mysqli_fetch_assoc($result2))
-{
+   if($row = mysqli_fetch_assoc($result2))
+  {
     $count2=$row['COUNT(webofscience)'];
     echo "Webofscience_count: $count2 <br>" ;
-}
-$sql3="SELECT COUNT(scopusindex)
-FROM Book
-WHERE scopusindex='N' AND webofscience='N' AND Book.dop BETWEEN '$fromyear' AND '$toyear' AND Book.User_id='$UID'";
-$result3=mysqli_query($conn,$sql3);
+  }
+  $sql3="SELECT COUNT(scopusindex)
+  FROM Book
+  WHERE scopusindex='N' AND webofscience='N' AND Book.dop BETWEEN '$fromyear' AND '$toyear' AND   Book.User_id='$UID'";
+  $result3=mysqli_query($conn,$sql3);
 
-if($row = mysqli_fetch_assoc($result3))
-{
+    if($row = mysqli_fetch_assoc($result3))
+      {
     $Count3=$row['COUNT(scopusindex)'];
     echo "Others: $Count3<br> ";
-}
-}else{
+      }
+      }else{
     echo "<br>  Books/Book Chapters: Nil <br>";
-} 
+      } 
 
 
-//////////////////////////////////////  CONFERENCE  ////////////////////////////////////////////////
+      //////////////////////////////////////        CONFERENCE  ////////////////////////////////////////////////
 
-$from_query="(SELECT MIN(dop) FROM Conference where Conference.User_id='$UID')";
-$fromresult=mysqli_query($conn,$from_query);
-if($fromresult->num_rows > 0)
-{
+      $from_query="(SELECT MIN(dop) FROM Conference where Conference.User_id='$UID')";
+      $fromresult=mysqli_query($conn,$from_query);
+      if($fromresult->num_rows > 0)
+    {      
     if($row = mysqli_fetch_assoc($fromresult)) 
     {
        $Min_date=$row['MIN(dop)'];
     }
-}
-$fromyear=$_POST['fromyear']==NULL?$Min_date:$_POST['fromyear'];
+        }
+        $fromyear=$_POST['fromyear']==NULL?$Min_date:$_POST['fromyear'];
 
-$to_query="(SELECT MAX(dop) FROM Conference where Conference.User_id='$UID')";
-$toresult=mysqli_query($conn,$to_query);
-if($toresult->num_rows > 0)
-{
+        $to_query="(SELECT MAX(dop) FROM Conference where Conference.User_id='$UID')";
+        $toresult=mysqli_query($conn,$to_query);
+        if($toresult->num_rows > 0)
+        {
     if($row = mysqli_fetch_assoc($toresult)) 
     {
         $Max_date=$row['MAX(dop)'];
     }
-}
-$toyear=$_POST['toyear']==NULL?$Max_date:$_POST['toyear'];;
+        }
+        $toyear=$_POST['toyear']==NULL?$Max_date:$_POST['toyear'];;
  
-$formatted_fromdate = date("j F Y", strtotime($fromyear));
+        $formatted_fromdate = date("j F Y", strtotime($fromyear));
 
-$formatted_todate = date("j F Y", strtotime($toyear));
+        $formatted_todate = date("j F Y", strtotime($toyear));
 
-$sql_query2="SELECT * FROM Conference
+               $sql_query2="SELECT * FROM Conference
         WHERE Conference.dop BETWEEN '$fromyear' AND '$toyear' AND Conference.User_id='$UID'";
-$result2=mysqli_query($conn,$sql_query2);
+               $result2=mysqli_query($conn,$sql_query2);
 
 
 
 
 
-if ($result2->num_rows > 0) {
+               if ($result2->num_rows > 0) {
            
-echo "<br>","Research Publications from " . $formatted_fromdate . " to " .$formatted_todate;           
+        echo "<br>","Research Publications from " . $formatted_fromdate . " to " .        $formatted_todate;           
     ?><br>
-    <h2 ><?php echo "Conference Publications" ?></h2>
-    <br>
+            <h2 ><?php echo "Conference Publications" ?></h2>
+            <br>
         <table  class="table table-sm">
             <thead class="thead-light">
             <tr>
@@ -242,11 +243,11 @@ echo "<br>","Research Publications from " . $formatted_fromdate . " to " .$forma
             </tr>        
        </thead>
     
-<?php
-$sl=1;
+      <?php
+      $sl=1;
 
         while($row = mysqli_fetch_assoc($result2)) {
-?>     
+      ?>     
      <tr >
       <td><?php echo $sl++; ?></td>
       <td><?php echo $row["cauthor"].",".$row["coauthor"]; ?></td>
@@ -262,86 +263,86 @@ $sl=1;
       <td><?php echo $row["category"];?></td>
       <td><?php echo $row["level"];?></td>
     </tr>
-<?php }
+ <?php }
        
 
-$sql="SELECT COUNT(scopusindex)
-FROM Conference
-WHERE scopusindex='Y' AND webofscience='N' AND Conference.dop BETWEEN '$fromyear' AND '$toyear' AND Conference.User_id='$UID'  ";
+            $sql="SELECT COUNT(scopusindex)
+         FROM Conference
+         WHERE scopusindex='Y' AND webofscience='N' AND Conference.dop BETWEEN '$fromyear' AND          '$toyear' AND Conference.User_id='$UID'  ";
 
-$result=mysqli_query($conn,$sql);
+         $result=mysqli_query($conn,$sql);
 
-if($row = mysqli_fetch_assoc($result))
-{
+         if($row = mysqli_fetch_assoc($result))
+         {
     $count1=$row['COUNT(scopusindex)'];
     echo "<br>Scopus_index_count: $count1 <br>";
-}
-$sql2="SELECT COUNT(webofscience)
-FROM Conference
-WHERE webofscience='Y' AND scopusindex='N'   AND Conference.dop BETWEEN '$fromyear' AND '$toyear' AND Conference.User_id='$UID'";
+  }
+     $sql2="SELECT COUNT(webofscience)
+     FROM Conference
+   WHERE webofscience='Y' AND scopusindex='N'   AND Conference.dop BETWEEN '$fromyear' AND      '$toyear' AND Conference.User_id='$UID'";
 
-$result2=mysqli_query($conn,$sql2);
+     $result2=mysqli_query($conn,$sql2);
 
-if($row = mysqli_fetch_assoc($result2))
-{
+     if($row = mysqli_fetch_assoc($result2))
+    {
    $count2=$row['COUNT(webofscience)'];
    echo "Webofscience_count: $count2 <br>" ;
-}
-$sql3="SELECT COUNT(scopusindex)
-FROM Conference
-WHERE scopusindex='N' AND webofscience='N' AND Conference.dop BETWEEN '$fromyear' AND '$toyear' AND Conference.User_id='$UID'";
-$result3=mysqli_query($conn,$sql3);
-
-if($row = mysqli_fetch_assoc($result3))
-{
+        }
+    $sql3="SELECT COUNT(scopusindex)
+    FROM Conference
+    WHERE scopusindex='N' AND webofscience='N' AND Conference.dop BETWEEN '$fromyear' AND     '$toyear' AND Conference.User_id='$UID'";
+    $result3=mysqli_query($conn,$sql3);
+      
+      if($row = mysqli_fetch_assoc($result3))
+      {
    $Count3=$row['COUNT(scopusindex)'];
    echo "Others: $Count3<br> ";
 
-} }else{
+      } }else{
     echo "<br>  Conference Publications=Nil <br>";
-}   
-?></table>   
+   }   
+   ?></table>   
 
 
-<?php
+ <?php
 
-/////////////////////////////////////Journal/////////////////////////////////////////
+ /////////////////////////////////////Journal/////////////////////////////////////////
 
 
 
-$from_query="(SELECT MIN(dop) FROM Journal)";
-$fromresult=mysqli_query($conn,$from_query);
-if($fromresult->num_rows > 0)
-{
+    $from_query="(SELECT MIN(dop) FROM Journal)";
+    $fromresult=mysqli_query($conn,$from_query);
+                if($fromresult->num_rows > 0)
+                {
     if($row = mysqli_fetch_assoc($fromresult)) 
     {
        $Min_date=$row['MIN(dop)'];
     }
-}
-$fromyear=$_POST['fromyear']==NULL?$Min_date:$_POST['fromyear'];
+                }
+                $fromyear=$_POST['fromyear']==NULL?$Min_date:$_POST['fromyear'];
 
-$to_query="(SELECT MAX(dop) FROM Journal)";
-$toresult=mysqli_query($conn,$to_query);
-if($toresult->num_rows > 0)
-{
+                $to_query="(SELECT MAX(dop) FROM Journal)";
+                $toresult=mysqli_query($conn,$to_query);
+                if($toresult->num_rows > 0)
+                {
     if($row = mysqli_fetch_assoc($toresult)) 
     {
         $Max_date=$row['MAX(dop)'];
     }
-}
-$toyear=$_POST['toyear']==NULL?$Max_date:$_POST['toyear'];;
+    }
+                $toyear=$_POST['toyear']==NULL?$Max_date:$_POST['toyear'];;
  
-$formatted_fromdate = date("j F Y", strtotime($fromyear));
+                $formatted_fromdate = date("j F Y", strtotime($fromyear));
 
-$formatted_todate = date("j F Y", strtotime($toyear));
+                $formatted_todate = date("j F Y", strtotime($toyear));
 
 
-$sql_query3="SELECT * FROM Journal
+            $sql_query3="SELECT * FROM Journal
         WHERE Journal.dop BETWEEN '$fromyear' AND '$toyear' AND Journal.User_id='$UID'";
-$result3=mysqli_query($conn,$sql_query3);
+            $result3=mysqli_query($conn,$sql_query3);
 
 
-if ($result3->num_rows > 0) {
+            if ($result3->num_rows > 0) {
     echo "<br>","Research Publications from " . $formatted_fromdate . " to " . $formatted_todate;
            
     ?>
@@ -368,11 +369,11 @@ if ($result3->num_rows > 0) {
               </tr>        
        </thead>
     
-<?php
-$sl=1;
+            <?php
+            $sl=1;
 
         while($row = mysqli_fetch_assoc($result3)) {
-?>     
+   ?>     
     <tr >
      <td><?php echo $sl++; ?></td>
      <td><?php echo $row["jname"].",".$row["coauthor"]; ?></td>
@@ -388,9 +389,9 @@ $sl=1;
      <td><?php echo $row["category"];?></td>
      <td><?php echo $row["level"];?></td>
    </tr>
-<?php }
+  <?php }
         
-?>
+   ?>
    </table>   <?php
    
  $sql="SELECT COUNT(scopusindex)
@@ -405,37 +406,119 @@ $sl=1;
      echo "Scopus_index_count: $count1 <br>";
  }
  $sql2="SELECT COUNT(webofscience)
-FROM Journal
-WHERE webofscience='Y' AND scopusindex='N'   AND Journal.dop BETWEEN '$fromyear' AND '$toyear' AND Journal.User_id='$UID'";
+    FROM Journal
+    WHERE webofscience='Y' AND scopusindex='N'   AND Journal.dop BETWEEN '$fromyear' AND     '$toyear' AND Journal.User_id='$UID'";
 
-$result2=mysqli_query($conn,$sql2);
+    $result2=mysqli_query($conn,$sql2);
 
-if($row = mysqli_fetch_assoc($result2))
-{
+    if($row = mysqli_fetch_assoc($result2))
+ {
     $count2=$row['COUNT(webofscience)'];
     echo "Webofscience_count: $count2 <br>" ;
-}
-$sql3="SELECT COUNT(scopusindex)
-FROM Journal
-WHERE scopusindex='N' AND webofscience='N' AND Journal.dop BETWEEN '$fromyear' AND '$toyear' AND Journal.User_id='$UID'";
-$result3=mysqli_query($conn,$sql3);
+ }
+  $sql3="SELECT COUNT(scopusindex)
+   FROM Journal
+   WHERE scopusindex='N' AND webofscience='N' AND Journal.dop BETWEEN '$fromyear' AND '$toyear'    AND Journal.User_id='$UID'";
+   $result3=mysqli_query($conn,$sql3);
 
-if($row = mysqli_fetch_assoc($result3))
-{
+    if($row = mysqli_fetch_assoc($result3))
+    {
     $Count3=$row['COUNT(scopusindex)'];
     echo "Others: $Count3<br> ";
-} 
-}else{
+    } 
+    }
+    else{
     echo "<br>  Journal: Nil <br>";
-} 
+  } 
+//////////////////// Patent ////////////////
+
+$from_query="(SELECT MIN(dop) FROM Patent)";
+    $fromresult=mysqli_query($conn,$from_query);
+                if($fromresult->num_rows > 0)
+                {
+    if($row = mysqli_fetch_assoc($fromresult)) 
+    {
+       $Min_date=$row['MIN(dop)'];
+    }
+                }
+                $fromyear=$_POST['fromyear']==NULL?$Min_date:$_POST['fromyear'];
+
+                $to_query="(SELECT MAX(dop) FROM Patent)";
+                $toresult=mysqli_query($conn,$to_query);
+                if($toresult->num_rows > 0)
+                {
+    if($row = mysqli_fetch_assoc($toresult)) 
+    {
+        $Max_date=$row['MAX(dop)'];
+    }
+    }
+                $toyear=$_POST['toyear']==NULL?$Max_date:$_POST['toyear'];;
+ 
+                $formatted_fromdate = date("j F Y", strtotime($fromyear));
+
+                $formatted_todate = date("j F Y", strtotime($toyear));
 
 
-}
+            $sql_query3="SELECT * FROM Patent
+        WHERE Patent.dop BETWEEN '$fromyear' AND '$toyear' AND Patent.User_id='$UID'";
+            $result3=mysqli_query($conn,$sql_query3);
 
-else{
 
-$from_query="(SELECT MIN(dop) FROM $tablename where $tablename.User_id='$UID')";
-$fromresult=mysqli_query($conn,$from_query);
+            if ($result3->num_rows > 0) {
+    echo "<br>","Research Publications from " . $formatted_fromdate . " to " . $formatted_todate;
+           
+    ?>
+    <h2 ><?php echo " List of Patents Applied " ?></h2>
+    <br>
+
+        <table  class="table table-sm">
+            <thead class="thead-light">
+          <tr>
+                <th>Sl.No</th>
+                <th>Faculty Member</th>
+                <th>Title</th>
+                <th>Application No</th>
+                <th>Ref. and Date</th>
+                <th>Status <br>(Applied/Awarded/Published)</th>
+                
+             
+              </tr>        
+       </thead>
+    
+            <?php
+            $sl=1;
+
+        while($row = mysqli_fetch_assoc($result3)) {
+   ?>     
+    <tr >
+     <td><?php echo $sl++; ?></td>
+     <td><?php echo $row["fmember"]; ?></td>
+     <td><?php echo $row["title"];?></td>
+     <td><?php echo $row["application_no"];?></td>
+     <td><?php echo $row["reference_no"]." and ".$row["dop"];?></td>
+     <td><?php echo $row["status"];?></td>
+     
+   </tr>
+  <?php }
+        
+   ?>
+   </table>   
+  
+<?php
+
+
+
+
+        }
+
+ }
+
+/// ALL Table end
+
+ else{
+
+ $from_query="(SELECT MIN(dop) FROM $tablename where $tablename.User_id='$UID')";
+  $fromresult=mysqli_query($conn,$from_query);
 if($fromresult->num_rows > 0)
 {
     if($row = mysqli_fetch_assoc($fromresult)) 
@@ -598,7 +681,8 @@ if($tablename=='Conference')
                      <td><?php echo $row["level"];?></td>
                    </tr>
               <?php }
-                       }else{
+                       }
+                       else{
                         echo "<br>  Conference Publications=Nil <br>";
                        }
               ?>
@@ -663,10 +747,58 @@ if($tablename=='Conference')
       ?>
           </table>   <?php }
 }
-          
- 
-?>
 
+
+
+
+if($tablename=='Patent')
+{
+  if ($result->num_rows > 0)
+   {
+    echo "<br>","Research Publications from " . $formatted_fromdate . " to " . $formatted_todate;
+    ?>
+    <h2 ><?php echo " List of Patents Applied" ?></h2>
+    <br>
+
+        <table  class="table table-sm">
+            <thead class="thead-light">
+          <tr>
+                <th>Sl.No</th>
+                <th>Faculty Member</th>
+                <th>Title</th>
+                <th>Application No </th>
+                <th>Ref. and Date </th>
+                
+                <th style="text-align:center;"> Status<br>(Applied/Awarded/Published)</th>
+                
+             
+              </tr>        
+       </thead>
+    
+<?php
+$sl=1;
+
+        while($row = mysqli_fetch_assoc($result))
+         {
+?>     
+    <tr >
+     <td><?php echo $sl++; ?></td>
+     <td><?php echo $row["fmember"]; ?></td>
+     <td><?php echo $row["title"];?></td>
+     <td><?php echo $row["application_no"];?></td>
+     <td><?php echo $row["reference_no"]." & ".$row["dop"];?></td>
+     <td><?php echo $row["status"];?></td>
+    
+     <?php }
+               }
+               else{
+                echo "<br>   Journal Papers = Nil <br>";
+              }
+      ?>
+          </table>   <?php }
+
+
+?>
 
 <?php
 
@@ -704,7 +836,22 @@ if($row = mysqli_fetch_assoc($result3))
 {
    $Count3=$row['COUNT(scopusindex)'];
    echo "Others: $Count3<br> ";
-}}
+}
+}
+
+
 ?>
+
+
+
+
+
+
+
+<!-- ////////////////////////////////////////////////////////////// -->
+
+
+
+
 </div>
 </body>

@@ -411,7 +411,73 @@ elseif($table=='Journal'){
 </body>
 <?php
 }
+
+elseif($table=='Patent'){?>
+
+<body>
+  <form action="updatedetails.php " method="POST">
+  <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3 mt-5">
+
+          <h1 class="text-center mb-4">Edit Patent details</h1>
+          
+
+          <div class="form-group">
+          <label for="fmember" class="form-label">Faculty Member</label>
+          <input type="text" class="form-control" id="fmember" name="fmember" value="<?php echo $row["fmember"];?>">
+         </div>
+
+            <div class="form-group">
+
+              <label for="title">Title</label>
+              <input type="text" class="form-control" id="title" name="title" value="<?php echo $row["title"];?>">
+              
+            </div>
+          
+            <div class="form-group">
+              <label for="application_no">Application_No</label>
+              <input type="application_no" class="form-control" id="application_no" name="application_no" value="<?php echo $row["application_no"];?>">
+            </div>
+
+
+            <div class="form-group">
+              <label for="dop">Award Date</label>
+              <input type="date" class="form-control" id="dop" name="dop" value="<?php echo $row["dop"];?>" >
+            </div>
+
+
+            <div class="form-group">
+              <label for="reference_no">Award Reference No</label>
+              <input type="refernce_no" class="form-control" id="reference_no" name="reference_no" value="<?php echo $row["reference_no"];?>">
+            </div>
+
+            <div class="form-group">
+            <label for="status">Status</label>
+             <select class="form-control" id="status" name="status"  value="<?php echo $row["status"];?>"  >
+          <option value="<?php echo $row["status"];?>" ><?php echo $row["status"];?></option>
+          <option value="Applied">Applied</option>
+          <option value="Awarded">Awarded</option>
+          <option value="Published">Published</option>
+            </select>
+         </div><br>
+           
+         
+         <button type="submit" class="btn btn-primary" name="submit" value="Patent">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+<?php
+
+}
+
    ?>
+</form>
+</body>
    
    
    

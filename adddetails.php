@@ -109,9 +109,41 @@ echo "Error: " . $sql . "<br>" . mysqli_error($conn);
  
 }
 }
-elseif($submit==4){
-    
+elseif($submit==4)
+{
+  $fmember=$_POST['fmember'];
+  $title=$_POST['title'];
+  $application_no=$_POST['application_no'];
+  $status=$_POST['status'];
+  $dop=$_POST['dop'];
+  $reference_no=$_POST['reference_no'];
+  // echo $reference_no;
+  // echo $UID."<br>";
+  // echo  $fmember."<br>",$title."<br>",$application_no."<br>",$status."<br>",$dop."<br>",$award_no."<br>";
+
+  $patent_sql="INSERT INTO Patent (`User_id`,`fmember`,`title`,`application_no`,`dop`,`reference_no`,`status`) VALUES ('$UID','$fmember','$title','$application_no','$dop','$reference_no','$status')";
+
+  if (mysqli_query($conn,$patent_sql))
+   {
+    ?>
+    <script>alert("Inserted Successfully");
+     location.href='faculty.php';
+    </script>
+
+  <?php
+    } 
+else {
+echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+ 
+ 
 }
+
+
+
+}
+
+
+
 ?>
 
 

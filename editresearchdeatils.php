@@ -23,7 +23,7 @@
                                 <option value="Book">Books/Book Chapters</option>
                                 <option value="Conference">Conference Publications</option>
                                 <option value="Journal">Journal Papers</option>
-                                <option value="Patents">Patents</option>
+                                <option value="Patent">Patents</option>
                                 <option value="Phd">PhD</option>
                                 <option value="6">Presentation </option>
                                 <option value="7">Webinar</option>
