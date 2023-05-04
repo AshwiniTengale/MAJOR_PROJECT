@@ -340,7 +340,73 @@ $sl=1;
     }
 }
 
+}elseif($table=='Phd'){
+    if($result->num_rows > 0)
+{
+    if($row = mysqli_fetch_assoc($result)) 
+    {?>
+        <h2 ><?php echo " List of Phd Details " ?></h2>
+        <br>
+    
+            <table  class="table table-sm">
+                <thead class="thead-light">
+              <tr>
+                    <th>Sl.No</th>
+                    <th>Research Scholar</th>
+                    <th>Title of the Thesis</th>
+                    <th>Name of the Guide</th>
+                    <th>Name of the Co-Guide</th>
+                    <th>Status <br>(Awarded/Submitted/Ongoing)</th>
+                    <th> Date </th>
+                    <th>Research Center</th>
+                    <th>Update</th>
+                <th>Delete</th>
+                    
+                    
+                 
+                  </tr>        
+           </thead>
+           <?php
+                 $sl=1;
+     
+             do {
+        ?>     
+         <tr >
+          <td><?php echo $sl++; ?></td>
+          <td><?php echo $row["pname"]; ?></td>
+          <td><?php echo $row["thesis"];?></td>
+          <td><?php echo $row["guide"];?></td>
+          <td><?php echo $row["coguide"];?></td>
+          <td><?php echo $row["status"];?></td>
+          <td><?php echo $row["dop"];?></td>
+          <td><?php echo $row["research"];?></td>
+          <td><form action="Update_reserach_details.php" method="post">
+          <input type="hidden" value="<?php echo $table;?>" name="tablename">
+          <input type="hidden" value="<?php echo $row['Id'];?>" name="rowid">
+          
+          <button type="submit" class="btn btn-primary" name="SubmitButton">Update</button>
+
+
+          </form></td>
+          <td> <form action="deleterow.php" method="post">
+          <?php echo $message;?>
+          <input type="hidden" value="<?php echo $table;?>" name="tablename">
+          <input type="hidden" value="<?php echo $row['Id'];?>" name="rowid">
+         
+          <button type="submit" class="btn btn-primary" name="SubmitButton">Delete</button>
+       </form></td>
+          
+        </tr>
+       <?php }while($row = mysqli_fetch_assoc($result));
+             
+        ?>
+        </table>   
+       
+     <?php
+             }
+
 }
 
+}
 
 ?>

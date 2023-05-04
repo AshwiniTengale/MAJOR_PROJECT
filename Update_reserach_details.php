@@ -474,6 +474,79 @@ elseif($table=='Patent'){?>
 <?php
 
 }
+elseif($table=='Phd'){
+?>
+  <body>
+<form action="updatedetails.php" method="POST" > 
+  <div class="container">
+    <h1 style="text-align:center">PhD Details</h1>
+     <div class="row">
+      <div class="col-md-6">
+
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="pname" name="pname" value="<?php echo $row["pname"];?>">
+        </div>
+
+       
+        
+        <div class="mb-3">
+          <label for="publisher" class="form-label">Title of the Thesis</label>
+          <input type="text" class="form-control" id="thesis" name="thesis" value="<?php echo $row["thesis"];?>">
+        </div>
+
+        <div class="mb-3">
+          <label for="doi" class="form-label">Name of the Guide</label>
+          <input type="text" class="form-control" id="guide" name="guide" value="<?php echo $row["guide"];?>">
+        </div>
+
+        <div class="mb-3">
+           
+        
+       <div id="textbox" style="display:none">
+           <label for="Coauthor's Name " class="form-label">Co-guide's Name </label>
+           <input type="text"class="form-control" id="coguide" name="coguide" value="<?php echo $row["coguide"];?>">
+       </div>
+        </div>
+       
+  
+    </div>
+      <div class="col-md-6">
+      <div class="mb-3">
+            <label for="collabrating Institute" class="form-label">Status</label>
+            <select class="form-select" id="status" name="status">
+            <option value="<?php echo $row["status"];?>"><?php echo $row["status"];?></option>
+            <option value="Awarded">PhD Awarded</option>
+            <option value="Submitted">PhD Submited Details</option>
+            <option value="Ongoing">PhD Ongoing Details</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="issueNo" class="form-label"> Date</label>
+          <input type="date" class="form-control" id="dop" name="dop" value="<?php echo $row["dop"];?>">
+        </div>
+
+        <div class="mb-3">
+          <label for="doi" class="form-label">Research Center</label>
+          <input type="text" class="form-control" id="research" name="research"value="<?php echo $row["research"];?>">
+        </div>
+  </div>
+</div>
+
+<div class="">
+  <div class="col-md-6">
+<button type="submit" class="btn btn-primary"  name="submit" value="Phd">Submit</button>
+</div>
+</div>
+
+  </form>
+</div>
+
+           
+<?php
+
+}
 
    ?>
 </form>

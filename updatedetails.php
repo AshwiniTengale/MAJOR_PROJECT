@@ -41,6 +41,14 @@ $application_no=$_POST['application_no'];
 $reference_no=$_POST['reference_no'];
 $status=$_POST['status'];
 //  echo $fmember."<br>",$title."<br>",$application_no."<br>",$reference_no."<br>",$status."<br>",$dop;
+//phd
+
+$pname=$_POST['pname'];
+$thesis=$_POST['thesis'];
+$guide=$_POST['guide'];
+$coguide=$_POST['coguide'];
+
+$research=$_POST['research'];
 
 
 $submit=$_POST['submit'];
@@ -159,6 +167,7 @@ elseif($submit=='Patent')
 {
   $update="UPDATE Patent SET fmember='$fmember',title='$title',application_no='$application_no',dop='$dop',reference_no='$reference_no',status='$status' WHERE Id='$RID' AND User_id='$UID' ";
   if(mysqli_query($conn,$update)){
+  
     ?>
       
     <script>
@@ -180,6 +189,31 @@ location.href='editresearchdeatils.php';
 </script>  
 <?php
 }
+}
+
+elseif($submit=='Phd'){
+  
+  $update="UPDATE Phd SET pname='$pname',thesis='$thesis',guide='$guide',coguide='$coguide',status='$status',dop='$dop',research='$research' WHERE Id='$RID' AND User_id='$UID' ";
+  if(mysqli_query($conn,$update)){
+    ?>
+      
+    <script>
+
+    alert("Data Updated Successfully");
+    location.href='editresearchdeatils.php';
+  </script>
+
+<?php
+}
+else{
+  ?>
+  <script>
+  
+  alert("Something when Wrong");
+  location.href='editresearchdeatils.php';
+  </script>  
+  <?php
+  }
 }
     
 
