@@ -505,11 +505,87 @@ $from_query="(SELECT MIN(dop) FROM Patent)";
    </table>   
   
 <?php
-
-
-
-
         }
+ ////////////////PHD///////////////////////////////////////
+
+
+ $from_query="(SELECT MIN(dop) FROM Phd)";
+ $fromresult=mysqli_query($conn,$from_query);
+             if($fromresult->num_rows > 0)
+             {
+ if($row = mysqli_fetch_assoc($fromresult)) 
+ {
+    $Min_date=$row['MIN(dop)'];
+ }
+             }
+             $fromyear=$_POST['fromyear']==NULL?$Min_date:$_POST['fromyear'];
+
+             $to_query="(SELECT MAX(dop) FROM Phd)";
+             $toresult=mysqli_query($conn,$to_query);
+             if($toresult->num_rows > 0)
+             {
+ if($row = mysqli_fetch_assoc($toresult)) 
+ {
+     $Max_date=$row['MAX(dop)'];
+ }
+ }
+             $toyear=$_POST['toyear']==NULL?$Max_date:$_POST['toyear'];;
+
+             $formatted_fromdate = date("j F Y", strtotime($fromyear));
+
+             $formatted_todate = date("j F Y", strtotime($toyear));
+             $sql_query3="SELECT * FROM Phd
+             WHERE Phd.dop BETWEEN '$fromyear' AND '$toyear' AND Phd.User_id='$UID'";
+                 $result3=mysqli_query($conn,$sql_query3);
+     
+     
+                 if ($result3->num_rows > 0) {
+         echo "<br>","Research Publications from " . $formatted_fromdate . " to " . $formatted_todate;
+                
+         ?>
+         <h2 ><?php echo " List of Phd Details " ?></h2>
+         <br>
+     
+             <table  class="table table-sm">
+                 <thead class="thead-light">
+               <tr>
+                     <th>Sl.No</th>
+                     <th>Research Scholar</th>
+                     <th>Title of the Thesis</th>
+                     <th>Name of the Guide</th>
+                     <th>Name of the Co-Guide</th>
+                     <th>Status <br>(Awarded/Submitted/Ongoing)</th>
+                     <th> Date </th>
+                     <th>Research Center</th>
+                     
+                     
+                  
+                   </tr>        
+            </thead>
+         
+                 <?php
+                 $sl=1;
+     
+             while($row = mysqli_fetch_assoc($result3)) {
+        ?>     
+         <tr >
+          <td><?php echo $sl++; ?></td>
+          <td><?php echo $row["pname"]; ?></td>
+          <td><?php echo $row["thesis"];?></td>
+          <td><?php echo $row["guide"];?></td>
+          <td><?php echo $row["coguide"];?></td>
+          <td><?php echo $row["status"];?></td>
+          <td><?php echo $row["dop"];?></td>
+          <td><?php echo $row["research"];?></td>
+          
+        </tr>
+       <?php }
+             
+        ?>
+        </table>   
+       
+     <?php
+             }
 
  }
 
@@ -556,7 +632,6 @@ $formatted_todate = date("j F Y", strtotime($toyear));
 echo $row['count'];
 echo "<p font-size:12pt;font-family:Times New Roman,Times,serif;>","List of Research Publications";
 echo "<br>","Name of the Department";
-
 
 
 
@@ -792,10 +867,65 @@ $sl=1;
      <?php }
                }
                else{
-                echo "<br>   Journal Papers = Nil <br>";
+                echo "<br>   Patent Details = Nil <br>";
               }
       ?>
           </table>   <?php }
+
+if($tablename=='Phd')
+{
+  if ($result->num_rows > 0)
+   {
+    echo "<br>","Research Publications from " . $formatted_fromdate . " to " . $formatted_todate;
+    ?>
+    <h2 ><?php echo " List of PhD Details" ?></h2>
+    <br>
+    <br>
+     
+             <table  class="table table-sm">
+                 <thead class="thead-light">
+               <tr>
+                     <th>Sl.No</th>
+                     <th>Research Scholar</th>
+                     <th>Title of the Thesis</th>
+                     <th>Name of the Guide</th>
+                     <th>Name of the Co-Guide</th>
+                     <th>Status <br>(Awarded/Submitted/Ongoing)</th>
+                     <th> Date </th>
+                     <th>Research Center</th>
+                     
+                     
+                  
+                   </tr>        
+            </thead>
+         
+                 <?php
+                 $sl=1;
+     
+             while($row = mysqli_fetch_assoc($result)) {
+        ?>     
+         <tr >
+          <td><?php echo $sl++; ?></td>
+          <td><?php echo $row["pname"]; ?></td>
+          <td><?php echo $row["thesis"];?></td>
+          <td><?php echo $row["guide"];?></td>
+          <td><?php echo $row["coguide"];?></td>
+          <td><?php echo $row["status"];?></td>
+          <td><?php echo $row["dop"];?></td>
+          <td><?php echo $row["research"];?></td>
+          
+        </tr>
+       <?php }
+             
+        ?>
+        </table>   
+       
+     <?php
+             } else{
+              echo "<br>   Phd Details = Nil <br>";
+            }
+    ?>
+        </table>   <?php }
 
 
 ?>

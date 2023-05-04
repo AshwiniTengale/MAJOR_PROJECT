@@ -18,7 +18,7 @@
         <option value="Conference">Conference Publications</option>
         <option value="Journal">Journal Papers</option>
         <option value="Patent">Patents</option>
-        <option value="PhD">PhD</option>
+        <option value="Phd">PhD</option>
         <option value="6">Presentation </option>
         <option value="7">Webinar</option>
                         

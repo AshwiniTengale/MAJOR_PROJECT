@@ -109,6 +109,7 @@ echo "Error: " . $sql . "<br>" . mysqli_error($conn);
  
 }
 }
+
 elseif($submit==4)
 {
   $fmember=$_POST['fmember'];
@@ -138,7 +139,39 @@ echo "Error: " . $sql . "<br>" . mysqli_error($conn);
  
 }
 
+}
 
+elseif($submit==5)
+{
+ 
+  $pname=$_POST['pname'];
+  $thesis=$_POST['thesis'];
+  $guide=$_POST['guide'];
+  $coguide=$_POST['coguide'];
+  $status=$_POST['status'];
+  $dop=$_POST['dop'];
+  $research=$_POST['research'];
+
+ 
+
+ 
+ $sql="INSERT INTO Phd (`User_id`,`pname`,`thesis`,`guide`,`coguide`,`status`,`dop`,`research`)
+   VALUES ('$UID','$pname','$thesis','$guide','$coguide','$status','$dop','$research')";
+
+  if (mysqli_query($conn,$sql))
+   {
+    ?>
+    <script>alert("Inserted Successfully");
+     location.href='faculty.php';
+    </script>
+
+  <?php
+    } 
+else {
+echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+ 
+ 
+}
 
 }
 
