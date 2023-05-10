@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="bootstrap.css">
 	<style>
 		/* Style for navigation bar */
+		
 		nav {
 			background-color: #333;
 			overflow: hidden;
@@ -139,14 +140,14 @@ $USER=$_SESSION['USERNAME'];
             <a href="journal.php"  onclick="setActive(this)">Journal Papers</a>
             <a href="patent.php" onclick="setActive(this)">Patent</a>
             <a href="phd.php" onclick="setActive(this)">PhD</a>
-            <a href="presentation.php" onclick="setActive(this)">Presentation</a>
-            <a href="webinar.php" onclick="setActive(this)">Webinar</a>
+            <!-- <a href="presentation.php" onclick="setActive(this)">Presentation</a>
+            <a href="webinar.php" onclick="setActive(this)">Webinar</a> -->
           </div>
         </li>
         <li><a href="display.php" onclick="setActive(this)">Display Details</a></li>
 		<li><a href="editresearchdeatils.php" onclick="setActive(this)">Edit Details</a></li>
         
-      <li><a href="edit.php" onclick="setActive(this)">Edit profile</a></li>
+      <li><a href="edit.php" onclick="setActive(this)">Edit Profile</a></li>
       <li><a href="logout.php" onclick="setActive(this)">Logout</a></li>
 
     </ul>

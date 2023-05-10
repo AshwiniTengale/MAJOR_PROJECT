@@ -7,7 +7,16 @@
     <title>Document</title>
     <link rel="stylesheet" href="bootstrap.css">
     <style>
+ body{
  
+ background-image: url('image/BACKGROUND.jpg');
+ background-size: cover;  
+ background-position:center center;
+ background-repeat:N-repeat;
+ height:100vh;
+ 
+ 
+ }
 </style>
 </head>
 <body>

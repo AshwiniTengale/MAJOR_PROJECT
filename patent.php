@@ -13,6 +13,16 @@
   h1{
     text-align: center;
   }
+  body{
+ 
+ background-image: url('image/BACKGROUND.jpg');
+ background-size: cover;  
+ background-position:center center;
+ background-repeat:N-repeat;
+ height:100vh;
+ 
+ 
+ }
 
     </style>
   </head>
