@@ -167,6 +167,7 @@
     $count2=$row['COUNT(webofscience)'];
     echo "Webofscience_count: $count2 <br>" ;
   }
+  
   $sql3="SELECT COUNT(scopusindex)
   FROM Book
   WHERE scopusindex='N' AND webofscience='N' AND Book.dop BETWEEN '$fromyear' AND '$toyear' AND   Book.User_id='$UID'";
@@ -177,6 +178,19 @@
     $Count3=$row['COUNT(scopusindex)'];
     echo "Others: $Count3<br> ";
       }
+      ///
+      $sql4="SELECT COUNT(webofscience)
+ FROM Book
+   WHERE webofscience='Y' AND scopusindex='Y'   AND Book.dop BETWEEN '$fromyear' AND '$toyear'    AND Book.User_id='$UID'";
+
+   $result4=mysqli_query($conn,$sql4);
+
+   if($row = mysqli_fetch_assoc($result4))
+  {
+    $count4=$row['COUNT(webofscience)'];
+    echo "Both: $count4 <br>" ;
+  }
+  //
       }else{
     echo "<br>  Books/Book Chapters: Nil <br>";
       } 
@@ -262,7 +276,7 @@
       <td><?php echo $row["issn"];?></td>
       <td><?php echo $row["category"];?></td>
       <td><?php echo $row["level"];?></td>
-    </tr>
+    </tr></table>   
  <?php }
        
 
@@ -298,10 +312,22 @@
    $Count3=$row['COUNT(scopusindex)'];
    echo "Others: $Count3<br> ";
 
-      } }else{
+      }
+      $sql4="SELECT COUNT(webofscience)
+      FROM Conference
+        WHERE webofscience='Y' AND scopusindex='Y'   AND Conference.dop BETWEEN '$fromyear' AND '$toyear'    AND Conference.User_id='$UID'";
+     
+        $result4=mysqli_query($conn,$sql4);
+     
+        if($row = mysqli_fetch_assoc($result4))
+       {
+         $count4=$row['COUNT(webofscience)'];
+         echo "Both: $count4 <br>" ;
+       } 
+      }else{
     echo "<br>  Conference Publications=Nil <br>";
    }   
-   ?></table>   
+   ?>
 
 
  <?php
@@ -425,7 +451,18 @@
     {
     $Count3=$row['COUNT(scopusindex)'];
     echo "Others: $Count3<br> ";
-    } 
+    }
+    $sql4="SELECT COUNT(webofscience)
+    FROM Journal
+      WHERE webofscience='Y' AND scopusindex='Y'   AND Journal.dop BETWEEN '$fromyear' AND '$toyear'    AND Journal.User_id='$UID'";
+   
+      $result4=mysqli_query($conn,$sql4);
+   
+      if($row = mysqli_fetch_assoc($result4))
+     {
+       $count4=$row['COUNT(webofscience)'];
+       echo "Both: $count4 <br>" ;
+     }  
     }
     else{
     echo "<br>  Journal: Nil <br>";
@@ -967,6 +1004,17 @@ if($row = mysqli_fetch_assoc($result3))
    $Count3=$row['COUNT(scopusindex)'];
    echo "Others: $Count3<br> ";
 }
+$sql4="SELECT COUNT(webofscience)
+    FROM $tablename
+      WHERE webofscience='Y' AND scopusindex='Y'   AND $tablename.dop BETWEEN '$fromyear' AND '$toyear'    AND $tablename.User_id='$UID'";
+   
+      $result4=mysqli_query($conn,$sql4);
+   
+      if($row = mysqli_fetch_assoc($result4))
+     {
+       $count4=$row['COUNT(webofscience)'];
+       echo "Both: $count4 <br>" ;
+     }  
 }
 
 

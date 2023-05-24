@@ -6,6 +6,24 @@ $DEPT=$_POST['department'];
 $USERID=$_POST['userid'];
 $PASSWORD=$_POST['password'];
 
+if($SELECTROLE=='admin')
+{
+  $sql="SELECT * FROM admin WHERE User_id='$USERID' and dept='$DEPT' and password='$PASSWORD'";
+
+$result=mysqli_query($conn,$sql);
+$row = mysqli_fetch_assoc($result) ;//array elements
+
+
+ if(mysqli_num_rows($result) > 0){
+
+
+ header('Location:admin.php');
+ exit();
+ }
+}
+//////////////////////////////////////////////////////
+
+
 
 $sql="Select * From Registration where selectrole='$SELECTROLE' and department='$DEPT' and userid='$USERID' and password='$PASSWORD'";
 
@@ -26,12 +44,7 @@ $_SESSION['dob']=$row['dob'];
 
 
 
-if($SELECTROLE=='admin')
-{
- echo "admin";
- header('Location:admin.php');
- exit();
-}
+
 if($SELECTROLE=='1')
 {
  echo "faculty";

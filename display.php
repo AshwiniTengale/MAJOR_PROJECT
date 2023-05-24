@@ -19,13 +19,13 @@
         <option value="Journal">Journal Papers</option>
         <option value="Patent">Patents</option>
         <option value="Phd">PhD</option>
-        <option value="6">Presentation </option>
-        <option value="7">Webinar</option>
+       
                         
     </select><br>
-    <label for="scopusindex" class="form-label">Optional</label>
+    <label for="date" class="form-label">From Date</label>
           <input class="form-control" type="date" id="fromyear"  placeholder="From Date"  default="all" name="fromyear"  style="padding-top:5%; width:100%"/> 
      <br><br>
+     <label for="date" class="form-label">To Date</label>
           <input type="date"class="form-control"  id="toyear"  placeholder="To Date"  default="all" name="toyear"  style="padding-top:5%; width:100%"/>
      <br><br>
           <input type="submit"class="btn btn-primary" value="Display" id="submit" style="padding-top:5%; width:100%;" />
