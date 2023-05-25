@@ -192,18 +192,20 @@ if (!empty($type)) {
                 
                       //////////////////////////////////////        CONFERENCE  ////////////////////////////////////////////////
                 
-                      $from_query="(SELECT MIN(dop) FROM Conference ";
+                      $from_query="(SELECT MIN(dop) FROM Conference)";
                       $fromresult=mysqli_query($conn,$from_query);
                       if($fromresult->num_rows > 0)
                     {      
                     if($row = mysqli_fetch_assoc($fromresult)) 
                     {
+                      
                        $Min_date=$row['MIN(dop)'];
+                      
                     }
                         }
                         $fromyear=$_POST['fromyear']==NULL?$Min_date:$_POST['fromyear'];
                 
-                        $to_query="(SELECT MAX(dop) FROM Conference ";
+                        $to_query="(SELECT MAX(dop) FROM Conference)";
                         $toresult=mysqli_query($conn,$to_query);
                         if($toresult->num_rows > 0)
                         {
@@ -228,7 +230,7 @@ if (!empty($type)) {
                 
                                if ($result2->num_rows > 0) {
                            
-                        echo "<br>","Research Publications from " . $formatted_fromdate . " to".$formatted_todate;           
+                        echo "<br>","Research Publications from " . $formatted_fromdate . " to " .        $formatted_todate;           
                     ?><br>
                             <h2 ><?php echo "Conference Publications" ?></h2>
                             <br>
@@ -271,11 +273,11 @@ if (!empty($type)) {
                       <td><?php echo $row["category"];?></td>
                       <td><?php echo $row["level"];?></td>
                       </tr>
-     <?php   
-    }
-               
-     ?>
-         </table>   <?php
+                     <?php   
+                    }
+                               
+                     ?>
+                         </table>   <?php
                        
                 
                             $sql="SELECT COUNT(scopusindex)
