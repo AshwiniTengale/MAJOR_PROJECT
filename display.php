@@ -24,10 +24,10 @@
     </select><br>
     <label for="date" class="form-label">From Date</label>
           <input class="form-control" type="date" id="fromyear"  placeholder="From Date"  default="all" name="fromyear"  style="padding-top:5%; width:100%"/> 
-     <br><br>
+     <br>
      <label for="date" class="form-label">To Date</label>
           <input type="date"class="form-control"  id="toyear"  placeholder="To Date"  default="all" name="toyear"  style="padding-top:5%; width:100%"/>
-     <br><br>
+     <br>
           <input type="submit"class="btn btn-primary" value="Display" id="submit" style="padding-top:5%; width:100%;" />
     </div>
 </form>

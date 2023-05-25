@@ -25,8 +25,7 @@
                                 <option value="Journal">Journal Papers</option>
                                 <option value="Patent">Patents</option>
                                 <option value="Phd">PhD</option>
-                                <option value="6">Presentation </option>
-                                <option value="7">Webinar</option>
+                                
 								
 								</select><br>
                                 <input type="submit"class="btn btn-primary" value="Submit" id="submit"> <br><br>

@@ -276,13 +276,17 @@
       <td><?php echo $row["issn"];?></td>
       <td><?php echo $row["category"];?></td>
       <td><?php echo $row["level"];?></td>
-    </tr></table>   
- <?php }
+      </tr>
+     <?php   
+    }
+               
+     ?>
+         </table>   <?php
        
 
-            $sql="SELECT COUNT(scopusindex)
-         FROM Conference
-         WHERE scopusindex='Y' AND webofscience='N' AND Conference.dop BETWEEN '$fromyear' AND          '$toyear' AND Conference.User_id='$UID'  ";
+  $sql="SELECT COUNT(scopusindex)
+   FROM Conference
+ WHERE scopusindex='Y' AND webofscience='N' AND Conference.dop BETWEEN '$fromyear' AND '$toyear' AND Conference.User_id='$UID'  ";
 
          $result=mysqli_query($conn,$sql);
 
@@ -336,7 +340,7 @@
 
 
 
-    $from_query="(SELECT MIN(dop) FROM Journal)";
+    $from_query="(SELECT MIN(dop) FROM Journal where Journal.User_id='$UID')";
     $fromresult=mysqli_query($conn,$from_query);
                 if($fromresult->num_rows > 0)
                 {
@@ -347,7 +351,7 @@
                 }
                 $fromyear=$_POST['fromyear']==NULL?$Min_date:$_POST['fromyear'];
 
-                $to_query="(SELECT MAX(dop) FROM Journal)";
+                $to_query="(SELECT MAX(dop) FROM Journal where Journal.User_id='$UID')";
                 $toresult=mysqli_query($conn,$to_query);
                 if($toresult->num_rows > 0)
                 {
@@ -469,7 +473,7 @@
   } 
 //////////////////// Patent ////////////////
 
-$from_query="(SELECT MIN(dop) FROM Patent)";
+$from_query="(SELECT MIN(dop) FROM Patent where Patent.User_id='$UID')";
     $fromresult=mysqli_query($conn,$from_query);
                 if($fromresult->num_rows > 0)
                 {
@@ -480,7 +484,7 @@ $from_query="(SELECT MIN(dop) FROM Patent)";
                 }
                 $fromyear=$_POST['fromyear']==NULL?$Min_date:$_POST['fromyear'];
 
-                $to_query="(SELECT MAX(dop) FROM Patent)";
+                $to_query="(SELECT MAX(dop) FROM Patent where Patent.User_id='$UID')";
                 $toresult=mysqli_query($conn,$to_query);
                 if($toresult->num_rows > 0)
                 {
@@ -546,7 +550,7 @@ $from_query="(SELECT MIN(dop) FROM Patent)";
  ////////////////PHD///////////////////////////////////////
 
 
- $from_query="(SELECT MIN(dop) FROM Phd)";
+ $from_query="(SELECT MIN(dop) FROM Phd where Phd.User_id='$UID')";
  $fromresult=mysqli_query($conn,$from_query);
              if($fromresult->num_rows > 0)
              {
@@ -557,7 +561,7 @@ $from_query="(SELECT MIN(dop) FROM Patent)";
              }
              $fromyear=$_POST['fromyear']==NULL?$Min_date:$_POST['fromyear'];
 
-             $to_query="(SELECT MAX(dop) FROM Phd)";
+             $to_query="(SELECT MAX(dop) FROM Phd where Phd.User_id='$UID')";
              $toresult=mysqli_query($conn,$to_query);
              if($toresult->num_rows > 0)
              {

@@ -21,7 +21,7 @@ $row = mysqli_fetch_assoc($result) ;//array elements
  exit();
  }
 }
-//////////////////////////////////////////////////////
+
 
 
 
