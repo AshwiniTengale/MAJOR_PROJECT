@@ -42,13 +42,35 @@ if($result3->num_rows > 0)
     {
        $jcount=$row['count'];
     }
-    // echo "Book count :".$bcount."<br>";
-    // echo "Conference count :".$ccount."<br>";
-    // echo "Journal count :".$jcount."<br>";
+    
     
 }
 
 
+
+$sql4="SELECT COUNT(*) as count from Patent WHERE User_id='$UID'";
+$result4=mysqli_query($conn,$sql4);
+
+if($result4->num_rows > 0)
+{
+    if($row = mysqli_fetch_assoc($result4)) 
+    {
+       $pcount=$row['count'];
+    } 
+   
+}
+
+$sql5="SELECT COUNT(*) as count from Phd WHERE User_id='$UID'";
+$result5=mysqli_query($conn,$sql5);
+
+if($result4->num_rows > 0)
+{
+    if($row = mysqli_fetch_assoc($result5)) 
+    {
+       $phcount=$row['count'];
+    } 
+   
+}
 
 
 
@@ -81,6 +103,14 @@ if($result3->num_rows > 0)
     <tr>
         <td>Journal </td>
         <td style="text-align:center;"><?php echo $jcount ?></td>
+    </tr>
+    <tr>
+        <td>Patent </td>
+        <td style="text-align:center;"><?php echo $pcount ?></td>
+    </tr>
+    <tr>
+        <td>Phd </td>
+        <td style="text-align:center;"><?php echo $phcount ?></td>
     </tr>
     
 </table>
