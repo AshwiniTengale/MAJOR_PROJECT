@@ -509,7 +509,7 @@ $from_query="(SELECT MIN(dop) FROM Patent where Patent.User_id='$UID')";
     echo "<br>","Research Publications from " . $formatted_fromdate . " to " . $formatted_todate;
            
     ?>
-    <h2 ><?php echo " List of Patents Applied " ?></h2>
+    <h2 ><?php echo " List of Patents Details " ?></h2>
     <br>
 
         <table  class="table table-sm">
@@ -630,7 +630,7 @@ $from_query="(SELECT MIN(dop) FROM Patent where Patent.User_id='$UID')";
 
  }
 
-/// ALL Table end
+/// ALL Table end//////////////////
 
  else{
 

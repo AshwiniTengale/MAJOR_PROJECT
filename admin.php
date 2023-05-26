@@ -1,6 +1,4 @@
-<?php
 
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -233,11 +231,11 @@ body{
             <div class="form-group">
            
               <label for="date" class="form-label">From Date</label>
-          <input class="form-control" type="date" id="fromdate"  placeholder="From Date"  default="all" name="fromdate" >
+          <input class="form-control" type="date" id="fromdate"  placeholder="From Date"  default="all" name="fromyear" >
             </div>
             <div class="form-group">
             <label for="date" class="form-label">To Date</label>
-          <input class="form-control" type="date" id="todate"  placeholder="To Date"  default="all" name="todate" >
+          <input class="form-control" type="date" id="todate"  placeholder="To Date"  default="all" name="toyear" >
             </div>
          
             <button type="submit" class="btn btn-primary btn-block">Submit</button>
