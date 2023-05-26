@@ -38,10 +38,7 @@ if (!empty($tablename)) {
    
            
             if($tablename=='All'){
-                   
-
-               
-
+                  
                                 $from_query=$_POST['userid']==NULL?"(SELECT MIN(dop) FROM Book)":"(SELECT MIN(dop) FROM Book WHERE Book.User_id=$facultyid)";
                                
                                
@@ -67,7 +64,7 @@ if (!empty($tablename)) {
                             }
                             $toyear=$_POST['toyear']==NULL?$Max_date:$_POST['toyear'];
                             $formatted_fromdate = date("j F Y", strtotime($fromyear));
-                                         $formatted_todate = date("j F Y", strtotime($toyear));
+                            $formatted_todate = date("j F Y", strtotime($toyear));
                 
                        ?>
                  
@@ -81,7 +78,7 @@ if (!empty($tablename)) {
                 
                 
                 
-                            $toyear=$_POST['toyear']==NULL?$Max_date:$_POST['toyear'];
+                            
                 
                             $sql_query=$_POST['userid']==NULL?"SELECT * FROM Book
                              WHERE Book.dop BETWEEN '$fromyear' AND '$toyear'":"SELECT * FROM Book
@@ -89,10 +86,6 @@ if (!empty($tablename)) {
                             $result=mysqli_query($conn,$sql_query);
                 
                 
-                
-                
-                 // $sql_query="SELECT * From Book where User_id='$UID'";
-                 // $result=mysqli_query($conn,$sql_query);
                             if ($result->num_rows > 0) {
                                 echo "<br>","Research Publications from " . $formatted_fromdate . " to " . $formatted_todate;
                                 ?>
@@ -143,21 +136,28 @@ if (!empty($tablename)) {
                      ?>
                          </table>   <?php
                         //  $UID=$_SESSION['ID'];
-                
-                 $sql="SELECT COUNT(scopusindex)
+ 
+                 $sql=$_POST['userid']==NULL?"SELECT COUNT(scopusindex)
                  FROM Book
-                 WHERE scopusindex='Y' AND webofscience='N' AND Book.dop BETWEEN '$fromyear' AND '$toyear'   ";
+                 WHERE scopusindex='Y' AND webofscience='N' AND Book.dop BETWEEN '$fromyear' AND '$toyear'":"SELECT COUNT(scopusindex)
+                 FROM Book
+                 WHERE scopusindex='Y' AND webofscience='N' AND Book.dop BETWEEN '$fromyear' AND '$toyear' AND Book.User_id='$facultyid'";
                 
+
+               
                  $result=mysqli_query($conn,$sql);
                  
                  if($row = mysqli_fetch_assoc($result))
                  {
+                  
                      $count1=$row['COUNT(scopusindex)'];
                      echo "Scopus_index_count: $count1 <br>";
                  }
-                 $sql2="SELECT COUNT(webofscience)
+                 $sql2=$_POST['userid']==NULL?"SELECT COUNT(webofscience)
                  FROM Book
-                   WHERE webofscience='Y' AND scopusindex='N'   AND Book.dop BETWEEN '$fromyear' AND '$toyear' ";
+                   WHERE webofscience='Y' AND scopusindex='N'   AND Book.dop BETWEEN '$fromyear' AND '$toyear'":"SELECT COUNT(webofscience)
+                 FROM Book
+                   WHERE webofscience='Y' AND scopusindex='N'   AND Book.dop BETWEEN '$fromyear' AND '$toyear' AND Book.User_id='$facultyid'";
                 
                    $result2=mysqli_query($conn,$sql2);
                 
@@ -167,9 +167,12 @@ if (!empty($tablename)) {
                     echo "Web of science_count: $count2 <br>" ;
                   }
                   
-                  $sql3="SELECT COUNT(scopusindex)
+                  $sql3=$_POST['userid']==NULL?"SELECT COUNT(scopusindex)
                   FROM Book
-                  WHERE scopusindex='N' AND webofscience='N' AND Book.dop BETWEEN '$fromyear' AND '$toyear'";
+                  WHERE scopusindex='N' AND webofscience='N' AND Book.dop BETWEEN '$fromyear' AND '$toyear'":"SELECT COUNT(scopusindex)
+                  FROM Book
+                  WHERE scopusindex='N' AND webofscience='N' AND Book.dop BETWEEN '$fromyear' AND '$toyear' AND Book.User_id='$facultyid'";
+                  
                   $result3=mysqli_query($conn,$sql3);
                 
                     if($row = mysqli_fetch_assoc($result3))
@@ -178,9 +181,11 @@ if (!empty($tablename)) {
                     echo "Others: $Count3<br> ";
                       }
                       ///
-                      $sql4="SELECT COUNT(webofscience)
+                      $sql4=$_POST['userid']==NULL?"SELECT COUNT(webofscience)
                  FROM Book
-                   WHERE webofscience='Y' AND scopusindex='Y'   AND Book.dop BETWEEN '$fromyear' AND '$toyear' ";
+                   WHERE webofscience='Y' AND scopusindex='Y'   AND Book.dop BETWEEN '$fromyear' AND '$toyear' ":"SELECT COUNT(webofscience)
+                 FROM Book
+                   WHERE webofscience='Y' AND scopusindex='Y'   AND Book.dop BETWEEN '$fromyear' AND '$toyear' AND Book.User_id='$facultyid'";
                 
                    $result4=mysqli_query($conn,$sql4);
                 
@@ -197,7 +202,7 @@ if (!empty($tablename)) {
                 
                       //////////////////////////////////////        CONFERENCE  ////////////////////////////////////////////////
                 
-                      $from_query="(SELECT MIN(dop) FROM Conference)";
+                      $from_query=$_POST['userid']==NULL?"(SELECT MIN(dop) FROM Conference)":"(SELECT MIN(dop) FROM Conference WHERE Conference.User_id=$facultyid)";
                       $fromresult=mysqli_query($conn,$from_query);
                       if($fromresult->num_rows > 0)
                     {      
@@ -210,7 +215,7 @@ if (!empty($tablename)) {
                         }
                         $fromyear=$_POST['fromyear']==NULL?$Min_date:$_POST['fromyear'];
                 
-                        $to_query="(SELECT MAX(dop) FROM Conference)";
+                        $to_query=$_POST['userid']==NULL?"(SELECT MAX(dop) FROM Conference)":"(SELECT MAX(dop) FROM Conference WHERE Conference.User_id=$facultyid)";
                         $toresult=mysqli_query($conn,$to_query);
                         if($toresult->num_rows > 0)
                         {
@@ -225,14 +230,11 @@ if (!empty($tablename)) {
                 
                         $formatted_todate = date("j F Y", strtotime($toyear));
                 
-                               $sql_query2="SELECT * FROM Conference
-                        WHERE Conference.dop BETWEEN '$fromyear' AND '$toyear'";
+                               $sql_query2=$_POST['userid']==NULL?"SELECT * FROM Conference
+                               WHERE Conference.dop BETWEEN '$fromyear' AND '$toyear'":"SELECT * FROM Conference
+                               WHERE Conference.dop BETWEEN '$fromyear' AND '$toyear' AND Conference.User_id='$facultyid'";
                                $result2=mysqli_query($conn,$sql_query2);
-                
-                
-                
-                
-                
+
                                if ($result2->num_rows > 0) {
                            
                         echo "<br>","Research Publications from " . $formatted_fromdate . " to " .        $formatted_todate;           
@@ -285,9 +287,11 @@ if (!empty($tablename)) {
                          </table>   <?php
                        
                 
-                            $sql="SELECT COUNT(scopusindex)
-                         FROM Conference
-                         WHERE scopusindex='Y' AND webofscience='N' AND Conference.dop BETWEEN '$fromyear' AND  '$toyear'  ";
+                            $sql=$_POST['userid']==NULL?"SELECT COUNT(scopusindex)
+                            FROM Conference
+                            WHERE scopusindex='Y' AND webofscience='N' AND Conference.dop BETWEEN '$fromyear' AND '$toyear'":"SELECT COUNT(scopusindex)
+                            FROM Conference
+                            WHERE scopusindex='Y' AND webofscience='N' AND Conference.dop BETWEEN '$fromyear' AND '$toyear' AND Conference.User_id='$facultyid'";
                 
                          $result=mysqli_query($conn,$sql);
                 
@@ -296,9 +300,11 @@ if (!empty($tablename)) {
                     $count1=$row['COUNT(scopusindex)'];
                     echo "<br>Scopus_index_count: $count1 <br>";
                   }
-                     $sql2="SELECT COUNT(webofscience)
+                     $sql2=$_POST['userid']==NULL?"SELECT COUNT(webofscience)
                      FROM Conference
-                   WHERE webofscience='Y' AND scopusindex='N'   AND Conference.dop BETWEEN '$fromyear' AND      '$toyear'";
+                   WHERE webofscience='Y' AND scopusindex='N'   AND Conference.dop BETWEEN '$fromyear' AND '$toyear'":"SELECT COUNT(webofscience)
+                     FROM Conference
+                   WHERE webofscience='Y' AND scopusindex='N'   AND Conference.dop BETWEEN '$fromyear' AND '$toyear' AND Conference.User_id='$facultyid'";
                 
                      $result2=mysqli_query($conn,$sql2);
                 
@@ -307,9 +313,13 @@ if (!empty($tablename)) {
                    $count2=$row['COUNT(webofscience)'];
                    echo "Web of science_count: $count2 <br>" ;
                         }
-                    $sql3="SELECT COUNT(scopusindex)
-                    FROM Conference
-                    WHERE scopusindex='N' AND webofscience='N' AND Conference.dop BETWEEN '$fromyear' AND     '$toyear'";
+
+
+                    $sql3=$_POST['userid']==NULL?"SELECT COUNT(scopusindex)
+                  FROM Conference
+                  WHERE scopusindex='N' AND webofscience='N' AND Conference.dop BETWEEN '$fromyear' AND '$toyear'":"SELECT COUNT(scopusindex)
+                  FROM Conference
+                  WHERE scopusindex='N' AND webofscience='N' AND Conference.dop BETWEEN '$fromyear' AND '$toyear' AND Conference.User_id='$facultyid'";
                     $result3=mysqli_query($conn,$sql3);
                       
                       if($row = mysqli_fetch_assoc($result3))
@@ -318,9 +328,11 @@ if (!empty($tablename)) {
                    echo "Others: $Count3<br> ";
                 
                       }
-                      $sql4="SELECT COUNT(webofscience)
+                      $sql4=$_POST['userid']==NULL?"SELECT COUNT(webofscience)
                       FROM Conference
-                        WHERE webofscience='Y' AND scopusindex='Y'   AND Conference.dop BETWEEN '$fromyear' AND '$toyear'";
+                        WHERE webofscience='Y' AND scopusindex='Y'   AND Conference.dop BETWEEN '$fromyear' AND '$toyear' ":"SELECT COUNT(webofscience)
+                      FROM Conference
+                        WHERE webofscience='Y' AND scopusindex='Y'   AND Conference.dop BETWEEN '$fromyear' AND '$toyear' AND Conference.User_id='$facultyid'";
                      
                         $result4=mysqli_query($conn,$sql4);
                      
@@ -341,7 +353,7 @@ if (!empty($tablename)) {
                 
                 
                 
-                    $from_query="(SELECT MIN(dop) FROM Journal)";
+                 $from_query=$_POST['userid']==NULL?"(SELECT MIN(dop) FROM Journal)":"(SELECT MIN(dop) FROM Journal WHERE Journal.User_id=$facultyid)";
                     $fromresult=mysqli_query($conn,$from_query);
                                 if($fromresult->num_rows > 0)
                                 {
@@ -352,7 +364,7 @@ if (!empty($tablename)) {
                                 }
                                 $fromyear=$_POST['fromyear']==NULL?$Min_date:$_POST['fromyear'];
                 
-                                $to_query="(SELECT MAX(dop) FROM Journal)";
+                                $to_query=$_POST['userid']==NULL?"(SELECT MAX(dop) FROM Journal)":"(SELECT MAX(dop) FROM Journal WHERE Journal.User_id=$facultyid)";
                                 $toresult=mysqli_query($conn,$to_query);
                                 if($toresult->num_rows > 0)
                                 {
@@ -368,8 +380,9 @@ if (!empty($tablename)) {
                                 $formatted_todate = date("j F Y", strtotime($toyear));
                 
                 
-                            $sql_query3="SELECT * FROM Journal
-                        WHERE Journal.dop BETWEEN '$fromyear' AND '$toyear' ";
+                            $sql_query3=$_POST['userid']==NULL?"SELECT * FROM Journal
+                            WHERE Journal.dop BETWEEN '$fromyear' AND '$toyear'":"SELECT * FROM Journal
+                            WHERE Journal.dop BETWEEN '$fromyear' AND '$toyear' AND Journal.User_id='$facultyid'";
                             $result3=mysqli_query($conn,$sql_query3);
                 
                 
@@ -425,9 +438,12 @@ if (!empty($tablename)) {
                    ?>
                    </table>   <?php
                    
-                 $sql="SELECT COUNT(scopusindex)
-                 FROM Journal
-                 WHERE scopusindex='Y' AND webofscience='N' AND Journal.dop BETWEEN '$fromyear' AND '$toyear' ";
+                   $sql=$_POST['userid']==NULL?"SELECT COUNT(scopusindex)
+                   FROM Journal
+                   WHERE scopusindex='Y' AND webofscience='N' AND Journal.dop BETWEEN '$fromyear' AND '$toyear'":"SELECT COUNT(scopusindex)
+                   FROM Journal
+                   WHERE scopusindex='Y' AND webofscience='N' AND Journal.dop BETWEEN '$fromyear' AND '$toyear' AND Journal.User_id='$facultyid'";
+       
                 
                  $result=mysqli_query($conn,$sql);
                  
@@ -436,9 +452,11 @@ if (!empty($tablename)) {
                      $count1=$row['COUNT(scopusindex)'];
                      echo "Scopus_index_count: $count1 <br>";
                  }
-                 $sql2="SELECT COUNT(webofscience)
-                    FROM Journal
-                    WHERE webofscience='Y' AND scopusindex='N'   AND Journal.dop BETWEEN '$fromyear' AND     '$toyear'";
+                 $sql2=$_POST['userid']==NULL?"SELECT COUNT(webofscience)
+                     FROM Journal
+                   WHERE webofscience='Y' AND scopusindex='N'   AND Journal.dop BETWEEN '$fromyear' AND '$toyear'":"SELECT COUNT(webofscience)
+                     FROM Journal
+                   WHERE webofscience='Y' AND scopusindex='N'   AND Journal.dop BETWEEN '$fromyear' AND '$toyear' AND Journal.User_id='$facultyid'";
                 
                     $result2=mysqli_query($conn,$sql2);
                 
@@ -447,9 +465,11 @@ if (!empty($tablename)) {
                     $count2=$row['COUNT(webofscience)'];
                     echo "Web of science_count: $count2 <br>" ;
                  }
-                  $sql3="SELECT COUNT(scopusindex)
-                   FROM Journal
-                   WHERE scopusindex='N' AND webofscience='N' AND Journal.dop BETWEEN '$fromyear' AND '$toyear' ";
+                 $sql3=$_POST['userid']==NULL?"SELECT COUNT(scopusindex)
+                 FROM Journal
+                 WHERE scopusindex='N' AND webofscience='N' AND Journal.dop BETWEEN '$fromyear' AND '$toyear'":"SELECT COUNT(scopusindex)
+                 FROM Journal
+                 WHERE scopusindex='N' AND webofscience='N' AND Journal.dop BETWEEN '$fromyear' AND '$toyear' AND Journal.User_id='$facultyid'";
                    $result3=mysqli_query($conn,$sql3);
                 
                     if($row = mysqli_fetch_assoc($result3))
@@ -457,9 +477,11 @@ if (!empty($tablename)) {
                     $Count3=$row['COUNT(scopusindex)'];
                     echo "Others: $Count3<br> ";
                     }
-                    $sql4="SELECT COUNT(webofscience)
+                    $sql4=$_POST['userid']==NULL?"SELECT COUNT(webofscience)
                     FROM Journal
-                      WHERE webofscience='Y' AND scopusindex='Y'   AND Journal.dop BETWEEN '$fromyear' AND '$toyear'   ";
+                      WHERE webofscience='Y' AND scopusindex='Y'   AND Journal.dop BETWEEN '$fromyear' AND '$toyear' ":"SELECT COUNT(webofscience)
+                    FROM Journal
+                      WHERE webofscience='Y' AND scopusindex='Y'   AND Journal.dop BETWEEN '$fromyear' AND '$toyear' AND Journal.User_id='$facultyid'";
                    
                       $result4=mysqli_query($conn,$sql4);
                    
@@ -474,7 +496,7 @@ if (!empty($tablename)) {
                   } 
                 //////////////////// Patent ////////////////
                 
-                $from_query="(SELECT MIN(dop) FROM Patent)";
+                $from_query=$_POST['userid']==NULL?"(SELECT MIN(dop) FROM Patent)":"(SELECT MIN(dop) FROM Patent where Patent.User_id='$facultyid')";
                     $fromresult=mysqli_query($conn,$from_query);
                                 if($fromresult->num_rows > 0)
                                 {
@@ -485,7 +507,7 @@ if (!empty($tablename)) {
                                 }
                                 $fromyear=$_POST['fromyear']==NULL?$Min_date:$_POST['fromyear'];
                 
-                                $to_query="(SELECT MAX(dop) FROM Patent)";
+                                $to_query=$_POST['userid']==NULL?"(SELECT MAX(dop) FROM Patent)":"(SELECT MAX(dop) FROM Patent where Patent.User_id='$facultyid')";
                                 $toresult=mysqli_query($conn,$to_query);
                                 if($toresult->num_rows > 0)
                                 {
@@ -501,8 +523,9 @@ if (!empty($tablename)) {
                                 $formatted_todate = date("j F Y", strtotime($toyear));
                 
                 
-                            $sql_query3="SELECT * FROM Patent
-                        WHERE Patent.dop BETWEEN '$fromyear' AND '$toyear' ";
+                            $sql_query3=$_POST['userid']==NULL?"SELECT * FROM Patent
+                        WHERE Patent.dop BETWEEN '$fromyear' AND '$toyear' ":"SELECT * FROM Patent
+                        WHERE Patent.dop BETWEEN '$fromyear' AND '$toyear' AND Patent.User_id='$facultyid' ";
                             $result3=mysqli_query($conn,$sql_query3);
                 
                 
@@ -554,7 +577,7 @@ if (!empty($tablename)) {
                  ////////////////PHD///////////////////////////////////////
                 
                 
-                 $from_query="(SELECT MIN(dop) FROM Phd)";
+                 $from_query=$_POST['userid']==NULL?"(SELECT MIN(dop) FROM Phd)":"(SELECT MIN(dop) FROM Phd where Phd.User_id='$facultyid')";
                  $fromresult=mysqli_query($conn,$from_query);
                              if($fromresult->num_rows > 0)
                              {
@@ -565,7 +588,7 @@ if (!empty($tablename)) {
                              }
                              $fromyear=$_POST['fromyear']==NULL?$Min_date:$_POST['fromyear'];
                 
-                             $to_query="(SELECT MAX(dop) FROM Phd)";
+                             $to_query=$_POST['userid']==NULL?"(SELECT MAX(dop) FROM Phd)":"(SELECT MAX(dop) FROM Phd where Phd.User_id='$facultyid')";
                              $toresult=mysqli_query($conn,$to_query);
                              if($toresult->num_rows > 0)
                              {
@@ -579,8 +602,10 @@ if (!empty($tablename)) {
                              $formatted_fromdate = date("j F Y", strtotime($fromyear));
                 
                              $formatted_todate = date("j F Y", strtotime($toyear));
-                             $sql_query3="SELECT * FROM Phd
-                             WHERE Phd.dop BETWEEN '$fromyear' AND '$toyear' ";
+
+                             $sql_query3=$_POST['userid']==NULL?"SELECT * FROM Phd
+                        WHERE Phd.dop BETWEEN '$fromyear' AND '$toyear' ":"SELECT * FROM Phd
+                        WHERE Phd.dop BETWEEN '$fromyear' AND '$toyear' AND Phd.User_id='$facultyid' ";
                                  $result3=mysqli_query($conn,$sql_query3);
                      
                      
@@ -643,7 +668,7 @@ if (!empty($tablename)) {
 
   
 
-    $from_query="(SELECT MIN(dop) FROM $tablename)";
+  $from_query=$_POST['userid']==NULL?"(SELECT MIN(dop) FROM $tablename)":"(SELECT MIN(dop) FROM $tablename WHERE $tablename.User_id=$facultyid)";
      $fromresult=mysqli_query($conn,$from_query);
    if($fromresult->num_rows > 0)
    {
@@ -654,7 +679,7 @@ if (!empty($tablename)) {
    }
    $fromyear=$_POST['fromyear']==NULL?$Min_date:$_POST['fromyear'];
    
-   $to_query="(SELECT MAX(dop) FROM $tablename )";
+   $to_query=$_POST['userid']==NULL?"(SELECT MAX(dop) FROM $tablename)":"(SELECT MAX(dop) FROM $tablename WHERE $tablename.User_id=$facultyid)";
    $toresult=mysqli_query($conn,$to_query);
    if($toresult->num_rows > 0)
    {
@@ -685,8 +710,9 @@ if (!empty($tablename)) {
    
    
    
-   $sql_query="SELECT * FROM $tablename
-                WHERE $tablename.dop BETWEEN '$fromyear' AND '$toyear' ";
+   $sql_query=$_POST['userid']==NULL?"SELECT * FROM $tablename
+                            WHERE $tablename.dop BETWEEN '$fromyear' AND '$toyear'":"SELECT * FROM $tablename
+                            WHERE $tablename.dop BETWEEN '$fromyear' AND '$toyear' AND $tablename.User_id='$facultyid'";
    $result=mysqli_query($conn,$sql_query);
    
    
@@ -983,9 +1009,11 @@ if (!empty($tablename)) {
    if($result->num_rows > 0){
    
    
-   $sql="SELECT COUNT(scopusindex)
-   FROM $tablename
-   WHERE scopusindex='Y' AND webofscience='N' AND $tablename.dop BETWEEN '$fromyear' AND '$toyear'   ";
+    $sql=$_POST['userid']==NULL?"SELECT COUNT(scopusindex)
+    FROM $tablename
+    WHERE scopusindex='Y' AND webofscience='N' AND $tablename.dop BETWEEN '$fromyear' AND '$toyear'":"SELECT COUNT(scopusindex)
+    FROM $tablename
+    WHERE scopusindex='Y' AND webofscience='N' AND $tablename.dop BETWEEN '$fromyear' AND '$toyear' AND $tablename.User_id='$facultyid'";
    
    $result=mysqli_query($conn,$sql);
    
@@ -994,9 +1022,11 @@ if (!empty($tablename)) {
        $count1=$row['COUNT(scopusindex)'];
        echo "Scopus_index_count: $count1 <br>";
    }
-   $sql2="SELECT COUNT(webofscience)
-   FROM $tablename
-   WHERE webofscience='Y' AND scopusindex='N'   AND $tablename.dop BETWEEN '$fromyear' AND '$toyear' ";
+   $sql2=$_POST['userid']==NULL?"SELECT COUNT(webofscience)
+                     FROM $tablename
+                   WHERE webofscience='Y' AND scopusindex='N'   AND $tablename.dop BETWEEN '$fromyear' AND '$toyear'":"SELECT COUNT(webofscience)
+                     FROM $tablename
+                   WHERE webofscience='Y' AND scopusindex='N'   AND $tablename.dop BETWEEN '$fromyear' AND '$toyear' AND $tablename.User_id='$facultyid'";
    
    $result2=mysqli_query($conn,$sql2);
    
@@ -1005,9 +1035,11 @@ if (!empty($tablename)) {
       $count2=$row['COUNT(webofscience)'];
       echo "Webofscience_count: $count2 <br>" ;
    }
-   $sql3="SELECT COUNT(scopusindex)
-   FROM $tablename
-   WHERE scopusindex='N' AND webofscience='N' AND $tablename.dop BETWEEN '$fromyear' AND '$toyear' ";
+   $sql3=$_POST['userid']==NULL?"SELECT COUNT(scopusindex)
+                 FROM $tablename
+                 WHERE scopusindex='N' AND webofscience='N' AND $tablename.dop BETWEEN '$fromyear' AND '$toyear'":"SELECT COUNT(scopusindex)
+                 FROM $tablename
+                 WHERE scopusindex='N' AND webofscience='N' AND $tablename.dop BETWEEN '$fromyear' AND '$toyear' AND $tablename.User_id='$facultyid'";
    $result3=mysqli_query($conn,$sql3);
    
    if($row = mysqli_fetch_assoc($result3))
@@ -1015,9 +1047,11 @@ if (!empty($tablename)) {
       $Count3=$row['COUNT(scopusindex)'];
       echo "Others: $Count3<br> ";
    }
-   $sql4="SELECT COUNT(webofscience)
-       FROM $tablename
-         WHERE webofscience='Y' AND scopusindex='Y'   AND $tablename.dop BETWEEN '$fromyear' AND '$toyear' ";
+   $sql4=$_POST['userid']==NULL?"SELECT COUNT(webofscience)
+                    FROM $tablename
+                      WHERE webofscience='Y' AND scopusindex='Y'   AND $tablename.dop BETWEEN '$fromyear' AND '$toyear' ":"SELECT COUNT(webofscience)
+                    FROM $tablename
+                      WHERE webofscience='Y' AND scopusindex='Y'   AND $tablename.dop BETWEEN '$fromyear' AND '$toyear' AND $tablename.User_id='$facultyid'";
       
          $result4=mysqli_query($conn,$sql4);
       

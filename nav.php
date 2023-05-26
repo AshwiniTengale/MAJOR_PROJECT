@@ -113,7 +113,7 @@
     $USER = $_SESSION['USERNAME'];
     ?>
 
-<<nav>
+<nav>
     <ul>
         <div class="profile-logo" style="text-align: center;">
             <img src="image/profile.jpeg" height="60" width="60" default="img src='image/default.png'" alt="Profile Image">
@@ -155,7 +155,7 @@
             </div>
         </div>
     </div>
-
+<br> 
     <h1 style="text-align: center; margin-left: 15%; padding: 1px 16px; padding-top: 2%;">B.V.V SANGHA'S</h1>
 
     <h2 style="text-align: center; margin-left: 15%; margin-top: 1%; padding: 1px 16px;">BASAVESHWAR ENGINEERING

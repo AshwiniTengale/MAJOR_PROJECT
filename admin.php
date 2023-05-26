@@ -185,7 +185,7 @@ p.user{
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Forgot Password</title>
+    <title>Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=N">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   </head>
