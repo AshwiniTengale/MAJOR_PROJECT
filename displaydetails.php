@@ -901,7 +901,7 @@ $sl=1;
      <td><?php echo $sl++; ?></td>
      <td><?php echo $row["fmember"]; ?></td>
      <td><?php echo $row["title"];?></td>
-     <td><?php echo $row["application_no"];?></td>
+     <td><?php echo $row["application_no"]." & ".$row["application_date"];?></td>
      <td><?php echo $row["reference_no"]." & ".$row["dop"];?></td>
      <td><?php echo $row["status"];?></td>
     
@@ -1037,3 +1037,4 @@ $sql4="SELECT COUNT(webofscience)
 
 </div>
 </body>
+</html>

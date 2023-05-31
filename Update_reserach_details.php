@@ -434,6 +434,10 @@ elseif($table=='Patent'){?>
               <input type="text" class="form-control" id="title" name="title" value="<?php echo $row["title"];?>">
               
             </div>
+            <div class="form-group">
+              <label for="application_date">Application_Date</label>
+              <input type="date" class="form-control" id="application_date" name="application_date" value="<?php echo $row["application_date"];?>">
+            </div>
           
             <div class="form-group">
               <label for="application_no">Application_No</label>

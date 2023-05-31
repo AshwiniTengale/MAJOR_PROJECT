@@ -38,6 +38,7 @@ $volumeno=$_POST['volumeno'];
 $fmember=$_POST['fmember'];
 $title=$_POST['title'];
 $application_no=$_POST['application_no'];
+$application_date=$_POST['application_date'];
 $reference_no=$_POST['reference_no'];
 $status=$_POST['status'];
 //  echo $fmember."<br>",$title."<br>",$application_no."<br>",$reference_no."<br>",$status."<br>",$dop;
@@ -165,7 +166,7 @@ location.href='editresearchdeatils.php';
 
 elseif($submit=='Patent')
 {
-  $update="UPDATE Patent SET fmember='$fmember',title='$title',application_no='$application_no',dop='$dop',reference_no='$reference_no',status='$status' WHERE Id='$RID' AND User_id='$UID' ";
+  $update="UPDATE Patent SET fmember='$fmember',title='$title',application_date='$application_date',application_no='$application_no',dop='$dop',reference_no='$reference_no',status='$status' WHERE Id='$RID' AND User_id='$UID' ";
   if(mysqli_query($conn,$update)){
   
     ?>

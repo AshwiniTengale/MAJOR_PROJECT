@@ -115,6 +115,7 @@ elseif($submit==4)
   $fmember=$_POST['fmember'];
   $title=$_POST['title'];
   $application_no=$_POST['application_no'];
+  $application_date=$_POST['application_date'];
   $status=$_POST['status'];
   $dop=$_POST['dop'];
   $reference_no=$_POST['reference_no'];
@@ -122,7 +123,7 @@ elseif($submit==4)
   // echo $UID."<br>";
   // echo  $fmember."<br>",$title."<br>",$application_no."<br>",$status."<br>",$dop."<br>",$award_no."<br>";
 
-  $patent_sql="INSERT INTO Patent (`User_id`,`fmember`,`title`,`application_no`,`dop`,`reference_no`,`status`) VALUES ('$UID','$fmember','$title','$application_no','$dop','$reference_no','$status')";
+  $patent_sql="INSERT INTO Patent (`User_id`,`fmember`,`title`,`application_date`,`application_no`,`dop`,`reference_no`,`status`) VALUES ('$UID','$fmember','$title','$application_date','$application_no','$dop','$reference_no','$status')";
 
   if (mysqli_query($conn,$patent_sql))
    {
