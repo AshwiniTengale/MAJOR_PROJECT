@@ -1,17 +1,32 @@
-<html>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Display Details</title>
+        <link rel="stylesheet" href="bootstrap.css">
+    </head>
+  
     <?php 
     include 'nav.php';
     ?>
-    <head>
-        <link rel="stylesheet" href="bootstrap.css">
-    </head>
-    <body>  
-        <fieldset>
+   
+   
+ 
+<body>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3 mt-5">
+          <h2 class="text-center mb-4">Research Details</h2>
+          <form action="displaydetails.php" method="post">
+          
+            <div class="form-group">
 
-   <form action="displaydetails.php" method="post">
-    <div class="mb-3" style="float:left;margin-left:1%;">
-    <label for="selectactivity" class="form-label"></label>
-    <select class="form-control" id="selectactivity" name="selectactivity">
+            <label for="selectactivity" class="form-label">Select Activity</label>
+    <select class="form-control" id="selectactivity" name="selectactivity" required>
         <option value="" disabled selected hidden>Select Activity</option>
         <option value="All">ALL</option>
         <option value="Book">Books/Book Chapters</option>
@@ -19,21 +34,31 @@
         <option value="Journal">Journal Papers</option>
         <option value="Patent">Patents</option>
         <option value="Phd">PhD</option>
-       
+        
                         
-    </select><br>
-    <label for="date" class="form-label">From Date</label>
-          <input class="form-control" type="date" id="fromyear"  placeholder="From Date"  default="all" name="fromyear"  style="padding-top:5%; width:100%"/> 
-     <br>
-     <label for="date" class="form-label">To Date</label>
-          <input type="date"class="form-control"  id="toyear"  placeholder="To Date"  default="all" name="toyear"  style="padding-top:5%; width:100%"/>
-     <br>
-          <input type="submit"class="btn btn-primary" value="Display" id="submit" style="padding-top:5%; width:100%;" />
+    </select>
+            </div>
+          
+            <div class="form-group">
+           
+              <label for="date" class="form-label">From Date</label>
+          <input class="form-control" type="date" id="fromyear"  placeholder="From Date"  default="all" name="fromyear" >
+            </div>
+            <div class="form-group">
+            <label for="date" class="form-label">To Date</label>
+          <input class="form-control" type="date" id="toyear"  placeholder="To Date"  default="all" name="toyear" >
+            </div>
+            <br>
+            <div class="form-group">
+         <button  style="width:100%;" type="submit" value="Display" class="btn btn-primary btn-block">Submit</button>
+         </div>
+            
+          </form>
+        </div>
+      </div>
     </div>
-</form>
-</fieldset>
-
-</body>    
+    
+  </body>
                        
 </html>
     

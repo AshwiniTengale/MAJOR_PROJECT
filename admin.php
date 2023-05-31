@@ -5,7 +5,16 @@
 <link rel="stylesheet" href="bootstrap.css">
 	<style>
 		/* Style for navigation bar */
-		
+		body{
+ 
+ background-image: url('image/BACKGROUND.jpg');
+ background-size: cover;  
+ background-position:center center;
+ background-repeat:N-repeat;
+ height:100vh;
+ 
+ 
+ }
 		nav {
 			background-color: #333;
 			overflow: hidden;
@@ -189,18 +198,9 @@ p.user{
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=N">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   </head>
-  <style>
-body{
- 
- background-image: url('image/BACKGROUND.jpg');
- background-size: cover;  
- background-position:center center;
- background-repeat:N-repeat;
- height:100vh;
- 
- 
- }
-  </style>
+
+
+
   <body>
     
     <div class="container">

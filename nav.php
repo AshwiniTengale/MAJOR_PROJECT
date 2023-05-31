@@ -42,6 +42,15 @@
         nav button.active {
             background-color: #4CAF50;
         }
+        body{
+        background-image: url('image/BACKGROUND.jpg');
+ background-size: cover;  
+ background-position:center center;
+ background-repeat:N-repeat;
+ height:100vh;
+ 
+ 
+ }
 
         /* Styles for content */
         .content {
