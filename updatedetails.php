@@ -60,12 +60,11 @@ if($submit=="Book"){
 
     
 $update="UPDATE Book SET bauthor='$bauthor'
-,coauthor='$coauthor',dop='$dop',chapter='$chapter',bname='$bname',
-bvolumeno='$bvolumeno',issueno='$issueno',pageno='$pageno',url='$url',scopusindex='$scopusindex',
-webofscience='$webofscience',issn='$issn',category='$category',level='$level'
+,coauthor=".($coauthor==NULL?"NULL" :"'$coauthor'").",dop='$dop',chapter='$chapter',bname='$bname',
+bvolumeno=".($bvolumeno==NULL?"NULL" :"'$bvolumeno'").",issueno=".($issueno==NULL?"NULL" :"'$issueno'").",pageno=".($pageno==NULL?"NULL" :"'$pageno'").",url=".($url==NULL?"NULL" :"'$url'").",scopusindex='$scopusindex',
+webofscience='$webofscience',issn=".($issn==NULL?"NULL" :"'$issn'").",category='$category',level='$level'
  WHERE Id='$RID' AND User_id='$UID'" ;
 
- 
  
  if(mysqli_query($conn,$update)) {
     
@@ -95,9 +94,9 @@ webofscience='$webofscience',issn='$issn',category='$category',level='$level'
 elseif($submit=="Conference"){
 
     $update="UPDATE Conference SET cauthor='$cauthor'
-    ,coauthor='$coauthor',dop='$dop',cpaper='$cpaper',ctitle='$ctitle',
-    venue='$venue',pageno='$pageno',url='$url',scopusindex='$scopusindex',
-    webofscience='$webofscience',issn='$issn',category='$category',level='$level'
+    ,coauthor=".($coauthor==NULL?"NULL" :"'$coauthor'").",dop='$dop',cpaper='$cpaper',ctitle='$ctitle',
+    venue=".($venue==NULL?"NULL" :"'$venue'").",pageno=".($pageno==NULL?"NULL" :"'$pageno'").",url=".($url==NULL?"NULL" :"'$url'").",scopusindex='$scopusindex',
+    webofscience='$webofscience',issn=".($issn==NULL?"NULL" :"'$issn'").",category='$category',level='$level'
      WHERE Id='$RID' AND User_id='$UID'" ;
  
  
@@ -133,9 +132,9 @@ elseif($submit=="Journal"){
 
     
 $update="UPDATE Journal SET jname='$jname'
-,coauthor='$coauthor',dop='$dop',papertitle='$papertitle',journaltitle='$journaltitle',publisher='$publisher',
-volumeno='$volumeno',issueno='$issueno',pageno='$pageno',url='$url',scopusindex='$scopusindex',
-webofscience='$webofscience',issn='$issn',category='$category',level='$level'
+,coauthor=".($coauthor==NULL?"NULL" :"'$coauthor'").",dop='$dop',papertitle='$papertitle',journaltitle='$journaltitle',publisher='$publisher',
+volumeno=".($volumeno==NULL?"NULL" :"'$volumeno'").",issueno=".($issueno==NULL?"NULL" :"'$issueno'").",pageno=".($pageno==NULL?"NULL" :"'$pageno'").",url=".($url==NULL?"NULL" :"'$url'").",scopusindex='$scopusindex',
+webofscience='$webofscience',issn=".($issn==NULL?"NULL" :"'$issn'").",category='$category',level='$level'
  WHERE Id='$RID' AND User_id='$UID'" ;
 
 if(mysqli_query($conn,$update)) {

@@ -19,14 +19,14 @@ if($submit==1){
     $url=$_POST['url'];
     $scopusindex=$_POST['scopusindex'];
     $webofscience=$_POST['webofscience'];
-    $issn=$_POST['issn'];
+    $issn=$_POST['url'];
     $category=$_POST['category'];
     $level=$_POST['level'];
   
 
 
    $book_sql = "INSERT INTO Book (`User_id`,`bauthor`,`coauthor`,`dop`,`chapter`,`bname`,`bvolumeno`,`issueno`,`pageno`,`url`,`scopusindex`,`webofscience`,`issn`,`category`,`level`)
-    VALUES ('$UID','$bauthor',".($coauthor==NULL?"NULL" :"'$coauthor'").",'$dop','$chapter','$bname','$bvolumeno','$issueno','$pageno','$url','$scopusindex','$webofscience','$issn','$category','$level')";
+    VALUES ('$UID','$bauthor',".($coauthor==NULL?"NULL" :"'$coauthor'").",'$dop','$chapter','$bname',".($bvolumeno==NULL?"NULL" :"'$bvolumeno'").",".($issueno==NULL?"NULL" :"'$issueno'").",".($pageno==NULL?"NULL" :"'$pageno'").",".($url==NULL?"NULL" :"'$url'").",'$scopusindex','$webofscience',".($url==NULL?"NULL" :"'$url'").",'$category','$level')";
   if (mysqli_query($conn,$book_sql))
   {
   ?>
@@ -59,7 +59,7 @@ elseif($submit==2){
 
 
      $conference_sql = "INSERT INTO Conference (`User_id`,`cauthor`,`coauthor`,`dop`,`cpaper`,`ctitle`,`venue`,`pageno`,`url`,`scopusindex`,`webofscience`,`issn`,`category`,`level`)
-    VALUES ('$UID','$cauthor',".($coauthor==NULL?"NULL" :"'$coauthor'").",'$dop','$cpaper','$ctitle','$venue','$pageno','$url','$scopusindex','$webofscience','$issn','$category','$level')";
+    VALUES ('$UID','$cauthor',".($coauthor==NULL?"NULL" :"'$coauthor'").",'$dop','$cpaper','$ctitle',".($venue==NULL?"NULL" :"'$venue'").",".($pageno==NULL?"NULL" :"'$pageno'").",".($url==NULL?"NULL" :"'$url'").",'$scopusindex','$webofscience',".($issn==NULL?"NULL" :"'$issn'").",'$category','$level')";
     if (mysqli_query($conn,$conference_sql))
    {
    ?>
@@ -93,7 +93,7 @@ if($submit==3){
     $level=$_POST['level'];
 
     $journal_sql = "INSERT INTO Journal (`User_id`,`jname`,`coauthor`,`dop`,`papertitle`,`journaltitle`,`publisher`,`volumeno`,`issueno`,`pageno`,`url`,`scopusindex`,`webofscience`,`issn`,`category`,`level`)
-    VALUES ('$UID','$jname',".($coauthor==NULL?"NULL" :"'$coauthor'").",'$dop','$papertitle','$journaltitle','$publisher','$volumeno','$issueno','$pageno','$url','$scopusindex','$webofscience','$issn','$category','$level')";
+    VALUES ('$UID','$jname',".($coauthor==NULL?"NULL" :"'$coauthor'").",'$dop','$papertitle','$journaltitle','$publisher',".($volumeno==NULL?"NULL" :"'$volumeno'").",".($issueno==NULL?"NULL" :"'$issueno'").",".($pageno==NULL?"NULL" :"'$pageno'").",".($url==NULL?"NULL" :"'$url'").",'$scopusindex','$webofscience',".($issn==NULL?"NULL" :"'$issn'").",'$category','$level')";
     if (mysqli_query($conn,$journal_sql))
    {
    ?>
@@ -157,7 +157,7 @@ elseif($submit==5)
 
  
  $sql="INSERT INTO Phd (`User_id`,`pname`,`thesis`,`guide`,`coguide`,`status`,`dop`,`research`)
-   VALUES ('$UID','$pname','$thesis','$guide','$coguide','$status','$dop','$research')";
+   VALUES ('$UID','$pname','$thesis','$guide',".($coguide==NULL?"NULL" :"'$coguide'").",'$status','$dop','$research')";
 
   if (mysqli_query($conn,$sql))
    {

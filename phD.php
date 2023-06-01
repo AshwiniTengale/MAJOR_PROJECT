@@ -28,19 +28,19 @@
 
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" id="pname" name="pname">
+          <input type="text" class="form-control" id="pname" name="pname" required>
         </div>
 
        
         
         <div class="mb-3">
           <label for="publisher" class="form-label">Title of the Thesis</label>
-          <input type="text" class="form-control" id="thesis" name="thesis">
+          <input type="text" class="form-control" id="thesis" name="thesis" required>
         </div>
 
         <div class="mb-3">
           <label for="doi" class="form-label">Name of the Guide</label>
-          <input type="text" class="form-control" id="guide" name="guide">
+          <input type="text" class="form-control" id="guide" name="guide" required>
         </div>
 
         <div class="mb-3">
@@ -61,7 +61,7 @@
       <div class="col-md-6">
       <div class="mb-3">
             <label for="collabrating Institute" class="form-label">Status</label>
-            <select class="form-select" id="status" name="status">
+            <select class="form-select" id="status" name="status" required>
             <option value=""></option>
             <option value="Awarded">PhD Awarded</option>
             <option value="Submitted">PhD Submited Details</option>
@@ -71,12 +71,12 @@
 
         <div class="mb-3">
           <label for="issueNo" class="form-label"> Date</label>
-          <input type="date" class="form-control" id="dop" name="dop">
+          <input type="date" class="form-control" id="dop" name="dop" required>
         </div>
 
         <div class="mb-3">
           <label for="doi" class="form-label">Research Center</label>
-          <input type="text" class="form-control" id="research" name="research">
+          <input type="text" class="form-control" id="research" name="research" required>
         </div>
   </div>
 </div>

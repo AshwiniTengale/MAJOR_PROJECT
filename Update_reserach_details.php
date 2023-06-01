@@ -507,7 +507,7 @@ elseif($table=='Phd'){
         <div class="mb-3">
            
         
-       <div id="textbox" style="display:none">
+       <div id="textbox" >
            <label for="Coauthor's Name " class="form-label">Co-guide's Name </label>
            <input type="text"class="form-control" id="coguide" name="coguide" value="<?php echo $row["coguide"];?>">
        </div>

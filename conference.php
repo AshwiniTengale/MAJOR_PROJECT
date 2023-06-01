@@ -29,7 +29,7 @@ body{
 
         <div class="mb-3">
           <label for="cauthor" class="form-label">Author</label>
-          <input type="text" class="form-control" id="cauthor" name="cauthor">
+          <input type="text" class="form-control" id="cauthor" name="cauthor" required>
         </div>
 
         <div class="mb-3">
@@ -49,21 +49,21 @@ body{
       
         <div class="mb-3">
           <label for="Date of Publication" class="form-label">Date of Publication</label>
-          <input type="date" class="form-control" id="dop" name="dop">
+          <input type="date" class="form-control" id="dop" name="dop" required>
         </div>
         
         <div class="mb-3">
           <label for="Title of the Paper" class="form-label">Title of the Paper</label>
-          <input type="text" class="form-control" id="cpaper" name="cpaper">
+          <input type="text" class="form-control" id="cpaper" name="cpaper" required>
 
         </div>
         <div class="mb-3">
           <label for="ctitle" class="form-label">Title of the Conference</label>
-          <input type="text" class="form-control" id="ctitle" name="ctitle">
+          <input type="text" class="form-control" id="ctitle" name="ctitle" required>
         </div>
         <div class="mb-3">
           <label for="venue" class="form-label"> Conducted by and Venue</label>
-          <input type="text" class="form-control" id="venue" name="venue" placeholder="Ex:Basaveshwar Engg College,Bagalkote">
+          <input type="text" class="form-control" id="venue" name="venue" placeholder="Ex:Basaveshwar Engg College,Bagalkote" >
         </div>
         <div class="mb-3">
           <label for="pageno" class="form-label">Page Number</label>
@@ -80,7 +80,7 @@ body{
         
       <div class="mb-3">
           <label for="scopusindex" class="form-label">Scopus Index</label>
-          <select class="form-control" id="scopusindex" name="scopusindex">
+          <select class="form-control" id="scopusindex" name="scopusindex" required>
             <option value=""></option>
             <option value="Y">Yes</option>
             <option value="N">No</option>
@@ -90,7 +90,7 @@ body{
 
         <div class="mb-3">
           <label for="webOfscience" class="form-label">Web Of Science</label>
-          <select class="form-control" id="webofscience" name="webofscience">
+          <select class="form-control" id="webofscience" name="webofscience" required>
             <option value=""></option>
             <option value="Y">Yes</option>
             <option value="N">No</option>
@@ -105,7 +105,7 @@ body{
 
        <div class="mb-3">
           <label for="category" class="form-label">Category</label>
-          <select class="form-control" id="category" name="category">
+          <select class="form-control" id="category" name="category" required>
             <option value=""></option>
             <option value="SC">SC</option>
             <option value="ST">ST</option>
@@ -115,7 +115,7 @@ body{
 
       <div class="mb-3">
         <label for="level" class="form-label">Level</label>
-        <select class="form-control" id="level" name="level">
+        <select class="form-control" id="level" name="level" required>
         <option value=""></option>
         <option value="National">National</option>
         <option value="International">International</option>

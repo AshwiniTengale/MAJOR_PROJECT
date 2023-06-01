@@ -76,42 +76,4 @@ if($result4->num_rows > 0)
 
 
 ?>
-<html>
-    <head>
-        <style>
-        
-        </style>
-    </head>
-    
-<table>
-<tr style="text-align:center;">
-    <th><h4>SUMMARY<h4></th>
-</tr>
-    <tr>
-       
-        <th>Activity</th>
-        <th>Count</th>
-    </tr>
-    <tr>
-        <td>Book/bookChapter </td>
-        <td style="text-align:center;"> <?php echo $bcount ?></td>
-    </tr>
-    <tr>
-        <td>Conference </td>
-        <td style="text-align:center;"><?php echo $ccount ?></td>
-    </tr>
-    <tr>
-        <td>Journal </td>
-        <td style="text-align:center;"><?php echo $jcount ?></td>
-    </tr>
-    <tr>
-        <td>Patent </td>
-        <td style="text-align:center;"><?php echo $pcount ?></td>
-    </tr>
-    <tr>
-        <td>Phd </td>
-        <td style="text-align:center;"><?php echo $phcount ?></td>
-    </tr>
-    
-</table>
-</html>
+
