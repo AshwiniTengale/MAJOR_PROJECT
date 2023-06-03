@@ -13,6 +13,8 @@ if($SELECTROLE=='admin')
 $result=mysqli_query($conn,$sql);
 $row = mysqli_fetch_assoc($result) ;//array elements
 
+session_start();
+$_SESSION['dept_no']=$row['dept'];
 
  if(mysqli_num_rows($result) > 0){
 
@@ -41,8 +43,7 @@ $row = mysqli_fetch_assoc($result) ;//array elements
 $_SESSION['email']=$row['email'];
 $_SESSION['phone']=$row['phone'];
 $_SESSION['dob']=$row['dob'];
-
-
+$_SESSION['faculty_dept']=$row['department'];
 
 
 if($SELECTROLE=='1')

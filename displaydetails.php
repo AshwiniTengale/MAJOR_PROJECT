@@ -188,7 +188,7 @@
    if($row = mysqli_fetch_assoc($result4))
   {
     $count4=$row['COUNT(webofscience)'];
-    echo "Both: $count4 <br>" ;
+    echo "Both(S/W): $count4 <br>" ;
   }
   //
       }else{
@@ -326,7 +326,7 @@
         if($row = mysqli_fetch_assoc($result4))
        {
          $count4=$row['COUNT(webofscience)'];
-         echo "Both: $count4 <br>" ;
+         echo "Both(S/W): $count4 <br>" ;
        } 
       }else{
     echo "<br>  Conference Publications=Nil <br>";
@@ -465,7 +465,7 @@
       if($row = mysqli_fetch_assoc($result4))
      {
        $count4=$row['COUNT(webofscience)'];
-       echo "Both: $count4 <br>" ;
+       echo "Both(S/W): $count4 <br>" ;
      }  
     }
     else{
@@ -535,7 +535,7 @@ $from_query="(SELECT MIN(dop) FROM Patent where Patent.User_id='$UID')";
      <td><?php echo $sl++; ?></td>
      <td><?php echo $row["fmember"]; ?></td>
      <td><?php echo $row["title"];?></td>
-     <td><?php echo $row["application_no"];?></td>
+     <td><?php echo $row["application_no"]." & ".$row["application_date"];?></td>
      <td><?php echo $row["reference_no"]." and ".$row["dop"];?></td>
      <td><?php echo $row["status"];?></td>
      
@@ -546,7 +546,9 @@ $from_query="(SELECT MIN(dop) FROM Patent where Patent.User_id='$UID')";
    </table>   
   
 <?php
-        }
+        }else{
+          echo "<br>  Patent Details: Nil <br>";
+        } 
  ////////////////PHD///////////////////////////////////////
 
 
@@ -626,7 +628,9 @@ $from_query="(SELECT MIN(dop) FROM Patent where Patent.User_id='$UID')";
         </table>   
        
      <?php
-             }
+             }else{
+              echo "<br>  Phd Details: Nil <br>";
+            } 
 
  }
 
@@ -1017,24 +1021,11 @@ $sql4="SELECT COUNT(webofscience)
       if($row = mysqli_fetch_assoc($result4))
      {
        $count4=$row['COUNT(webofscience)'];
-       echo "Both: $count4 <br>" ;
+       echo "Both(S/W): $count4 <br>" ;
      }  
 }
 
-
 ?>
-
-
-
-
-
-
-
-<!-- ////////////////////////////////////////////////////////////// -->
-
-
-
-
 </div>
 </body>
 </html>

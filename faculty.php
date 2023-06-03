@@ -10,6 +10,7 @@
 </html><?php
 session_start();
 $USER_ID=$_SESSION['ID'];
+
 ?>
 
 <?php 

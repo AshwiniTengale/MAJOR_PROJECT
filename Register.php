@@ -7,7 +7,16 @@
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="style.css" >
     <style>
-    
+    body{
+ 
+ background-image: url('image/BACKGROUND.jpg');
+ background-size: cover;  
+ background-position:center center;
+ background-repeat:N-repeat;
+ height:100vh;
+ 
+ 
+ }
     </style>
   </head>
   <body>
@@ -76,10 +85,6 @@
               title="Must contain atleast one number and one uppercase and one lowercase letter and 8 characters" >
             </div>
 
-            <div class="form-group">
-          <label for="profile" class="form-label">Profile Photo</label>
-          <input type="file" class="form-control" id="profile" name="profile" >
-        </div>
 
         <div class="text-center">
             <button type="submit"  name="submit" class="btn btn-primary btn-lg">Register</button>
