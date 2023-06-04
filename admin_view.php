@@ -63,6 +63,49 @@ else{
 <?php
 
 }
+
+}
+switch ($admin_dept) {
+  case 1:
+         $dept_name= "Artificial intelligence  and Machine learning.";
+      break;
+  case 2:
+        $dept_name="Automobile";
+      break;
+  case 3:
+         $dept_name="Biotechnology";
+      break;
+  case 4:
+          $dept_name="Civil Engineering";
+      break;
+  case 5:
+          $dept_name="Computer Science & Engineering";
+      break;
+  case 6:
+          $dept_name="Electronics and Communication Engineering";
+      break;
+  case 7:
+           $dept_name="Electrical and Electronics Engineering";
+      break;
+  case 8:
+          $dept_name="Electronics and Instrumentational Engineering";
+      break;
+  case 9:
+          $dept_name="Industrial and Production Engineering";
+      break;
+  case 10:
+          $dept_name="Information Science and Engineering";
+      break;
+  case 11:
+          $dept_name="Mechanical Engineering";
+      break;
+  case 12:
+          $dept_name="Physics";
+      break;
+  case 13:
+         $dept_name="Chemistry";
+      break;
+  
 }
 if (!empty($tablename)) {
    
@@ -105,7 +148,7 @@ if (!empty($tablename)) {
                 
                             echo $row['count'];
                             echo "<p font-size:12pt;font-family:Times New Roman,Times,serif;>","List of Research Publications";
-                            echo "<br>","Name of the Department <br>";
+                            echo "<br>","Name of the Department : ". $dept_name;
                 
                 
                 
@@ -737,7 +780,7 @@ if (!empty($tablename)) {
    
    echo $row['count'];
    echo "<p font-size:12pt;font-family:Times New Roman,Times,serif;>","List of Research Publications";
-   echo "<br>","Name of the Department";
+   echo "<br>","Name of the Department : ".$dept_name;
    
    
    

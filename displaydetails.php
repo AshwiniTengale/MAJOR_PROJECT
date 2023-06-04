@@ -37,10 +37,6 @@
             $UID=$_SESSION['ID'];
             $faculty_dept=$_SESSION['faculty_dept']; 
 
-          
-
-           
-           
             
             switch ($faculty_dept) {
                 case 1:
