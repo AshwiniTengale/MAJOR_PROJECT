@@ -32,16 +32,69 @@
         <?php
             include 'connection.php' ;
 
-// include 'htmllink.php';
 
             session_start();
             $UID=$_SESSION['ID'];
+            $faculty_dept=$_SESSION['faculty_dept']; 
+
+          
+
+           
+           
+            
+            switch ($faculty_dept) {
+                case 1:
+                       $dept_name= "Artificial intelligence  and Machine learning.";
+                    break;
+                case 2:
+                      $dept_name="Automobile";
+                    break;
+                case 3:
+                       $dept_name="Biotechnology";
+                    break;
+                case 4:
+                        $dept_name="Civil Engineering";
+                    break;
+                case 5:
+                        $dept_name="Computer Science & Engineering";
+                    break;
+                case 6:
+                        $dept_name="Electronics and Communication Engineering";
+                    break;
+                case 7:
+                         $dept_name="Electrical and Electronics Engineering";
+                    break;
+                case 8:
+                        $dept_name="Electronics and Instrumentational Engineering";
+                    break;
+                case 9:
+                        $dept_name="Industrial and Production Engineering";
+                    break;
+                case 10:
+                        $dept_name="Information Science and Engineering";
+                    break;
+                case 11:
+                        $dept_name="Mechanical Engineering";
+                    break;
+                case 12:
+                        $dept_name="Physics";
+                    break;
+                case 13:
+                       $dept_name="Chemistry";
+                    break;
+                
+            }
+            
+            
 
 
+    
             $tablename=$_POST['selectactivity'];
             
+            
             if($tablename=="All")
-{      
+{       
+ 
                 $from_query="(SELECT MIN(dop) FROM Book where Book.User_id='$UID')";
             $fromresult=mysqli_query($conn,$from_query);
             if($fromresult->num_rows > 0)
@@ -79,7 +132,7 @@
 
             echo $row['count'];
             echo "<p font-size:12pt;font-family:Times New Roman,Times,serif;>","List of Research Publications";
-            echo "<br>","Name of the Department <br>";
+            echo "<br>","Name of the Department : ". $dept_name;
 
 
 
@@ -409,7 +462,9 @@
      <td><?php echo $row["jname"].",".$row["coauthor"]; ?></td>
      <td><?php echo $row["dop"];?></td>
      <td><?php echo $row["papertitle"];?></td>
-     <td><?php echo $row["journaltitle"]." and ".$row["publisher"];?></td>
+     <td><?php echo $row["journaltitle"]." and ".$row["publisher"];
+       
+       ?> </td>
      <td><?php echo $row["volumeno"]." and ".$row["issueno"];?></td>
      <td><?php echo $row["pageno"];?></td>
      <td><a href="<?php echo $row["url"]; ?> "><?php echo $row["url"];?></a></td>
@@ -676,7 +731,7 @@ $formatted_todate = date("j F Y", strtotime($toyear));
 
 echo $row['count'];
 echo "<p font-size:12pt;font-family:Times New Roman,Times,serif;>","List of Research Publications";
-echo "<br>","Name of the Department";
+echo "<br>","Name of the Department : ". $dept_name;
 
 
 
